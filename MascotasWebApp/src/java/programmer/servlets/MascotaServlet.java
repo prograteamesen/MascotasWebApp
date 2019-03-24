@@ -14,9 +14,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import programmer.objects.MascotaQuery;
+import programmer.objects.CategoriaQuery;
 import programmer.objects.Query;
-import programmer.pojos.MascotaObj;
+import programmer.pojos.CategoriaObj;
 
 @WebServlet(name = "MascotaServlet", urlPatterns = {"/MascotaServlet"})
 public class MascotaServlet extends HttpServlet 
@@ -32,13 +32,11 @@ public class MascotaServlet extends HttpServlet
         if(strFormId.equals("6"))
         {
             Connection con = createConnection();
-
-            con = createConnection();
             String strSql = "SELECT * FROM mascotasdb.categoria;";
-            MascotaQuery CQueryF = new MascotaQuery(strSql);
-            ArrayList<MascotaObj> arreglocategoria = executeQueryResult(CQueryF, con);
+            CategoriaQuery CQueryF = new CategoriaQuery(strSql);
+            ArrayList<CategoriaObj> arreglocategoria = executeQueryResult(CQueryF, con);
             
-            request.getSession().setAttribute("arreglofruta", arreglocategoria);
+            request.getSession().setAttribute("arreglocategoria", arreglocategoria);
             response.sendRedirect("mascotaNew.jsp");
         }
         // </editor-fold> 
@@ -195,7 +193,7 @@ public class MascotaServlet extends HttpServlet
                 + "&useLegacyDatetimeCode=false"
                 + "&serverTimezone=UTC";
         String strUser = "root";
-        String strPassword = "12345";
+        String strPassword = "1234";
         Connection con = null;
         
         try 

@@ -22,7 +22,7 @@
             <select name="categoria">
                 <c:forEach items="${arreglocategoria}" var="categoria">
                     <option value="${categoria.getId()}">
-                        ${categoria.getId()} - ${categoria.getNombre()}
+                        ${categoria.getId()} - ${categoria.getCategoria()}
                     </option>
                 </c:forEach>
             </select> 

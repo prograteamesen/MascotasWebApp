@@ -35,7 +35,7 @@ public class MascotaObj
         return m_iId;
     }
 
-    public void setId(int p_iId) 
+    private void setId(int p_iId) 
     {
         m_iId = p_iId;
     }
@@ -45,7 +45,7 @@ public class MascotaObj
         return m_strNombre;
     }
 
-    public void setNombre(String p_strNombre) 
+    private void setNombre(String p_strNombre) 
     {
         m_strNombre = p_strNombre;
     }
@@ -55,7 +55,7 @@ public class MascotaObj
         return m_iEdad;
     }
 
-    public void setEdad(int p_iEdad) 
+    private void setEdad(int p_iEdad) 
     {
         m_iEdad = p_iEdad;
     }
@@ -65,7 +65,7 @@ public class MascotaObj
         return m_iIdCategoria;
     }
 
-    public void setIdCategoria(int p_iIdCategoria) 
+    private void setIdCategoria(int p_iIdCategoria) 
     {
         m_iIdCategoria = p_iIdCategoria;
     }
@@ -75,7 +75,7 @@ public class MascotaObj
         return m_strRaza;
     }
 
-    public void setRaza(String p_strRaza) 
+    private void setRaza(String p_strRaza) 
     {
         m_strRaza = p_strRaza;
     }
@@ -85,7 +85,7 @@ public class MascotaObj
         return m_strTamaño;
     }
 
-    public void setTamaño(String p_strTamaño) 
+    private void setTamaño(String p_strTamaño) 
     {
         m_strTamaño = p_strTamaño;
     }
@@ -95,7 +95,7 @@ public class MascotaObj
         return m_strDescripcion;
     }
 
-    public void setDescripcion(String p_strDescripcion) 
+    private void setDescripcion(String p_strDescripcion) 
     {
         m_strDescripcion = p_strDescripcion;
     }
@@ -105,7 +105,7 @@ public class MascotaObj
         return m_iIdOng;
     }
 
-    public void setIdOng(int p_iIdOng) 
+    private void setIdOng(int p_iIdOng) 
     {
         m_iIdOng = p_iIdOng;
     }
