@@ -14,10 +14,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import programmer.objects.OngQuery;
 import programmer.objects.Query;
+import programmer.pojos.OngObj;
 
-@WebServlet(name = "BaseServlet", urlPatterns = {"/BaseServlet"})
-public class BaseServlet extends HttpServlet 
+@WebServlet(name = "OngServlet", urlPatterns = {"/OngServlet"})
+public class OngServlet extends HttpServlet 
 {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -29,94 +31,102 @@ public class BaseServlet extends HttpServlet
         // <editor-fold defaultstate="collapsed" desc="formid 1 - New Person">
         if(strFormId.equals("1"))
         {
-            /*
-            String strFirstName = request.getParameter("firstname");
-            String strLastName = request.getParameter("lastname");
-            String strAge = request.getParameter("age");
+            
+            String strNombre = request.getParameter("nombre");
+            String strContacto = request.getParameter("contacto");
+            String strDescripcion = request.getParameter("descripcion");
+            String strNCuenta = request.getParameter("ncuenta");
+            String strLink = request.getParameter("link");
             
             Connection con = createConnection();
-            String strSql = "INSERT INTO crsglassdb.person"
-                    + "(id,firstname,lastname,age) "
-                    + "VALUES(0,'"+strFirstName+"'"
-                    + ",'"+strLastName+"',"+strAge+");";
+            String strSql = "INSERT INTO mascotasdb.ong " +
+                            "(id,nombre,contacto,descripcion,ncuenta,link) " +
+                            "VALUES " +
+                            "(0,'"+strNombre+"','"+strContacto+"','"+strDescripcion+"',"+strNCuenta+",'"+strLink+"');";
             int iRows = executeNonQueryInt(strSql,con);
             
             request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("personNewResponse.jsp");
-            */
+            response.sendRedirect("ongNewResponse.jsp");
+            
         }
         // </editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="formid 2 - Person Form Table">
         if(strFormId.equals("2"))
         {
-            /*
+            
             Connection con = createConnection();
-            String strSql = "SELECT * FROM crsglassdb.person;";
-            PersonQuery CQuery = new PersonQuery(strSql);
-            ArrayList<PersonObj> arreglo = executeQueryResult(CQuery, con);
+            String strSql = "SELECT * FROM mascotasdb.ong;";
+            OngQuery CQuery = new OngQuery(strSql);
+            ArrayList<OngObj> arreglo = executeQueryResult(CQuery, con);
             
             request.getSession().setAttribute("arreglo", arreglo);
-            response.sendRedirect("personForm.jsp");
-            */
+            response.sendRedirect("ongForm.jsp");
+            
         }
         // </editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="formid 3 - delete person">
         if(strFormId.equals("3"))
         {
-            /*
+            
             //DELETE FROM crsglassdb.person WHERE id=1;
             String strId = request.getParameter("id");
             
-            String strSql = "DELETE FROM crsglassdb.person WHERE id="+strId+";";
+            String strSql = "DELETE FROM mascotasdb.ong WHERE id="+strId+";";
             Connection con = createConnection();
             int iRows = executeNonQueryInt(strSql, con);
             
             request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("personDeleteResponse.jsp");
-            */
+            response.sendRedirect("ongDeleteResponse.jsp");
+            
         }
         // </editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="formid 4 - update person part 1">        
         if(strFormId.equals("4"))
         {
-            /*
+            
             String strId = request.getParameter("id");
             
             Connection con = createConnection();
-            String strSql = "SELECT * FROM crsglassdb.person "
+            String strSql = "SELECT * FROM mascotasdb.ong "
                     + "where id="+strId+";";
-            PersonQuery CQuery = new PersonQuery(strSql);
-            ArrayList<PersonObj> arreglo = executeQueryResult(CQuery, con);
+            OngQuery CQuery = new OngQuery(strSql);
+            ArrayList<OngObj> arreglo = executeQueryResult(CQuery, con);
             
             request.getSession().setAttribute("arreglo", arreglo);
-            response.sendRedirect("personUpdateData.jsp");
-            */
+            response.sendRedirect("ongUpdateData.jsp");
+           
         }
         // </editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="formid 5 - update person part 2">        
         if(strFormId.equals("5"))
         {
-            /*
+            
             String strId = request.getParameter("id");
-            String strFirstName = request.getParameter("firstname");
-            String strLastName = request.getParameter("lastname");
-            String strAge = request.getParameter("age");
+            String strNombre = request.getParameter("nombre");
+            String strContacto = request.getParameter("contacto");
+            String strDescripcion = request.getParameter("descripcion");
+            String strNCuenta = request.getParameter("ncuenta");
+            String strLink = request.getParameter("link");
             
             Connection con = createConnection();
-            String strSql = "UPDATE crsglassdb.person "
-                    + "SET firstname = '"+strFirstName+"',"
-                    + "lastname = '"+strLastName+"',"
-                    + "age = "+strAge+" "
-                    + "WHERE id = "+strId+";";
+            String strSql = "UPDATE mascotasdb.ong\n" +
+                            "SET\n" +
+                            "id = "+strId+",\n" +
+                            "nombre = '"+strNombre+"',\n" +
+                            "contacto = '"+strContacto+"',\n" +
+                            "descripcion = '"+strDescripcion+"',\n" +
+                            "ncuenta = "+strNCuenta+",\n" +
+                            "link = '"+strLink+"'\n" +
+                            "WHERE id = "+strId+";";
             int iRows = executeNonQueryInt(strSql,con);
             
             request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("personUpdateResponse.jsp");
-            */
+            response.sendRedirect("ongUpdateResponse.jsp");
+            
         }
         // </editor-fold>        
     }
@@ -172,7 +182,7 @@ public class BaseServlet extends HttpServlet
                 + "&useLegacyDatetimeCode=false"
                 + "&serverTimezone=UTC";
         String strUser = "root";
-        String strPassword = "12345";
+        String strPassword = "1234";
         Connection con = null;
         
         try 
@@ -184,7 +194,7 @@ public class BaseServlet extends HttpServlet
         } 
         catch (ClassNotFoundException | SQLException ex) 
         {
-            Logger.getLogger(BaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OngServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return con;
@@ -206,7 +216,7 @@ public class BaseServlet extends HttpServlet
         } 
         catch (SQLException ex) 
         {
-            Logger.getLogger(BaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OngServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         return iRows;
     }
@@ -226,7 +236,7 @@ public class BaseServlet extends HttpServlet
         } 
         catch (SQLException ex) 
         {
-            Logger.getLogger(BaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OngServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         return arreglo;
     }
