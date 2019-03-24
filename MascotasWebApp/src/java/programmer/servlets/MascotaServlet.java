@@ -14,36 +14,59 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import programmer.objects.MascotaQuery;
 import programmer.objects.Query;
+import programmer.pojos.MascotaObj;
 
-@WebServlet(name = "BaseServlet", urlPatterns = {"/BaseServlet"})
-public class BaseServlet extends HttpServlet 
+@WebServlet(name = "MascotaServlet", urlPatterns = {"/MascotaServlet"})
+public class MascotaServlet extends HttpServlet 
 {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
-        //aca vamos a trabajar
+
         String strFormId = request.getParameter("formid");
         
-        // <editor-fold defaultstate="collapsed" desc="formid 1 - New Person">
+        // <editor-fold defaultstate="collapsed" desc="formid 6 - Mascota New parte 1">
+        if(strFormId.equals("6"))
+        {
+            Connection con = createConnection();
+
+            con = createConnection();
+            String strSql = "SELECT * FROM mascotasdb.categoria;";
+            MascotaQuery CQueryF = new MascotaQuery(strSql);
+            ArrayList<MascotaObj> arreglocategoria = executeQueryResult(CQueryF, con);
+            
+            request.getSession().setAttribute("arreglofruta", arreglocategoria);
+            response.sendRedirect("mascotaNew.jsp");
+        }
+        // </editor-fold> 
+        
+        // <editor-fold defaultstate="collapsed" desc="formid 1 - New Mascota">
         if(strFormId.equals("1"))
         {
-            /*
-            String strFirstName = request.getParameter("firstname");
-            String strLastName = request.getParameter("lastname");
-            String strAge = request.getParameter("age");
+            
+            String strNombre = request.getParameter("nombre");
+            String strEdad = request.getParameter("edad");
+            String strIdCategoria = request.getParameter("categoria");
+            String strRaza = request.getParameter("raza");
+            String strTamaño = request.getParameter("tamaño");
+            String strDescripcion = request.getParameter("descripcion");
+            String strIdOng = request.getParameter("ong");
+            
+            
             
             Connection con = createConnection();
-            String strSql = "INSERT INTO crsglassdb.person"
-                    + "(id,firstname,lastname,age) "
-                    + "VALUES(0,'"+strFirstName+"'"
-                    + ",'"+strLastName+"',"+strAge+");";
+            String strSql = "INSERT INTO mascotasdb.mascota"
+                    + "(id, nombre, edad, idcategoria, raza, "
+                    + "tamaño, descripcion, idong) "
+                    + "VALUES(0,'k', 2,1,'r','g','l', 1);";
             int iRows = executeNonQueryInt(strSql,con);
             
             request.getSession().setAttribute("rows", iRows);
             response.sendRedirect("personNewResponse.jsp");
-            */
+            
         }
         // </editor-fold>
         
@@ -184,7 +207,7 @@ public class BaseServlet extends HttpServlet
         } 
         catch (ClassNotFoundException | SQLException ex) 
         {
-            Logger.getLogger(BaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MascotaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return con;
@@ -206,7 +229,7 @@ public class BaseServlet extends HttpServlet
         } 
         catch (SQLException ex) 
         {
-            Logger.getLogger(BaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MascotaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         return iRows;
     }
@@ -226,7 +249,7 @@ public class BaseServlet extends HttpServlet
         } 
         catch (SQLException ex) 
         {
-            Logger.getLogger(BaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MascotaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         return arreglo;
     }
