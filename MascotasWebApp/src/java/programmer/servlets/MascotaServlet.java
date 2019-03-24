@@ -15,8 +15,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import programmer.objects.CategoriaQuery;
+import programmer.objects.MascotaQuery;
+import programmer.objects.OngQuery;
 import programmer.objects.Query;
 import programmer.pojos.CategoriaObj;
+import programmer.pojos.MascotaObj;
+import programmer.pojos.OngObj;
 
 @WebServlet(name = "MascotaServlet", urlPatterns = {"/MascotaServlet"})
 public class MascotaServlet extends HttpServlet 
@@ -33,10 +37,15 @@ public class MascotaServlet extends HttpServlet
         {
             Connection con = createConnection();
             String strSql = "SELECT * FROM mascotasdb.categoria;";
-            CategoriaQuery CQueryF = new CategoriaQuery(strSql);
-            ArrayList<CategoriaObj> arreglocategoria = executeQueryResult(CQueryF, con);
+            CategoriaQuery CQueryC = new CategoriaQuery(strSql);
+            ArrayList<CategoriaObj> arreglocategoria = executeQueryResult(CQueryC, con);
+            
+            String strSql1 = "SELECT * FROM mascotasdb.ong;";
+            OngQuery CQueryO = new OngQuery(strSql1);
+            ArrayList<OngObj> arregloong = executeQueryResult(CQueryO, con);
             
             request.getSession().setAttribute("arreglocategoria", arreglocategoria);
+            request.getSession().setAttribute("arregloong", arregloong);
             response.sendRedirect("mascotaNew.jsp");
         }
         // </editor-fold> 
@@ -52,34 +61,38 @@ public class MascotaServlet extends HttpServlet
             String strTamaño = request.getParameter("tamaño");
             String strDescripcion = request.getParameter("descripcion");
             String strIdOng = request.getParameter("ong");
-            
-            
+
+            int iEdad = Integer.parseInt(strEdad);
+            int iIdCategoria = Integer.parseInt(strIdCategoria);
+            int iIdOng = Integer.parseInt(strIdOng);
             
             Connection con = createConnection();
             String strSql = "INSERT INTO mascotasdb.mascota"
                     + "(id, nombre, edad, idcategoria, raza, "
                     + "tamaño, descripcion, idong) "
-                    + "VALUES(0,'k', 2,1,'r','g','l', 1);";
+                    + "VALUES(0,'"+strNombre+"', "+iEdad+","+iIdCategoria+","
+                    + "'"+strRaza+"','"+strTamaño+"','"+strDescripcion+"',"
+                    + " "+iIdOng+");";
             int iRows = executeNonQueryInt(strSql,con);
             
             request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("personNewResponse.jsp");
+            response.sendRedirect("mascotaNewResponse.jsp");
             
         }
         // </editor-fold>
         
-        // <editor-fold defaultstate="collapsed" desc="formid 2 - Person Form Table">
+        // <editor-fold defaultstate="collapsed" desc="formid 2 - Mascota Form Table">
         if(strFormId.equals("2"))
         {
-            /*
+            
             Connection con = createConnection();
-            String strSql = "SELECT * FROM crsglassdb.person;";
-            PersonQuery CQuery = new PersonQuery(strSql);
-            ArrayList<PersonObj> arreglo = executeQueryResult(CQuery, con);
+            String strSql = "SELECT * FROM mascotasdb.mascota;";
+            MascotaQuery CQuery = new MascotaQuery(strSql);
+            ArrayList<MascotaObj> arreglo = executeQueryResult(CQuery, con);
             
             request.getSession().setAttribute("arreglo", arreglo);
-            response.sendRedirect("personForm.jsp");
-            */
+            response.sendRedirect("mascotaForm.jsp");
+            
         }
         // </editor-fold>
         

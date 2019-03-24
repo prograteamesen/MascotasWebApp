@@ -41,7 +41,13 @@
             <br><br>
             
             ONG: <br>
-            <input type="text" name="ong"/>
+            <select name="ong">
+                <c:forEach items="${arregloong}" var="ong">
+                    <option value="${ong.getId()}">
+                        ${ong.getId()} - ${ong.getNombre()}
+                    </option>
+                </c:forEach>
+            </select> 
             <br><br>
             
             <input type="submit" name="mysubmit" value="Registrar"/>

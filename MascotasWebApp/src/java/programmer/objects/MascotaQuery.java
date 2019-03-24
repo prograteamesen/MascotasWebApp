@@ -56,7 +56,7 @@ public class MascotaQuery extends Query<MascotaObj>
             } 
             catch (SQLException ex) 
             {
-                Logger.getLogger(Query.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MascotaQuery.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return arreglo;
