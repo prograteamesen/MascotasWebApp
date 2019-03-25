@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import programmer.objects.Query;
+import programmer.objects.adopcionQuery;
+import programmer.pojos.adopcionObj;
 
 @WebServlet(name = "AdopcionServlet", urlPatterns = {"/AdopcionServlet"})
 public class AdopcionServlet extends HttpServlet 
@@ -29,7 +31,7 @@ public class AdopcionServlet extends HttpServlet
         // <editor-fold defaultstate="collapsed" desc="formid 1 - Adopcion">
         if(strFormId.equals("1"))
         {
-            
+          /*  
             String strFirstName = request.getParameter("firstname");
             String strLastName = request.getParameter("lastname");
             String strAge = request.getParameter("age");
@@ -43,22 +45,22 @@ public class AdopcionServlet extends HttpServlet
             
             request.getSession().setAttribute("rows", iRows);
             response.sendRedirect("personNewResponse.jsp");
-            
+            */
         }
         // </editor-fold>
         
-        // <editor-fold defaultstate="collapsed" desc="formid 2 - Person Form Table">
+        // <editor-fold defaultstate="collapsed" desc="formid 2 - Tabla de adopciones">
         if(strFormId.equals("2"))
         {
-            /*
+            
             Connection con = createConnection();
             String strSql = "SELECT * FROM crsglassdb.person;";
-            PersonQuery CQuery = new PersonQuery(strSql);
-            ArrayList<PersonObj> arreglo = executeQueryResult(CQuery, con);
+            adopcionQuery CQuery = new adopcionQuery(strSql);
+            ArrayList<adopcionObj> arreglo = executeQueryResult(CQuery, con);
             
             request.getSession().setAttribute("arreglo", arreglo);
             response.sendRedirect("personForm.jsp");
-            */
+           
         }
         // </editor-fold>
         
