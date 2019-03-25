@@ -16,26 +16,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import programmer.objects.Query;
 
-@WebServlet(name = "BaseServlet", urlPatterns = {"/BaseServlet"})
-public class BaseServlet extends HttpServlet 
+@WebServlet(name = "AdopcionServlet", urlPatterns = {"/AdopcionServlet"})
+public class AdopcionServlet extends HttpServlet 
 {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
-        //aca vamos a trabajar
+       
         String strFormId = request.getParameter("formid");
         
-        // <editor-fold defaultstate="collapsed" desc="formid 1 - New Person">
+        // <editor-fold defaultstate="collapsed" desc="formid 1 - Adopcion">
         if(strFormId.equals("1"))
         {
-            /*
+            
             String strFirstName = request.getParameter("firstname");
             String strLastName = request.getParameter("lastname");
             String strAge = request.getParameter("age");
             
             Connection con = createConnection();
-            String strSql = "INSERT INTO crsglassdb.person"
+            String strSql = "INSERT INTO mascotasdb.adopcion"
                     + "(id,firstname,lastname,age) "
                     + "VALUES(0,'"+strFirstName+"'"
                     + ",'"+strLastName+"',"+strAge+");";
@@ -43,7 +43,7 @@ public class BaseServlet extends HttpServlet
             
             request.getSession().setAttribute("rows", iRows);
             response.sendRedirect("personNewResponse.jsp");
-            */
+            
         }
         // </editor-fold>
         
@@ -184,7 +184,7 @@ public class BaseServlet extends HttpServlet
         } 
         catch (ClassNotFoundException | SQLException ex) 
         {
-            Logger.getLogger(BaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdopcionServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return con;
@@ -206,7 +206,7 @@ public class BaseServlet extends HttpServlet
         } 
         catch (SQLException ex) 
         {
-            Logger.getLogger(BaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdopcionServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         return iRows;
     }
@@ -226,7 +226,7 @@ public class BaseServlet extends HttpServlet
         } 
         catch (SQLException ex) 
         {
-            Logger.getLogger(BaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdopcionServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         return arreglo;
     }
