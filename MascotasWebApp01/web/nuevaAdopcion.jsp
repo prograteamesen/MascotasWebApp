@@ -21,13 +21,13 @@
             <label>Estas a punto de adoptar a: </label>
             <br>
             <input type="text" id="mascota" name="mascota"/>
-      
+            <br><br>
             <label>Este eres tu, su futuro dueño: </label>
             <br>
             <input type="text" id="dueño" name="dueño"/>
-            
-            <input type="submit" id="mysubmit" name="mysubmit" value="send"/>
             <br><br>
+            <input type="submit" id="mysubmit" name="mysubmit" value="Adoptar"/>
+            
             
         </form>
         

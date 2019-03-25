@@ -174,7 +174,7 @@ public class AdopcionServlet extends HttpServlet
                 + "&useLegacyDatetimeCode=false"
                 + "&serverTimezone=UTC";
         String strUser = "root";
-        String strPassword = "12345";
+        String strPassword = "1234";
         Connection con = null;
         
         try 
