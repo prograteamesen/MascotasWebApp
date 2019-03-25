@@ -14,10 +14,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import programmer.objects.CategoriaQuery;
 import programmer.objects.Query;
+import programmer.pojos.CategoriaObj;
 
-@WebServlet(name = "BaseServlet", urlPatterns = {"/BaseServlet"})
-public class BaseServlet extends HttpServlet 
+@WebServlet(name = "CategoriaServlet", urlPatterns = {"/CategoriaServlet"})
+public class CategoriaServlet extends HttpServlet 
 {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -29,94 +31,88 @@ public class BaseServlet extends HttpServlet
         // <editor-fold defaultstate="collapsed" desc="formid 1 - New Person">
         if(strFormId.equals("1"))
         {
-            /*
-            String strFirstName = request.getParameter("firstname");
-            String strLastName = request.getParameter("lastname");
-            String strAge = request.getParameter("age");
+            
+            String strCategoria = request.getParameter("categoria");
+           
             
             Connection con = createConnection();
-            String strSql = "INSERT INTO crsglassdb.person"
-                    + "(id,firstname,lastname,age) "
-                    + "VALUES(0,'"+strFirstName+"'"
-                    + ",'"+strLastName+"',"+strAge+");";
+            String strSql = "INSERT INTO mascotasdb.categoria(id,categoria)"
+                    + "VALUES(0,'"+strCategoria+"');";
             int iRows = executeNonQueryInt(strSql,con);
             
             request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("personNewResponse.jsp");
-            */
+            response.sendRedirect("categoriaNewResponse.jsp");
+            
         }
         // </editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="formid 2 - Person Form Table">
         if(strFormId.equals("2"))
         {
-            /*
+            
             Connection con = createConnection();
-            String strSql = "SELECT * FROM crsglassdb.person;";
-            PersonQuery CQuery = new PersonQuery(strSql);
-            ArrayList<PersonObj> arreglo = executeQueryResult(CQuery, con);
+            String strSql = "SELECT * FROM mascotasdb.categoria;";
+            CategoriaQuery CQuery = new CategoriaQuery(strSql);
+            ArrayList<CategoriaObj> arreglo = executeQueryResult(CQuery, con);
             
             request.getSession().setAttribute("arreglo", arreglo);
-            response.sendRedirect("personForm.jsp");
-            */
+            response.sendRedirect("categoriaForm.jsp");
+            
         }
         // </editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="formid 3 - delete person">
         if(strFormId.equals("3"))
         {
-            /*
+            
             //DELETE FROM crsglassdb.person WHERE id=1;
             String strId = request.getParameter("id");
             
-            String strSql = "DELETE FROM crsglassdb.person WHERE id="+strId+";";
+            String strSql = "DELETE FROM mascotasdb.categoria WHERE id="+strId+";";
             Connection con = createConnection();
             int iRows = executeNonQueryInt(strSql, con);
             
             request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("personDeleteResponse.jsp");
-            */
+            response.sendRedirect("categoriaDeleteResponse.jsp");
+            
         }
         // </editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="formid 4 - update person part 1">        
         if(strFormId.equals("4"))
         {
-            /*
+           
             String strId = request.getParameter("id");
             
             Connection con = createConnection();
-            String strSql = "SELECT * FROM crsglassdb.person "
+            String strSql = "SELECT * FROM mascotasdb.categoria "
                     + "where id="+strId+";";
-            PersonQuery CQuery = new PersonQuery(strSql);
-            ArrayList<PersonObj> arreglo = executeQueryResult(CQuery, con);
+            CategoriaQuery CQuery = new CategoriaQuery(strSql);
+            ArrayList<CategoriaObj> arreglo = executeQueryResult(CQuery, con);
             
             request.getSession().setAttribute("arreglo", arreglo);
-            response.sendRedirect("personUpdateData.jsp");
-            */
+            response.sendRedirect("categoriaUpdate.jsp");
+           
         }
         // </editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="formid 5 - update person part 2">        
         if(strFormId.equals("5"))
         {
-            /*
+            
             String strId = request.getParameter("id");
-            String strFirstName = request.getParameter("firstname");
-            String strLastName = request.getParameter("lastname");
-            String strAge = request.getParameter("age");
+            String strCategoria = request.getParameter("categoria");
+           
             
             Connection con = createConnection();
-            String strSql = "UPDATE crsglassdb.person "
-                    + "SET firstname = '"+strFirstName+"',"
-                    + "lastname = '"+strLastName+"',"
-                    + "age = "+strAge+" "
+            String strSql = "UPDATE mascotasdb.categoria "
+                    + "SET categoria = '"+strCategoria+"' "
                     + "WHERE id = "+strId+";";
             int iRows = executeNonQueryInt(strSql,con);
             
             request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("personUpdateResponse.jsp");
-            */
+            response.sendRedirect("categoriaUpdateResponse.jsp");
+            
         }
         // </editor-fold>        
     }
@@ -172,7 +168,7 @@ public class BaseServlet extends HttpServlet
                 + "&useLegacyDatetimeCode=false"
                 + "&serverTimezone=UTC";
         String strUser = "root";
-        String strPassword = "12345";
+        String strPassword = "1234";
         Connection con = null;
         
         try 
@@ -184,7 +180,7 @@ public class BaseServlet extends HttpServlet
         } 
         catch (ClassNotFoundException | SQLException ex) 
         {
-            Logger.getLogger(BaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CategoriaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return con;
@@ -206,7 +202,7 @@ public class BaseServlet extends HttpServlet
         } 
         catch (SQLException ex) 
         {
-            Logger.getLogger(BaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CategoriaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         return iRows;
     }
@@ -226,7 +222,7 @@ public class BaseServlet extends HttpServlet
         } 
         catch (SQLException ex) 
         {
-            Logger.getLogger(BaseServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CategoriaServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         return arreglo;
     }
