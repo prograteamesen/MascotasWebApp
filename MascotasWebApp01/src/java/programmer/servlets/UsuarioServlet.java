@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import programmer.logic.UsuarioLogic;
 import programmer.objects.Query;
 import programmer.objects.UsuarioQuery;
 import programmer.pojos.UsuarioObj;
@@ -39,20 +40,9 @@ public class UsuarioServlet extends HttpServlet
             String strCorreo = request.getParameter("correo");
             String strContraseña = request.getParameter("contraseña");
             String strTelefono = request.getParameter("telefono");
-            String strNivel = request.getParameter("nivel");
             
-            Connection con = createConnection();
-            String strSql = "INSERT INTO mascotasdb.usuario"
-                    + "(id,nombre,apellido,fechanacimiento,genero,correo,contraseña,telefono,nivel) "
-                    + "VALUES(0,'"+strNombre+"'"
-                    + ",'"+strApellido+"'"
-                    + ",'"+strFechadeNacimiento+"'"
-                    + ",'"+strGenero+"'"
-                    + ",'"+strCorreo+"'"
-                    + ",'"+strContraseña+"'"
-                    + ","+strTelefono+""
-                    + ","+strNivel+");";
-            int iRows = executeNonQueryInt(strSql,con);
+            UsuarioLogic ULogic = new UsuarioLogic();
+            int iRows = ULogic.insertUsuario(strNombre, strApellido, strFechadeNacimiento, strGenero, strCorreo, strContraseña, strTelefono);
             
             request.getSession().setAttribute("rows", iRows);
             response.sendRedirect("usuarioNewResponse.jsp");

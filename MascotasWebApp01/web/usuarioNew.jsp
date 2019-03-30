@@ -33,9 +33,6 @@
             Teléfono: <br>
             <input type="number" name="telefono" />
             <br><br>-
-            Nivel: <br>
-            <input type="number" name="nivel" />
-            <br><br>
             <input type ="submit" name="myform" value="Create" />
             <br><br>
             <input type ="hidden" name="formid" value="1" />       
