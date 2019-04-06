@@ -2,20 +2,13 @@ package programmer.servlets;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import programmer.logic.UsuarioLogic;
-import programmer.objects.Query;
 import programmer.objects.UsuarioQuery;
 import programmer.pojos.UsuarioObj;
 
@@ -173,75 +166,5 @@ public class UsuarioServlet extends HttpServlet
         return "Short description";
     }// </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Database Methods">
-    private Connection createConnection() 
-    {
-        String strDriver = "com.mysql.cj.jdbc.Driver";
-        String strUrl = "jdbc:mysql://localhost:3306/sakila"
-                + "?autoReconnect=true"
-                + "&useSSL=false"
-                + "&useUnicode=true"
-                + "&useJDBCCompliantTimezoneShift=true"
-                + "&useLegacyDatetimeCode=false"
-                + "&serverTimezone=UTC";
-        String strUser = "root";
-        String strPassword = "12345";
-        Connection con = null;
-        
-        try 
-        {
-            Class.forName(strDriver);
-            con = 
-                    DriverManager.getConnection(strUrl, strUser, strPassword);
-            
-        } 
-        catch (ClassNotFoundException | SQLException ex) 
-        {
-            Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return con;
-    }
-
-    private int executeNonQueryInt(String p_strSql, Connection p_CConnection) 
-    {
-        int iRows = 0;
-        try 
-        {
-            if(!p_CConnection.isClosed())
-            {
-                try (Statement st = p_CConnection.createStatement()) 
-                {
-                    iRows = st.executeUpdate(p_strSql);
-                    p_CConnection.close();
-                }
-            }
-        } 
-        catch (SQLException ex) 
-        {
-            Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return iRows;
-    }
-
-    private ArrayList executeQueryResult(Query p_CQuery, 
-            Connection p_CConnection) 
-    {
-        ArrayList arreglo = null;
-        try 
-        {
-            if(!p_CConnection.isClosed())
-            {
-                Statement st = p_CConnection.createStatement();
-                ResultSet result = st.executeQuery(p_CQuery.getSql());
-                arreglo = p_CQuery.createArrayList(result);
-            }
-        } 
-        catch (SQLException ex) 
-        {
-            Logger.getLogger(UsuarioServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return arreglo;
-    }
-    // </editor-fold>    
+   
 }

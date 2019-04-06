@@ -12,7 +12,7 @@ public class DatabaseX
 {
     //variables de clase
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/esenhotel"
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/mascotasdb"
                 + "?autoReconnect=true"
                 + "&useUnicode=true"
                 + "&useSSL=false"
