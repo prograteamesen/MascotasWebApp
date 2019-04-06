@@ -13,6 +13,7 @@ public class AdopcionLogic extends Logic
 {
     public ArrayList<adopcionObj> getAllAdoptions()
     {
+        //Esta la vas a modificar, para que tome los nombnres tambien. Un innerJoin en una View.
         DatabaseX CDatabase = getDatabase();
         String strSql = "SELECT * FROM mascotasdb.adopcion;";
         ResultSet CResult = CDatabase.executeQuery(strSql);
