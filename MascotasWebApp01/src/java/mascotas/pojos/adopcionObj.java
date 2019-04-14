@@ -1,4 +1,4 @@
-package programmer.pojos;
+package mascotas.pojos;
 public class adopcionObj {
     private int m_Id;
     private int m_IdMascota;
