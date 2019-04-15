@@ -14,12 +14,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import programmer.objects.CategoriaQuery;
-import programmer.objects.MascotaQuery;
-import programmer.objects.OngQuery;
-import programmer.objects.Query;
+import programmer.logic.MascotaLogic;
 import programmer.pojos.CategoriaObj;
 import programmer.pojos.MascotaObj;
+import programmer.pojos.MascotaViewObj;
 import programmer.pojos.OngObj;
 
 @WebServlet(name = "MascotaServlet", urlPatterns = {"/MascotaServlet"})
@@ -31,24 +29,6 @@ public class MascotaServlet extends HttpServlet
     {
 
         String strFormId = request.getParameter("formid");
-        
-        // <editor-fold defaultstate="collapsed" desc="formid 6 - Mascota New parte 1">
-        if(strFormId.equals("6"))
-        {
-            Connection con = createConnection();
-            String strSql = "SELECT * FROM mascotasdb.categoria;";
-            CategoriaQuery CQueryC = new CategoriaQuery(strSql);
-            ArrayList<CategoriaObj> arreglocategoria = executeQueryResult(CQueryC, con);
-            
-            String strSql1 = "SELECT * FROM mascotasdb.ong;";
-            OngQuery CQueryO = new OngQuery(strSql1);
-            ArrayList<OngObj> arregloong = executeQueryResult(CQueryO, con);
-            
-            request.getSession().setAttribute("arreglocategoria", arreglocategoria);
-            request.getSession().setAttribute("arregloong", arregloong);
-            response.sendRedirect("mascotaNew.jsp");
-        }
-        // </editor-fold> 
         
         // <editor-fold defaultstate="collapsed" desc="formid 1 - New Mascota">
         if(strFormId.equals("1"))
@@ -66,14 +46,10 @@ public class MascotaServlet extends HttpServlet
             int iIdCategoria = Integer.parseInt(strIdCategoria);
             int iIdOng = Integer.parseInt(strIdOng);
             
-            Connection con = createConnection();
-            String strSql = "INSERT INTO mascotasdb.mascota"
-                    + "(id, nombre, edad, idcategoria, raza, "
-                    + "tamaño, descripcion, idong) "
-                    + "VALUES(0,'"+strNombre+"', "+iEdad+","+iIdCategoria+","
-                    + "'"+strRaza+"','"+strTamaño+"','"+strDescripcion+"',"
-                    + " "+iIdOng+");";
-            int iRows = executeNonQueryInt(strSql,con);
+             MascotaLogic CLogic = new MascotaLogic();
+             int iRows = CLogic.insertMascotaRows(strNombre, iEdad, iIdCategoria,
+                     strRaza, strTamaño, strDescripcion, iIdOng);
+                System.out.println("Insert mascota rows: " + iRows);
             
             request.getSession().setAttribute("rows", iRows);
             response.sendRedirect("mascotaNewResponse.jsp");
@@ -85,31 +61,26 @@ public class MascotaServlet extends HttpServlet
         if(strFormId.equals("2"))
         {
             
-            Connection con = createConnection();
-            String strSql = "SELECT * FROM mascotasdb.mascota;";
-            MascotaQuery CQuery = new MascotaQuery(strSql);
-            ArrayList<MascotaObj> arreglo = executeQueryResult(CQuery, con);
-            
-            request.getSession().setAttribute("arreglo", arreglo);
+            MascotaLogic CLogic = new MascotaLogic();
+            ArrayList<MascotaViewObj> CArray = CLogic.getAllMascotas();
+                
+            request.getSession().setAttribute("mascotas", CArray);
             response.sendRedirect("mascotaForm.jsp");
             
         }
         // </editor-fold>
         
-        // <editor-fold defaultstate="collapsed" desc="formid 3 - delete person">
+        // <editor-fold defaultstate="collapsed" desc="formid 3 - Delete mascota">
         if(strFormId.equals("3"))
         {
-            /*
-            //DELETE FROM crsglassdb.person WHERE id=1;
             String strId = request.getParameter("id");
-            
-            String strSql = "DELETE FROM crsglassdb.person WHERE id="+strId+";";
-            Connection con = createConnection();
-            int iRows = executeNonQueryInt(strSql, con);
-            
-            request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("personDeleteResponse.jsp");
-            */
+            int iId = Integer.parseInt(strId);
+                
+                MascotaLogic CLogic = new MascotaLogic();
+                int iRows = CLogic.deleteMascotaRows(iId);
+                
+                request.getSession().setAttribute("rows", iRows);
+                response.sendRedirect("mascotaDeleteResponse.jsp");
         }
         // </editor-fold>
         
