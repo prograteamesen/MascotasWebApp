@@ -16,17 +16,18 @@
         <h1>Adopcion</h1>
         <br><br>
         
-        <form id="form" name="form" action="" method="get">
+        <form id="myform" name="myform" action="AdopcionServlet" method="get">
            
             <label>Estas a punto de adoptar a: </label>
             <br>
-            <input type="text" id="mascota" name="mascota"/>
+            <input type="number" id="mascota" name="mascota"/>
             <br><br>
             <label>Este eres tu, su futuro dueño: </label>
             <br>
-            <input type="text" id="dueño" name="dueño"/>
+            <input type="number" id="dueno" name="dueno"/>
             <br><br>
             <input type="submit" id="mysubmit" name="mysubmit" value="Adoptar"/>
+            <input type="hidden" id="formid" name="formid" value="1"/>
             
             
         </form>

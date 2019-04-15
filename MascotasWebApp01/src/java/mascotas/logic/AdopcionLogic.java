@@ -49,6 +49,17 @@ public class AdopcionLogic extends Logic
         
         return CArray;
     }
+        public int insertAdopcionRows(int p_iDueño, int p_iMascota)
+    {
+        //INSERT INTO travelsys.client(id,name,age) VALUES(0,'pepito',24);
+        DatabaseX database = getDatabase();
+        String strSql = "INSERT INTO mascotasdb.adopcion(id,idmascota,idusuario) "
+                + "VALUES(0,"+p_iDueño+","+p_iMascota+")";
+        System.out.println(strSql);
+        int iRows = database.executeNonQueryRows(strSql);
+        return iRows;
+    }
+
     /*
     public ArrayList<MealObj> getAllPets()
     {

@@ -3,11 +3,14 @@ package mascotas.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import mascotas.logic.AdopcionLogic;
+import mascotas.pojos.adopcionObj;
 
 @WebServlet(name = "AdopcionServlet", urlPatterns = {"/AdopcionServlet"})
 public class AdopcionServlet extends HttpServlet {
@@ -27,7 +30,37 @@ public class AdopcionServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) 
         {
+            String strFormId = request.getParameter("formid");
+            if(strFormId.equals("1"))
+            {
+                //get parameters
+                String strPet = request.getParameter("mascota");
+                String strDueno = request.getParameter("dueno");
+                int iDueno = Integer.parseInt(strDueno);
+                int iPet = Integer.parseInt(strPet);
+                
+                //access logic
+                AdopcionLogic CLogic = new AdopcionLogic();
+                int iRows = CLogic.insertAdopcionRows(iDueno, iPet);
+                System.out.println("insert adopcion rows: " + iRows);
+                
+                ////send to frontend
+                request.getSession().setAttribute("rows", iRows );
+                response.sendRedirect("genericMessage.jsp");
+            }
             
+            if(strFormId.equals("2"))
+            {
+                //access logic
+                AdopcionLogic CLogic = new AdopcionLogic();
+                ArrayList<adopcionObj> CArray = CLogic.getAllAdoptions();
+                
+                //envair un correo
+                
+                //send to frontend
+                request.getSession().setAttribute("clients", CArray);
+                response.sendRedirect("clientForm.jsp");
+            }
         }
     }
 
