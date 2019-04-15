@@ -18,7 +18,7 @@
     <body>
         <h1>Usuario Form</h1>
         <br><br>
-        <a href="usuarioNew.html">Nuevo Usuario</a>
+        <a href="usuarioNew.jsp">Nuevo Usuario</a>
         <br><br>
         <table>
               <tr>
