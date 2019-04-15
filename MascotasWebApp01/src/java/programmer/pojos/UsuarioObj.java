@@ -96,11 +96,6 @@ public class UsuarioObj {
     private void setNivel(int p_iNivel) {
         m_iNivel = p_iNivel;
     }
-
-    @Override
-    public String toString() {
-        return "UsuarioObj{" + "m_iId=" + m_iId + ", m_strNombre=" + m_strNombre + ", m_strApellido=" + m_strApellido + ", m_strFechadeNacimiento=" + m_strFechadeNacimiento + ", m_strGenero=" + m_strGenero + ", m_strCorreo=" + m_strCorreo + ", m_strContraseña=" + m_strContraseña + ", m_iTelefono=" + m_iTelefono + ", m_iNivel=" + m_iNivel + '}';
-    }
     
     
 }

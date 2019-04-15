@@ -1,19 +1,26 @@
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.util.Iterator"%>
+<%@page import="programmer.pojos.UsuarioObj"%>
+<%@page import="java.util.ArrayList"%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Usuario Form</title>
     </head>
+    <%
+        ArrayList<UsuarioObj> CArray = 
+                (ArrayList<UsuarioObj>)request.getSession().getAttribute("usuarios");
+        Iterator<UsuarioObj> iteArray = CArray.iterator();
+    %>
     <body>
         <h1>Usuario Form</h1>
         <br><br>
         <a href="usuarioNew.html">Nuevo Usuario</a>
         <br><br>
-        <table style="width:80%" border="1">
+        <table>
               <tr>
                 <th>ID</th>
                 <th>Nombre</th>
@@ -25,25 +32,41 @@
                 <th>Teléfono</th>
                 <th>Nivel</th>
               </tr>
-              <c:forEach items="${arreglo}" var = "usuario">
-             <tr>
-             <td>${usuario.getId()}</td>
-             <td>${usuario.getNombre()}</td> 
-             <td>${usuario.getApellido()}</td>
-             <td>${usuario.getFechadeNacimiento()}</td>
-             <td>${usuario.getGenero()}</td>
-             <td>${usuario.getCorreo()}</td>
-             <td>${usuario.getContraseña()}</td>
-             <td>${usuario.getTelefono()}</td>
-             <td>${usuario.getNivel()}</td>
-             <th>
-                 <a href="UsuarioServlet?formid=4&id=${usuario.getId()}">Actualizar</a>
-             </th>            
-             <th>
-                 <a href="UsuarioServlet?formid=3&id=${usuario.getId()}">Borrar</a>
-             </th>
-           </tr>
-           </c:forEach>
+          <%
+            if(iteArray!=null)
+            {
+                UsuarioObj CTemp;
+                while(iteArray.hasNext())
+                {
+                    CTemp = iteArray.next();
+        %>
+                <tr>
+                    <td><%= CTemp.getId() %></td>
+                    <td><%= CTemp.getNombre() %></td>
+                    <td><%= CTemp.getApellido() %></td>
+                    <td><%= CTemp.getFechadeNacimiento() %></td>
+                    <td><%= CTemp.getGenero() %></td>
+                    <td><%= CTemp.getCorreo() %></td>
+                    <td><%= CTemp.getContraseña() %></td>
+                    <td><%= CTemp.getTelefono() %></td>
+                    <td><%= CTemp.getNivel() %></td>
+                    <td>
+                        <a href="UsuarioServlet?formid=4&id=<%= CTemp.getId() %>">
+                            update
+                        </a>
+                    </td>
+                    <td>
+                        <a href="UsuarioServlet?formid=3&id=<%= CTemp.getId() %>">
+                            delete
+                        </a>
+                    </td>
+                </tr>
+        <%
+                }
+            }
+        %>
+            
+          
             </table>
 
     </body>

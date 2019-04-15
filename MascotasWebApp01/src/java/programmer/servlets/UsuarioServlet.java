@@ -1,7 +1,7 @@
 package programmer.servlets;
 
 import java.io.IOException;
-import java.sql.Connection;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import programmer.logic.UsuarioLogic;
-import programmer.objects.UsuarioQuery;
 import programmer.pojos.UsuarioObj;
 
 @WebServlet(name = "UsuarioServlet", urlPatterns = {"/UsuarioServlet"})
@@ -19,10 +18,13 @@ public class UsuarioServlet extends HttpServlet
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
-        //aca vamos a trabajar
+      
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) 
+        {
+        
         String strFormId = request.getParameter("formid");
         
-        // <editor-fold defaultstate="collapsed" desc="formid 1 - New Person">
         if(strFormId.equals("1"))
         {
             
@@ -34,26 +36,25 @@ public class UsuarioServlet extends HttpServlet
             String strContraseña = request.getParameter("contraseña");
             String strTelefono = request.getParameter("telefono");
             
+           
+            
             UsuarioLogic ULogic = new UsuarioLogic();
             int iRows = ULogic.insertUsuario(strNombre, strApellido, strFechadeNacimiento, strGenero, strCorreo, strContraseña, strTelefono);
+            
             
             request.getSession().setAttribute("rows", iRows);
             response.sendRedirect("usuarioNewResponse.jsp");
             
         }
-        // </editor-fold>
-        
-        // <editor-fold defaultstate="collapsed" desc="formid 2 - Person Form Table">
+       
         if(strFormId.equals("2"))
         {
             
-            Connection con = createConnection();
-            String strSql = "SELECT * FROM mascotasdb.usuario;";
-            UsuarioQuery CQuery = new UsuarioQuery(strSql);
-            ArrayList<UsuarioObj> arreglo = executeQueryResult(CQuery, con);
-            
-            request.getSession().setAttribute("arreglo", arreglo);
-            response.sendRedirect("usuarioForm.jsp");
+                UsuarioLogic ULogic = new UsuarioLogic();
+                ArrayList<UsuarioObj> CArray = ULogic.getAllUsuarios();      
+               
+                request.getSession().setAttribute("usuarios", CArray);
+                response.sendRedirect("usuarioForm.jsp");
             
         }
         // </editor-fold>
@@ -62,32 +63,30 @@ public class UsuarioServlet extends HttpServlet
         if(strFormId.equals("3"))
         {
             
-            //DELETE FROM crsglassdb.person WHERE id=1;
             String strId = request.getParameter("id");
-            
-            String strSql = "DELETE FROM mascotasdb.usuario WHERE id="+strId+";";
-            Connection con = createConnection();
-            int iRows = executeNonQueryInt(strSql, con);
-            
-            request.getSession().setAttribute("rows", iRows);
+                int iId = Integer.parseInt(strId);
+                
+                //access logic
+                UsuarioLogic ULogic = new UsuarioLogic();
+                int iRows = ULogic.deleteUsuarioRows(iId);
+                
+                //send to frontend
+                request.getSession().setAttribute("rows", iRows);
             response.sendRedirect("usuarioDeleteResponse.jsp");
             
         }
         // </editor-fold>
-        
-        // <editor-fold defaultstate="collapsed" desc="formid 4 - update person part 1">        
+           
         if(strFormId.equals("4"))
         {
             
-            String strId = request.getParameter("id");
-            
-            Connection con = createConnection();
-            String strSql = "SELECT * FROM mascotasdb.usuario "
-                    + "where id="+strId+";";
-            UsuarioQuery CQuery = new UsuarioQuery(strSql);
-            ArrayList<UsuarioObj> arreglo = executeQueryResult(CQuery, con);
-            
-            request.getSession().setAttribute("arreglo", arreglo);
+                String strId = request.getParameter("id");
+                int iId = Integer.parseInt(strId);
+   
+                UsuarioLogic ULogic = new UsuarioLogic();
+                UsuarioObj CUsuario = ULogic.getUsuarioById(iId);
+   
+            request.getSession().setAttribute("usuario", CUsuario);
             response.sendRedirect("usuarioUpdateData.jsp");
             
         }
@@ -106,27 +105,21 @@ public class UsuarioServlet extends HttpServlet
             String strContraseña = request.getParameter("contraseña");
             String strTelefono = request.getParameter("telefono");
             String strNivel = request.getParameter("nivel");
+            int iId = Integer.parseInt(strId);
+            int iTelefono = Integer.parseInt(strTelefono);
+            int iNivel = Integer.parseInt(strNivel);
             
-            Connection con = createConnection();
-            String strSql = "UPDATE mascotasdb.usuario "
-                    + "SET nombre = '"+strNombre+"',"
-                    + "apellido = '"+strApellido+"',"
-                    + "fechanacimiento = '"+strFechadeNacimiento+"',"
-                    + "genero = '"+strGenero+"',"
-                    + "correo = '"+strCorreo+"',"
-                    + "contraseña = '"+strContraseña+"',"
-                    + "telefono = '"+strTelefono+"',"
-                    + "nivel = "+strNivel+" "
-                    + "WHERE id = "+strId+";";
-            int iRows = executeNonQueryInt(strSql,con);
-            
-            request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("usuarioUpdateResponse.jsp");
+            UsuarioLogic ULogic = new UsuarioLogic();
+                int iRows = ULogic.updateUsuarioRows(iId, strNombre, strApellido, strFechadeNacimiento, strGenero, strCorreo, strContraseña, iTelefono, iNivel);
+                
+                
+                request.getSession().setAttribute("rows", new Integer(iRows) );
+                response.sendRedirect("usuarioUpdateResponse.jsp");
             
         }
         // </editor-fold>        
     }
-
+    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
