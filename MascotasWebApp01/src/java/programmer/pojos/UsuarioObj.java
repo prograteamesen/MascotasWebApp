@@ -8,18 +8,18 @@ public class UsuarioObj {
     private String m_strFechadeNacimiento;
     private String m_strGenero;
     private String m_strCorreo;
-    private String m_strContraseña;
+    private String m_strContrasena;
     private int m_iTelefono;
     private int m_iNivel;
 
-    public UsuarioObj(int p_iId, String p_strNombre, String p_strApellido, String p_strFechadeNacimiento, String p_strGenero, String p_strCorreo, String p_strContraseña, int p_iTelefono, int p_iNivel) {
+    public UsuarioObj(int p_iId, String p_strNombre, String p_strApellido, String p_strFechadeNacimiento, String p_strGenero, String p_strCorreo, String p_strContrasena, int p_iTelefono, int p_iNivel) {
         setId(p_iId);
         setNombre(p_strNombre);
         setApellido(p_strApellido);
         setFechadeNacimiento(p_strFechadeNacimiento);
         setGenero(p_strGenero);
         setCorreo(p_strCorreo);
-        setContraseña(p_strContraseña);
+        setContrasena(p_strContrasena);
         setTelefono(p_iTelefono);
         setNivel(p_iNivel);
     }
@@ -73,12 +73,12 @@ public class UsuarioObj {
         m_strCorreo = p_strCorreo;
     }
 
-    public String getContraseña() {
-        return m_strContraseña;
+    public String getContrasena() {
+        return m_strContrasena;
     }
 
-    private void setContraseña(String p_strContraseña) {
-        m_strContraseña = p_strContraseña;
+    private void setContrasena(String p_strContrasena) {
+        m_strContrasena = p_strContrasena;
     }
 
     public int getTelefono() {

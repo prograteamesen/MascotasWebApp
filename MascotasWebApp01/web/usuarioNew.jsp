@@ -11,7 +11,7 @@
         
         <h1>Nuevo Usuario</h1>
      
-        <form name="usuarioNewForm" action="UsuarioServlet" method="get">
+        <form name="usuarioNewForm" action="UsuarioServlet" method="post">
             Nombre: <br>
             <input type="text" name="nombre" />
             <br><br>
@@ -28,7 +28,7 @@
             <input type="text" name="correo" />
             <br><br>
             Contraseña: <br>
-            <input type="text" name="contraseña" />
+            <input type="text" name="contrasena" />
             <br><br>
             Teléfono: <br>
             <input type="number" name="telefono" />

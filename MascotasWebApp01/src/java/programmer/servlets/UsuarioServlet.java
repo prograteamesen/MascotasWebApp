@@ -25,6 +25,7 @@ public class UsuarioServlet extends HttpServlet
         
         String strFormId = request.getParameter("formid");
         
+        // <editor-fold defaultstate="collapsed" desc="formid 1 - Insert User">
         if(strFormId.equals("1"))
         {
             
@@ -33,7 +34,7 @@ public class UsuarioServlet extends HttpServlet
             String strFechadeNacimiento = request.getParameter("fechanacimiento");
             String strGenero = request.getParameter("genero");
             String strCorreo = request.getParameter("correo");
-            String strContraseña = request.getParameter("contraseña");
+            String strContraseña = request.getParameter("contrasena");
             String strTelefono = request.getParameter("telefono");
             
            
@@ -44,9 +45,10 @@ public class UsuarioServlet extends HttpServlet
             
             request.getSession().setAttribute("rows", iRows);
             response.sendRedirect("usuarioNewResponse.jsp");
-            
         }
+        // </editor-fold>
        
+        // <editor-fold defaultstate="collapsed" desc="formid 2 - User Form">
         if(strFormId.equals("2"))
         {
             
@@ -59,7 +61,7 @@ public class UsuarioServlet extends HttpServlet
         }
         // </editor-fold>
         
-        // <editor-fold defaultstate="collapsed" desc="formid 3 - delete person">
+        // <editor-fold defaultstate="collapsed" desc="formid 3 - delete user">
         if(strFormId.equals("3"))
         {
             
@@ -76,7 +78,8 @@ public class UsuarioServlet extends HttpServlet
             
         }
         // </editor-fold>
-           
+        
+        // <editor-fold defaultstate="collapsed" desc="formid 4 - Update user">
         if(strFormId.equals("4"))
         {
             
@@ -92,7 +95,7 @@ public class UsuarioServlet extends HttpServlet
         }
         // </editor-fold>
         
-        // <editor-fold defaultstate="collapsed" desc="formid 5 - update person part 2">        
+        // <editor-fold defaultstate="collapsed" desc="formid 5 - update user part 2">        
         if(strFormId.equals("5"))
         {
             
@@ -102,7 +105,7 @@ public class UsuarioServlet extends HttpServlet
             String strFechadeNacimiento = request.getParameter("fechanacimiento");
             String strGenero = request.getParameter("genero");
             String strCorreo = request.getParameter("correo");
-            String strContraseña = request.getParameter("contraseña");
+            String strContrasena = request.getParameter("contrasena");
             String strTelefono = request.getParameter("telefono");
             String strNivel = request.getParameter("nivel");
             int iId = Integer.parseInt(strId);
@@ -110,7 +113,7 @@ public class UsuarioServlet extends HttpServlet
             int iNivel = Integer.parseInt(strNivel);
             
             UsuarioLogic ULogic = new UsuarioLogic();
-                int iRows = ULogic.updateUsuarioRows(iId, strNombre, strApellido, strFechadeNacimiento, strGenero, strCorreo, strContraseña, iTelefono, iNivel);
+                int iRows = ULogic.updateUsuarioRows(iId, strNombre, strApellido, strFechadeNacimiento, strGenero, strCorreo, strContrasena, iTelefono, iNivel);
                 
                 
                 request.getSession().setAttribute("rows", new Integer(iRows) );

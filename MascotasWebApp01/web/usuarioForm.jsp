@@ -47,7 +47,7 @@
                     <td><%= CTemp.getFechadeNacimiento() %></td>
                     <td><%= CTemp.getGenero() %></td>
                     <td><%= CTemp.getCorreo() %></td>
-                    <td><%= CTemp.getContraseña() %></td>
+                    <td><%= CTemp.getContrasena() %></td>
                     <td><%= CTemp.getTelefono() %></td>
                     <td><%= CTemp.getNivel() %></td>
                     <td>

@@ -27,7 +27,7 @@ public class UsuarioLogic extends Logic
                 String strFechadeNacimiento;
                 String strGenero;
                 String strCorreo;
-                String strContraseña;
+                String strContrasena;
                 int iTelefono;
                 int iNivel;
                 UsuarioObj CTemp;
@@ -41,11 +41,11 @@ public class UsuarioLogic extends Logic
                   strFechadeNacimiento = CResult.getString("fechanacimiento");
                   strGenero = CResult.getString("genero");
                   strCorreo = CResult.getString("correo");
-                  strContraseña = CResult.getString("contraseña");
+                  strContrasena = CResult.getString("contraseña");
                   iTelefono = CResult.getInt("telefono");
                   iNivel = CResult.getInt("nivel");
                   
-                  CTemp = new UsuarioObj(iId, strNombre, strApellido, strFechadeNacimiento, strGenero, strCorreo, strContraseña, iTelefono, iNivel);
+                  CTemp = new UsuarioObj(iId, strNombre, strApellido, strFechadeNacimiento, strGenero, strCorreo, strContrasena, iTelefono, iNivel);
                   CArray.add(CTemp);
                 }
             } catch (SQLException ex) {
@@ -92,12 +92,15 @@ public class UsuarioLogic extends Logic
     }
     // </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="Delete Usuario">
     public int deleteUsuarioRows(int p_iId)
     {
         int iRows = deleteTableRows (p_iId, "usuario");
         return iRows;
     }
+    // </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="Get Usuario By Id">
     public UsuarioObj getUsuarioById(int p_iId)
     {
         DatabaseX database = getDatabase();
@@ -114,7 +117,7 @@ public class UsuarioLogic extends Logic
           String strFechadeNacimiento;
           String strGenero;
           String strCorreo;
-          String strContraseña;
+          String strContrasena;
           int iTelefono;
           int iNivel;
           
@@ -128,11 +131,11 @@ public class UsuarioLogic extends Logic
                   strFechadeNacimiento = CResult.getString("fechanacimiento");
                   strGenero = CResult.getString("genero");
                   strCorreo = CResult.getString("correo");
-                  strContraseña = CResult.getString("contraseña");
+                  strContrasena = CResult.getString("contraseña");
                   iTelefono = CResult.getInt("telefono");
                   iNivel = CResult.getInt("nivel");
                   
-                  CTemp = new UsuarioObj(iId, strNombre, strApellido, strFechadeNacimiento, strGenero, strCorreo,strContraseña, iTelefono, iNivel);
+                  CTemp = new UsuarioObj(iId, strNombre, strApellido, strFechadeNacimiento, strGenero, strCorreo,strContrasena, iTelefono, iNivel);
               }
           }
               catch (SQLException ex) 
@@ -142,16 +145,19 @@ public class UsuarioLogic extends Logic
           }
           return CTemp;       
     }
+    // </editor-fold>
     
-        public int updateUsuarioRows(int p_iId, String p_strNombre, String p_strApellido, String p_strFechadeNacimiento, String p_strGenero, String p_strCorreo,String p_strContraseña, int p_iTelefono, int p_iNivel)
+    // <editor-fold defaultstate="collapsed" desc="Update Usuario">
+        public int updateUsuarioRows(int p_iId, String p_strNombre, String p_strApellido, String p_strFechadeNacimiento, String p_strGenero, String p_strCorreo,String p_strContrasena, int p_iTelefono, int p_iNivel)
         {
           DatabaseX database = getDatabase();
         String strSql = "update mascotasdb.usuario "  
-                + "set nombre = '" +p_strNombre+ "', apellido = '" +p_strApellido+ "', fechanacimiento = '" +p_strFechadeNacimiento+ "', genero = '" +p_strGenero+ "', correo = '" +p_strCorreo+ "', contraseña = '" +p_strContraseña+"', telefono = " +p_iTelefono+ ", nivel = "+p_iNivel+" "
+                + "set nombre = '" +p_strNombre+ "', apellido = '" +p_strApellido+ "', fechanacimiento = '" +p_strFechadeNacimiento+ "', genero = '" +p_strGenero+ "', correo = '" +p_strCorreo+ "', contraseña = '" +p_strContrasena+"', telefono = " +p_iTelefono+ ", nivel = "+p_iNivel+" "
                 + "where id = " +p_iId+" ";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;
-        } 
+        }
+        // </editor-fold>
 }
 
