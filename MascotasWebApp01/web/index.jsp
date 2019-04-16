@@ -7,16 +7,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-     <head>
-        <title>categoria</title>
+    <head>
+        <title>Mascotas </title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Categoria</h1>
+        <h1>Mascotas</h1>
+        <br>
+        <a href="CategoriaServlet?formid=2">Categoria</a>
         <br>
         
-        <a href="CategoriaServlet?formid=2">Formulario Categoria</a>
     </body>
-    
 </html>

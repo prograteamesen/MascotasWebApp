@@ -1,47 +1,62 @@
-<%-- 
-    Document   : categoriaForm
-    Created on : 03-24-2019, 11:59:34 AM
-    Author     : user
---%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.util.Iterator"%>
+<%@page import="programmer.objects.CategoriaObj"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Formulario Categoria</title>
+        <meta http-equiv="Content-Type" 
+              content="text/html; charset=UTF-8">
+        <title>Categoria</title>
+        <link href="styles/tableStyles.css" rel="stylesheet" type="text/css"/>
     </head>
+    <%
+        ArrayList<CategoriaObj> CArray = 
+                (ArrayList<CategoriaObj>)request.getSession().getAttribute("categorias");
+        Iterator<CategoriaObj> iteArray = CArray.iterator();
+    %>
     <body>
-        <h1>Formulario Categoria</h1>
+        <h1>Categoria</h1>
+        <br>
+        <a href="categoriaNew.jsp">Nueva Categoria</a>
+        
         <br><br>
-        <table style="width:70%" border="1">
-          <tr>
+        <table>
+        <tr>
             <th>Id</th>
-            <th>Categoria</th> 
-            <th>Update</th>
-            <th>Delete</th>
-          </tr>
-          <c:forEach items="${arreglo}" var="categoria">
-              <tr>
-                  <td>${categoria.getId()}</td>
-                  <td>${categoria.getCategoria()}</td>
-                  <td>
-                      <a href="CategoriaServlet?formid=4&id=${categoria.getId()}">update</a>
-                      
-                  </td>
-                  <td>
-                      <a href="CategoriaServlet?formid=3&id=${categoria.getId()}">delete</a>
-                      
-                  </td>
-              </tr>
-          </c:forEach>
-          
+            <th>Categoria</th>
+            
+        </tr>
+        <%
+            if(iteArray!=null)
+            {
+                CategoriaObj CTemp;
+                while(iteArray.hasNext())
+                {
+                    CTemp = iteArray.next();
+        %>
+                <tr>
+                    <td><%= CTemp.getId() %></td>
+                    <td><%= CTemp.getCategoria() %></td>
+                    
+                    <td>
+                        <a href="CategoriaServlet?formid=4&id=<%= CTemp.getId() %>">
+                            Actualizar
+                        </a>
+                    </td>
+                    <td>
+                        <a href="CategoriaServlet?formid=3&id=<%= CTemp.getId() %>">
+                            Eliminar
+                        </a>
+                    </td>
+                </tr>
+        <%
+                }
+            }
+        %>
+        
         </table>
         <br><br>
-        <a href="NewCategoria.jsp">Nueva Categoria</a>
-        <br><br>
         <a href="index.jsp">Regresar</a>
-        
     </body>
 </html>

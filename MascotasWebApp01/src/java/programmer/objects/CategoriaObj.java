@@ -1,5 +1,5 @@
 
-package programmer.pojos;
+package programmer.objects;
 
 public class CategoriaObj 
 {

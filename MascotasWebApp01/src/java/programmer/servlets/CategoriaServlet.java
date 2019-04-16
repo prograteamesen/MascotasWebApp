@@ -1,120 +1,110 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package programmer.servlets;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import programmer.objects.CategoriaQuery;
-import programmer.objects.Query;
-import programmer.pojos.CategoriaObj;
+import programmer.logic.CategoriaLogic;
+import programmer.objects.CategoriaObj;
 
+/**
+ *
+ * @author user
+ */
 @WebServlet(name = "CategoriaServlet", urlPatterns = {"/CategoriaServlet"})
-public class CategoriaServlet extends HttpServlet 
-{
+public class CategoriaServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
-        //aca vamos a trabajar
-        String strFormId = request.getParameter("formid");
         
-        // <editor-fold defaultstate="collapsed" desc="formid 1 - New Person">
-        if(strFormId.equals("1"))
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) 
         {
+            String strFormId = request.getParameter("formid");
             
-            String strCategoria = request.getParameter("categoria");
-           
+           if(strFormId.equals("1"))
+            {
+                //get parameters
+                String strCategoria = request.getParameter("categoria");
+                
+                //access logic
+                CategoriaLogic CLogic = new CategoriaLogic();
+                int iRows = CLogic.insertCategoriaRows(strCategoria);
+                System.out.println("insert categoria rows: " + iRows);
+                
+                //send to frontend
+                request.getSession().setAttribute("rows", new Integer(iRows) );
+                response.sendRedirect("genericMessage.jsp");                
+            }
             
-            Connection con = createConnection();
-            String strSql = "INSERT INTO mascotasdb.categoria(id,categoria)"
-                    + "VALUES(0,'"+strCategoria+"');";
-            int iRows = executeNonQueryInt(strSql,con);
+            if(strFormId.equals("2"))
+            {
+                //access logic
+                CategoriaLogic CLogic = new CategoriaLogic();
+                ArrayList<CategoriaObj> CArray = CLogic.getAllCategoria();
+                
+                //send to frontend
+                request.getSession().setAttribute("categorias", CArray);
+                response.sendRedirect("categoriaForm.jsp");                
+            }
             
-            request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("categoriaNewResponse.jsp");
+            if(strFormId.equals("3"))
+            {
+                //get parameters
+                String strId = request.getParameter("id");
+                int iId = Integer.parseInt(strId);
+                
+                //access logic
+                CategoriaLogic CLogic = new CategoriaLogic();
+                int iRows = CLogic.deleteCategoriaRows(iId);
+                
+                //send to frontend
+                request.getSession().setAttribute("rows", iRows);
+                response.sendRedirect("genericMessage.jsp"); 
+            }
             
+            if(strFormId.equals("4"))
+            {
+                //get parameters
+                String strId = request.getParameter("id");
+                int iId = Integer.parseInt(strId);
+                
+                //access logic
+                CategoriaLogic CLogic = new CategoriaLogic();
+                CategoriaObj CMeal = CLogic.getCategoriaById(iId);
+                
+                //send to frontend
+                request.getSession().setAttribute("categoria", CMeal);
+                response.sendRedirect("categoriaUpdateForm.jsp");                
+            }
+            
+            if(strFormId.equals("5"))
+            {
+                //get parameters
+                String strId = request.getParameter("id");
+                String strCategoria = request.getParameter("categoria");
+                int iId = Integer.parseInt(strId);
+                
+                //access logic
+                CategoriaLogic CLogic = new CategoriaLogic();
+                int iRows = CLogic.updateCategoriaRows(iId,strCategoria);
+                System.out.println("update meal rows: " + iRows);
+                
+                //send to frontend
+                request.getSession().setAttribute("rows", new Integer(iRows) );
+                response.sendRedirect("genericMessage.jsp");
+            }
         }
-        // </editor-fold>
-        
-        // <editor-fold defaultstate="collapsed" desc="formid 2 - Person Form Table">
-        if(strFormId.equals("2"))
-        {
-            
-            Connection con = createConnection();
-            String strSql = "SELECT * FROM mascotasdb.categoria;";
-            CategoriaQuery CQuery = new CategoriaQuery(strSql);
-            ArrayList<CategoriaObj> arreglo = executeQueryResult(CQuery, con);
-            
-            request.getSession().setAttribute("arreglo", arreglo);
-            response.sendRedirect("categoriaForm.jsp");
-            
-        }
-        // </editor-fold>
-        
-        // <editor-fold defaultstate="collapsed" desc="formid 3 - delete person">
-        if(strFormId.equals("3"))
-        {
-            
-            //DELETE FROM crsglassdb.person WHERE id=1;
-            String strId = request.getParameter("id");
-            
-            String strSql = "DELETE FROM mascotasdb.categoria WHERE id="+strId+";";
-            Connection con = createConnection();
-            int iRows = executeNonQueryInt(strSql, con);
-            
-            request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("categoriaDeleteResponse.jsp");
-            
-        }
-        // </editor-fold>
-        
-        // <editor-fold defaultstate="collapsed" desc="formid 4 - update person part 1">        
-        if(strFormId.equals("4"))
-        {
-           
-            String strId = request.getParameter("id");
-            
-            Connection con = createConnection();
-            String strSql = "SELECT * FROM mascotasdb.categoria "
-                    + "where id="+strId+";";
-            CategoriaQuery CQuery = new CategoriaQuery(strSql);
-            ArrayList<CategoriaObj> arreglo = executeQueryResult(CQuery, con);
-            
-            request.getSession().setAttribute("arreglo", arreglo);
-            response.sendRedirect("categoriaUpdate.jsp");
-           
-        }
-        // </editor-fold>
-        
-        // <editor-fold defaultstate="collapsed" desc="formid 5 - update person part 2">        
-        if(strFormId.equals("5"))
-        {
-            
-            String strId = request.getParameter("id");
-            String strCategoria = request.getParameter("categoria");
-           
-            
-            Connection con = createConnection();
-            String strSql = "UPDATE mascotasdb.categoria "
-                    + "SET categoria = '"+strCategoria+"' "
-                    + "WHERE id = "+strId+";";
-            int iRows = executeNonQueryInt(strSql,con);
-            
-            request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("categoriaUpdateResponse.jsp");
-            
-        }
-        // </editor-fold>        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -156,75 +146,4 @@ public class CategoriaServlet extends HttpServlet
         return "Short description";
     }// </editor-fold>
 
-    // <editor-fold defaultstate="collapsed" desc="Database Methods">
-    private Connection createConnection() 
-    {
-        String strDriver = "com.mysql.cj.jdbc.Driver";
-        String strUrl = "jdbc:mysql://localhost:3306/sakila"
-                + "?autoReconnect=true"
-                + "&useSSL=false"
-                + "&useUnicode=true"
-                + "&useJDBCCompliantTimezoneShift=true"
-                + "&useLegacyDatetimeCode=false"
-                + "&serverTimezone=UTC";
-        String strUser = "root";
-        String strPassword = "1234";
-        Connection con = null;
-        
-        try 
-        {
-            Class.forName(strDriver);
-            con = 
-                    DriverManager.getConnection(strUrl, strUser, strPassword);
-            
-        } 
-        catch (ClassNotFoundException | SQLException ex) 
-        {
-            Logger.getLogger(CategoriaServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return con;
-    }
-
-    private int executeNonQueryInt(String p_strSql, Connection p_CConnection) 
-    {
-        int iRows = 0;
-        try 
-        {
-            if(!p_CConnection.isClosed())
-            {
-                try (Statement st = p_CConnection.createStatement()) 
-                {
-                    iRows = st.executeUpdate(p_strSql);
-                    p_CConnection.close();
-                }
-            }
-        } 
-        catch (SQLException ex) 
-        {
-            Logger.getLogger(CategoriaServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return iRows;
-    }
-
-    private ArrayList executeQueryResult(Query p_CQuery, 
-            Connection p_CConnection) 
-    {
-        ArrayList arreglo = null;
-        try 
-        {
-            if(!p_CConnection.isClosed())
-            {
-                Statement st = p_CConnection.createStatement();
-                ResultSet result = st.executeQuery(p_CQuery.getSql());
-                arreglo = p_CQuery.createArrayList(result);
-            }
-        } 
-        catch (SQLException ex) 
-        {
-            Logger.getLogger(CategoriaServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return arreglo;
-    }
-    // </editor-fold>    
 }
