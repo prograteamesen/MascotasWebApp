@@ -1,5 +1,6 @@
 package programmer.logic;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -159,5 +160,35 @@ public class UsuarioLogic extends Logic
         return iRows;
         }
         // </editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="Log in Usuario">
+    
+        public boolean authentication(String correo, String contrasena)
+        {
+            DatabaseX database = getDatabase(); 
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+
+            String strSql = "SELECT id, correo, contraseña FROM mascotasdb.usuario WHERE BINARY correo=? and contraseña= ?;";
+            
+            try {
+
+                ps = database.getConnection().prepareStatement(strSql);
+                ps.setString(1, correo);
+                ps.setString(2, contrasena);
+                rs = ps.executeQuery();
+
+                if(rs.absolute(1))
+                {
+                    return true;
+                }
+            }
+            catch (SQLException ex) {
+                Logger.getLogger(UsuarioLogic.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+           return false;
+        }     
+    // </editor-fold>
 }
 

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import programmer.logic.UsuarioLogic;
 import programmer.pojos.UsuarioObj;
 
@@ -120,8 +121,32 @@ public class UsuarioServlet extends HttpServlet
                 response.sendRedirect("usuarioUpdateResponse.jsp");
             
         }
-        // </editor-fold>        
-    }
+        // </editor-fold> 
+        
+        // <editor-fold defaultstate="collapsed" desc="formid 6 - User Log in">
+        if(strFormId.equals("6"))
+        {
+
+                String strCorreo = request.getParameter("correo");
+                String strContrasena = request.getParameter("contrasena");
+
+                UsuarioLogic Ulogic = new UsuarioLogic();
+                boolean authen = Ulogic.authentication(strCorreo, strContrasena);
+                
+                if(authen){
+                    
+                    HttpSession objSession = request.getSession(true);
+                    objSession.setAttribute("correo", strCorreo);
+                    objSession.setAttribute("contrasena", strContrasena);
+                    
+                    response.sendRedirect("index.jsp");
+                } else {
+                    
+                    response.sendRedirect("login.jsp");
+                }
+        }
+        // </editor-fold>
+        }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
