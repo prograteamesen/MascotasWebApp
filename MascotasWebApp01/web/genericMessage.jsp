@@ -19,7 +19,8 @@
     <body>
         <h1>Generic Message</h1>
         <br><br>
-        <p><%= iRows %> rows where affected</p>
+        <p><%= iRows %> una mascota ha sido adoptada.</p>
+        <p>¡GRACIAS!</p>
         <br><br>
         <a href="index.jsp">Home</a>
     </body>
