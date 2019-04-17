@@ -36,11 +36,9 @@
             <input type="text" id="link" name="link"/>
             <br><br>
             
-            <input type="submit" id="myform" name="myform" value="Enviar"/>
+            <input type="submit" id="myform" name="myform" value="Crear"/>
             <br><br>
-            <input type="hidden" name="formid" value="1"/>
-            <br><br>
-            
+            <input type="hidden" id="formid" name="formid" value="1"/>
         </form>
     </body>
 </html>

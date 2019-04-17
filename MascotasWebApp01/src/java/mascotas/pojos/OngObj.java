@@ -1,8 +1,8 @@
 
-package programmer.pojos;
+package mascotas.pojos;
 
 public class OngObj {
-    //declarando variables de instancia
+     //declarando variables de instancia
     private int m_iId;
     private String m_strNombre;
     private String m_strContacto;
@@ -71,11 +71,5 @@ public class OngObj {
     private void setLink(String p_strLink) {
         m_strLink = p_strLink;
     }
-
-    @Override
-    public String toString() {
-        return "OngObj{" + "m_iId=" + m_iId + ", m_strNombre=" + m_strNombre + ", m_strContacto=" + m_strContacto + ", m_strDescripcion=" + m_strDescripcion + ", m_iNCuenta=" + m_iNCuenta + ", m_strLink=" + m_strLink + '}';
-    }
-
-    
+   
 }
