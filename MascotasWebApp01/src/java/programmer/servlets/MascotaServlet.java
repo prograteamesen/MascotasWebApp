@@ -1,20 +1,15 @@
 package programmer.servlets;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import programmer.logic.CategoriaLogic;
 import programmer.logic.MascotaLogic;
+import programmer.logic.OngLogic;
 import programmer.pojos.CategoriaObj;
 import programmer.pojos.MascotaObj;
 import programmer.pojos.MascotaViewObj;
@@ -49,7 +44,6 @@ public class MascotaServlet extends HttpServlet
              MascotaLogic CLogic = new MascotaLogic();
              int iRows = CLogic.insertMascotaRows(strNombre, iEdad, iIdCategoria,
                      strRaza, strTamaño, strDescripcion, iIdOng);
-                System.out.println("Insert mascota rows: " + iRows);
             
             request.getSession().setAttribute("rows", iRows);
             response.sendRedirect("mascotaNewResponse.jsp");
@@ -62,9 +56,9 @@ public class MascotaServlet extends HttpServlet
         {
             
             MascotaLogic CLogic = new MascotaLogic();
-            ArrayList<MascotaViewObj> CArray = CLogic.getAllMascotas();
+            ArrayList<MascotaViewObj> MArray = CLogic.getAllMascotas();
                 
-            request.getSession().setAttribute("mascotas", CArray);
+            request.getSession().setAttribute("mascotas", MArray);
             response.sendRedirect("mascotaForm.jsp");
             
         }
@@ -84,46 +78,75 @@ public class MascotaServlet extends HttpServlet
         }
         // </editor-fold>
         
-        // <editor-fold defaultstate="collapsed" desc="formid 4 - update person part 1">        
+        // <editor-fold defaultstate="collapsed" desc="formid 4 - update mascota part 1">        
         if(strFormId.equals("4"))
         {
-            /*
             String strId = request.getParameter("id");
+            int iId = Integer.parseInt(strId);
+
+            MascotaLogic MLogic = new MascotaLogic();
+            MascotaViewObj CMascota = MLogic.getMascotaViewById(iId);
+
+            MascotaLogic M2Logic = new MascotaLogic();
+            MascotaObj C2Mascota = M2Logic.getMascotaById(iId);
             
-            Connection con = createConnection();
-            String strSql = "SELECT * FROM crsglassdb.person "
-                    + "where id="+strId+";";
-            PersonQuery CQuery = new PersonQuery(strSql);
-            ArrayList<PersonObj> arreglo = executeQueryResult(CQuery, con);
+            CategoriaLogic CCategoriaLogic = new CategoriaLogic();
+            ArrayList<CategoriaObj> CCategoriaArray = 
+                    CCategoriaLogic.getAllCategoria();
             
-            request.getSession().setAttribute("arreglo", arreglo);
-            response.sendRedirect("personUpdateData.jsp");
-            */
+            OngLogic COngLogic = new OngLogic();
+            ArrayList<OngObj> COngArray = COngLogic.getAllOngs();
+                
+            request.getSession().setAttribute("categorias", CCategoriaArray);
+            request.getSession().setAttribute("ongs", COngArray);
+            request.getSession().setAttribute("mascota", CMascota);
+            request.getSession().setAttribute("mascota2", C2Mascota);
+            response.sendRedirect("mascotaUpdateForm.jsp");
         }
         // </editor-fold>
         
-        // <editor-fold defaultstate="collapsed" desc="formid 5 - update person part 2">        
+        // <editor-fold defaultstate="collapsed" desc="formid 5 - update mascota part 2">        
         if(strFormId.equals("5"))
         {
-            /*
             String strId = request.getParameter("id");
-            String strFirstName = request.getParameter("firstname");
-            String strLastName = request.getParameter("lastname");
-            String strAge = request.getParameter("age");
+            String strNombre = request.getParameter("nombre");
+            String strEdad = request.getParameter("edad");
+            String strIdCategoria = request.getParameter("categoria");
+            String strRaza = request.getParameter("raza");
+            String strTamaño = request.getParameter("tamaño");
+            String strDescripcion = request.getParameter("descripcion");
+            String strIdOng = request.getParameter("ong");
+
+            int iId = Integer.parseInt(strId);
+            int iEdad = Integer.parseInt(strEdad);
+            int iIdCategoria = Integer.parseInt(strIdCategoria);
+            int iIdOng = Integer.parseInt(strIdOng);
             
-            Connection con = createConnection();
-            String strSql = "UPDATE crsglassdb.person "
-                    + "SET firstname = '"+strFirstName+"',"
-                    + "lastname = '"+strLastName+"',"
-                    + "age = "+strAge+" "
-                    + "WHERE id = "+strId+";";
-            int iRows = executeNonQueryInt(strSql,con);
+            MascotaLogic MLogic = new MascotaLogic();
+            int iRows = MLogic.updateMascotaRows(iId, strNombre, 
+                    iEdad, iIdCategoria, strRaza, strTamaño, 
+                    strDescripcion, iIdOng);
             
-            request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("personUpdateResponse.jsp");
-            */
+            request.getSession().setAttribute("rows", new Integer(iRows) );
+            response.sendRedirect("mascotaUpdateResponse.jsp");
         }
-        // </editor-fold>        
+        // </editor-fold>       
+        
+        // <editor-fold defaultstate="collapsed" desc="formid 6 - Mascota New Form Dropdowns">
+        if(strFormId.equals("6"))
+        {
+            CategoriaLogic CCategoriaLogic = new CategoriaLogic();
+            ArrayList<CategoriaObj> CCategoriaArray = 
+                    CCategoriaLogic.getAllCategoria();
+            
+            OngLogic COngLogic = new OngLogic();
+            ArrayList<OngObj> COngArray = COngLogic.getAllOngs();
+                
+            request.getSession().setAttribute("categorias", CCategoriaArray);
+            request.getSession().setAttribute("ongs", COngArray);
+            response.sendRedirect("mascotaNew.jsp");  
+        }
+        // </editor-fold>
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -163,77 +186,5 @@ public class MascotaServlet extends HttpServlet
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
-    // <editor-fold defaultstate="collapsed" desc="Database Methods">
-    private Connection createConnection() 
-    {
-        String strDriver = "com.mysql.cj.jdbc.Driver";
-        String strUrl = "jdbc:mysql://localhost:3306/sakila"
-                + "?autoReconnect=true"
-                + "&useSSL=false"
-                + "&useUnicode=true"
-                + "&useJDBCCompliantTimezoneShift=true"
-                + "&useLegacyDatetimeCode=false"
-                + "&serverTimezone=UTC";
-        String strUser = "root";
-        String strPassword = "1234";
-        Connection con = null;
-        
-        try 
-        {
-            Class.forName(strDriver);
-            con = 
-                    DriverManager.getConnection(strUrl, strUser, strPassword);
-            
-        } 
-        catch (ClassNotFoundException | SQLException ex) 
-        {
-            Logger.getLogger(MascotaServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        return con;
-    }
-
-    private int executeNonQueryInt(String p_strSql, Connection p_CConnection) 
-    {
-        int iRows = 0;
-        try 
-        {
-            if(!p_CConnection.isClosed())
-            {
-                try (Statement st = p_CConnection.createStatement()) 
-                {
-                    iRows = st.executeUpdate(p_strSql);
-                    p_CConnection.close();
-                }
-            }
-        } 
-        catch (SQLException ex) 
-        {
-            Logger.getLogger(MascotaServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return iRows;
-    }
-
-    private ArrayList executeQueryResult(Query p_CQuery, 
-            Connection p_CConnection) 
-    {
-        ArrayList arreglo = null;
-        try 
-        {
-            if(!p_CConnection.isClosed())
-            {
-                Statement st = p_CConnection.createStatement();
-                ResultSet result = st.executeQuery(p_CQuery.getSql());
-                arreglo = p_CQuery.createArrayList(result);
-            }
-        } 
-        catch (SQLException ex) 
-        {
-            Logger.getLogger(MascotaServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return arreglo;
-    }
-    // </editor-fold>    
+    }// </editor-fold>  
 }

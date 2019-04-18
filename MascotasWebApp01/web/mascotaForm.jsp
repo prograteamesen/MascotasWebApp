@@ -11,14 +11,14 @@
         <title>Mascotas</title>
     </head>
     <%
-    ArrayList<MascotaViewObj> CArray = 
+    ArrayList<MascotaViewObj> MArray = 
         (ArrayList<MascotaViewObj>)request.getSession().getAttribute("mascotas");
-    Iterator<MascotaViewObj> iteArray = CArray.iterator();
+    Iterator<MascotaViewObj> iteArray = MArray.iterator();
     %>
     <body>
         <h1>Mascotas</h1>
         <br><br>
-        <a href="mascotaNew.jsp">Registrar mascota</a>
+        <a href="MascotaServlet?formid=6">Registrar mascota</a>
         <br><br>
         
         <table style="width:70%" border="1">
@@ -50,13 +50,13 @@
                     <td><%= CTemp.getDescripcion() %></td>
                     <td><%= CTemp.getOng() %></td>
                     <td>
-                        <a href="MascotaServlet?formid=4&id=<%= CTemp.getId() %>">
-                            update
+                        <a href="MascotaServlet?formid=4&id=<%= CTemp.getId()%>">
+                            Actualizar registro
                         </a>
                     </td>
                     <td>
-                        <a href="TripServlet?formid=3&id=<%= CTemp.getId() %>">
-                            delete
+                        <a href="MascotaServlet?formid=3&id=<%=CTemp.getId()%>">
+                            Borrar registro
                         </a>
                     </td>
                 </tr>

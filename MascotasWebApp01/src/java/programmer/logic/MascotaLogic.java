@@ -48,7 +48,7 @@ public class MascotaLogic extends Logic
         String strSql = "SELECT * FROM mascotasdb.mascota_view;";
         System.out.println(strSql);
         ResultSet CResult = database.executeQuery(strSql);
-        ArrayList<MascotaViewObj> CArray = null;
+        ArrayList<MascotaViewObj> MArray = null;
         
         if(CResult!=null)
         {
@@ -62,7 +62,7 @@ public class MascotaLogic extends Logic
             String strOng;
             
             MascotaViewObj CTemp;
-            CArray = new ArrayList<>();
+            MArray = new ArrayList<>();
             
             try 
             {
@@ -79,7 +79,7 @@ public class MascotaLogic extends Logic
                     
                     CTemp = new MascotaViewObj(iId, strNombre, iEdad, strCategoria,
                     strRaza, strTamaño, strDescripcion, strOng);
-                    CArray.add(CTemp);
+                    MArray.add(CTemp);
                 }
             } 
             catch (SQLException ex) 
@@ -88,7 +88,7 @@ public class MascotaLogic extends Logic
             }
         }
         
-        return CArray;
+        return MArray;
         
     }
 
@@ -127,14 +127,61 @@ public class MascotaLogic extends Logic
                     iId = CResult.getInt("id");
                     strNombre = CResult.getString("nombre");
                     iEdad = CResult.getInt("edad");
-                    iIdCategoria = CResult.getInt("categoria");
+                    iIdCategoria = CResult.getInt("idcategoria");
                     strRaza = CResult.getString("raza");
                     strTamaño = CResult.getString("tamaño");
                     strDescripcion = CResult.getString("descripcion");
-                    iIdOng = CResult.getInt("ong");
+                    iIdOng = CResult.getInt("idong");
                     
-                    CTemp = new MascotaObj(iId, strNombre, iEdad, iIdCategoria,
-                    strRaza, strTamaño, strDescripcion, iIdOng);
+                    CTemp = new MascotaObj(iId, strNombre, iEdad, 
+                            iIdCategoria, strRaza, strTamaño, strDescripcion, 
+                            iIdOng);
+                }
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(MascotaLogic.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return CTemp;
+    }
+    
+    public MascotaViewObj getMascotaViewById(int p_iId) 
+    {
+        DatabaseX database = getDatabase();
+        String strSql = "SELECT * FROM mascotasdb.mascota_view WHERE id = "+p_iId+";";
+        System.out.println(strSql);
+        ResultSet CResult = database.executeQuery(strSql);
+        MascotaViewObj CTemp = null;
+        
+        if(CResult!=null)
+        {
+            int iId;
+            String strNombre;
+            int iEdad;
+            String strIdCategoria;
+            String strRaza;
+            String strTamaño;
+            String strDescripcion;
+            String strIdOng;
+            
+            try 
+            {
+                while(CResult.next())
+                {
+                    iId = CResult.getInt("id");
+                    strNombre = CResult.getString("nombre");
+                    iEdad = CResult.getInt("edad");
+                    strIdCategoria = CResult.getString("categoria");
+                    strRaza = CResult.getString("raza");
+                    strTamaño = CResult.getString("tamaño");
+                    strDescripcion = CResult.getString("descripcion");
+                    strIdOng = CResult.getString("ong");
+                    
+                    CTemp = new MascotaViewObj(iId, strNombre, iEdad, 
+                            strIdCategoria, strRaza, strTamaño, strDescripcion, 
+                            strIdOng);
                 }
             } 
             catch (SQLException ex) 

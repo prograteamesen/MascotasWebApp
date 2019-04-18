@@ -7,18 +7,18 @@ public class OngObj
     private String m_strNombre;
     private String m_strContacto;
     private String m_strDescripcion;
-    private String m_strNCuenta;
+    private int m_iNCuenta;
     private String m_strLink;
     
     //Constructor
     public OngObj(int p_iId, String p_strNombre, String p_strContacto, 
-            String p_strDescripcion, String p_strNCuenta, String p_strLink) 
+            String p_strDescripcion, int p_iNCuenta, String p_strLink) 
     {
         setId(p_iId);
         setNombre(p_strNombre);
         setContacto(p_strContacto);
         setDescripcion(p_strDescripcion);
-        setNCuenta(p_strNCuenta);
+        setNCuenta(p_iNCuenta);
         setLink(p_strLink);
     }
     
@@ -64,14 +64,14 @@ public class OngObj
         m_strDescripcion = p_strDescripcion;
     }
 
-    public String getNCuenta() 
+    public int getNCuenta() 
     {
-        return m_strNCuenta;
+        return m_iNCuenta;
     }
 
-    private void setNCuenta(String p_strNCuenta) 
+    private void setNCuenta(int p_iNCuenta) 
     {
-        m_strNCuenta = p_strNCuenta;
+        m_iNCuenta = p_iNCuenta;
     }
 
     public String getLink() 

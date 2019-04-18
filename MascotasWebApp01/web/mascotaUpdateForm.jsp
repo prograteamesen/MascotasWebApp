@@ -1,16 +1,24 @@
+<%@page import="programmer.pojos.MascotaViewObj"%>
 <%@page import="programmer.pojos.OngObj"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="programmer.pojos.CategoriaObj"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="programmer.pojos.MascotaObj"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nueva mascota</title>
+        <title>Actualizar registros</title>
     </head>
     <%
+        MascotaViewObj CMascota = 
+                (MascotaViewObj)request.getSession().getAttribute("mascota");
+        
+        MascotaObj CMascota1 = 
+                (MascotaObj)request.getSession().getAttribute("mascota2");
+        
         ArrayList<CategoriaObj> CCategoriaArray = 
                 (ArrayList<CategoriaObj>)request.getSession().getAttribute
         ("categorias");
@@ -20,20 +28,26 @@
                 (ArrayList<OngObj>)request.getSession().
                         getAttribute("ongs");
         Iterator<OngObj> iteOngArray = COngArray.iterator();
-    %>    
+    %>
     <body>
-        <h1>Registrar mascota</h1>
+        <h1>Actualizar informacion de mascotas</h1>
         <br><br>
-        <form name="mascotaForm" action="MascotaServlet" method="get">
+        
+        <form id="myform" name="myform" action="MascotaServlet" method="get">
+            <label>ID:</label><br>
+            <input type="number" id="nonId" name="nonId" value="<%=CMascota.getId()%>" 
+                   disabled/>
+            <br><br>
+            
             <label>Nombre:</label><br>
-            <input type="text" name="nombre" id="nombre"/>
+            <input type="text" id="nombre" name="nombre" value="<%=CMascota.getNombre()%>" />
             <br><br>
             
             <label>Edad:</label><br>
-            <input type="number" name="edad" id="edad"/>
+            <input type="number" id="edad" name="edad" value="<%=CMascota.getEdad()%>" />
             <br><br>
             
-            <label>Categoría:</label><br>
+            <label>Categoria:</label><br>
             <select name="categoria" id="categoria">
                 <%
                     if(iteCategoriaArray!=null)
@@ -43,12 +57,13 @@
                         {
                             CCategoriaTemp = iteCategoriaArray.next();
                 %>
-                <option id="categoria<%=CCategoriaTemp.getId()%>" 
+                <option id="cat<%=CCategoriaTemp.getId()%>" 
                     name="categoria<%=CCategoriaTemp.getId()%>" 
                     value="<%=CCategoriaTemp.getId()%>">
                     <%=CCategoriaTemp.getCategoria()%>
                 </option>
                 <%
+                       
                         }
                     }
                 %>
@@ -56,19 +71,25 @@
             <br><br>
             
             <label>Raza:</label><br>
-            <input type="text" name="raza" id="raza"/>
+            <input type="text" id="raza" name="raza" value="<%=CMascota.getRaza()%>" />
             <br><br>
             
             <label>Tamaño:</label><br>
-            <input type="text" name="tamaño" id="tamaño"/>
+            <input type="text" id="tamaño" name="tamaño" value="<%=CMascota.getTamaño()%>" />
             <br><br>
             
             <label>Descripción:</label><br>
-            <input type="text" name="descripcion" id="descripcion"/>
+            <input type="text" id="descripcion" name="descripcion" value="<%=CMascota.getDescripcion()%>" />
             <br><br>
             
             <label>ONG:</label><br>
             <select name="ong" id="ong">
+                <!--
+                <option id="ong<%=CMascota1.getIdOng()%>" 
+                        value="<%=CMascota1.getIdOng()%>" selected>
+                    <%=CMascota.getOng()%> 
+                </option> 
+                -->
                 <%
                     if(iteOngArray!=null)
                     {
@@ -86,13 +107,15 @@
                         }
                     }
                 %>
+                <!--<script>
+                    myform.select.value = "<%=CMascota1.getIdOng()%>";
+                </script>-->
             </select> 
             <br><br>
             
-            <input type="submit" name="mysubmit" value="Registrar"/>
-            
-            <input type="hidden" name="formid" value="1"/>
-            <br><br>
-        </form>   
+            <input type="submit" id="mysubmit" name="mysubmit" value="Actualizar"/>
+            <input type="hidden" id="formid" name="formid" value="5" />
+            <input type="hidden" id="id" name="id" value="<%=CMascota.getId()%>" />
+        </form>  
     </body>
 </html>

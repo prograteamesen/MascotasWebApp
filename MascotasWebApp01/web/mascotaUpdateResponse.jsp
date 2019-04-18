@@ -1,13 +1,14 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Mascotas</title>
+        <title>Actualizar registro</title>
     </head>
     <body>
-        <h1>Mascotas</h1>
-        <br><br>
-        <a href="MascotaServlet?formid=2">Mascotas disponibles</a>
+        <p>${rows} registro se ha actualizado!</p>
+        
+        <a href="MascotaServlet?formid=2">Regresar</a>
     </body>
 </html>
