@@ -1,5 +1,6 @@
 package programmer.logic;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -190,5 +191,34 @@ public class UsuarioLogic extends Logic
            return false;
         }     
     // </editor-fold>
+        
+    // <editor-fold defaultstate="collapsed" desc="Log in Usuario">
+     
+        public int Level(String correo){
+                    PreparedStatement ps = null;
+                    ResultSet rs = null;
+                    int iLevel = 0;
+
+                    String strSql = "SELECT nivel FROM mascotasdb.usuario WHERE correo=?;";
+                    DatabaseX database = getDatabase();
+                
+                try {
+
+                    ps = database.getConnection().prepareStatement(strSql);
+                    ps.setString(1, correo);
+                    rs = ps.executeQuery();
+
+                    while(rs.next()){
+                        iLevel = rs.getInt(1);
+                    }
+               }
+                catch (SQLException ex) {
+                  Logger.getLogger(UsuarioLogic.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        return iLevel;   
+            
+        }
+        
+    // </editor-fold>    
 }
 

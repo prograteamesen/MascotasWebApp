@@ -15,7 +15,6 @@
         <%
             HttpSession objSession = request.getSession();
             String strCorreo = (String)objSession.getAttribute("correo");
-            String strContrasena = (String)objSession.getAttribute("contrasena");
 
             if(request.getParameter("cerrar")!=null){
                 objSession.invalidate();
