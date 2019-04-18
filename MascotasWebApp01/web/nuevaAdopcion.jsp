@@ -28,7 +28,19 @@
             <input type="submit" id="mysubmit" name="mysubmit" value="¡Adoptar!"/>
             <input type="hidden" id="formid" name="formid" value="1"/>
         </form>
-        
+        <%--
+            <form id="myform" name="myform" action="AdopcionServlet" method="get">
+            <label>Hola, </label>
+            <input type="number" id="mascota" name="mascota"/>
+            <label>estás a punto de adoptar a:</label>
+            <input type="number" id="dueno" name="dueno"/>
+            <br><br>
+            <label> ¿Estás de acuerdo? </label>
+            <br><br>
+            <input type="submit" id="mysubmit" name="mysubmit" value="¡Adoptar!"/>
+            <input type="hidden" id="formid" name="formid" value="1"/>
+        </form>
+        --%>
         
     </body>
 </html>

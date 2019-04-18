@@ -4,6 +4,9 @@
     Author     : Ernesto Norio
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="mascotas.pojos.AdopUserPetObj"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,6 +14,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Formulario de Adopcion</title>
     </head>
+    <%
+        ArrayList<AdopUserPetObj> CArray = 
+                (ArrayList<AdopUserPetObj>)request.getSession().getAttribute("adopciones");
+        Iterator<AdopUserPetObj> iteArray = CArray.iterator();
+    %>
     <body>
         <h1>Adopciones</h1>
         <br>
@@ -20,10 +28,35 @@
         <table style="width:70%" border="1" align="center" >
             <tr>
               <th>ID</th>
-              <th>ID Mascota</th>
-              <th>ID Usuario</th>
+              <th>Mascota</th>
+              <th>Dueño</th>
               <th>Actualizar Información</th>
               <th>Eliminar Información</th>
             </tr>
+                    <%
+            if(iteArray!=null)
+            {
+                AdopUserPetObj CTemp;
+                while(iteArray.hasNext())
+                {
+                    CTemp = iteArray.next();
+        %>
+                <tr>
+                    <td><%= CTemp.getId() %></td>
+                    <td><%= CTemp.getMascota()%></td>
+                    <td><%= CTemp.getNombre()%></td>
+                    <td>
+                        Update
+                    </td>
+                    <td>
+                        Delete
+                    </td>
+                </tr>
+        <%
+                }
+            }
+        %>
+        
+        </table>
     </body>
 </html>

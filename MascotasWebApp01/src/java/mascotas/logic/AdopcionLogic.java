@@ -7,35 +7,40 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import mascotas.database.DatabaseX;
+import mascotas.pojos.AdopUserPetObj;
 import mascotas.pojos.adopcionObj;
 
 public class AdopcionLogic extends Logic
 {
-    public ArrayList<adopcionObj> getAllAdoptions()
+    public ArrayList<AdopUserPetObj> getAllAdoptionsI()
     {
         //Esta la vas a modificar, para que tome los nombnres tambien. Un innerJoin en una View.
         DatabaseX CDatabase = getDatabase();
-        String strSql = "SELECT * FROM mascotasdb.adopcion;";
+        String strSql = "SELECT * FROM mascotasdb.adopuserpet;";
         ResultSet CResult = CDatabase.executeQuery(strSql);
-        ArrayList<adopcionObj> CArray = null;
+        ArrayList<AdopUserPetObj> CArray = null;
         
         if(CResult!=null)
         {
             try 
             {
                 int iId;
-                int iMascotaId;
-                int iUsuarioId;
-                adopcionObj CTemp;
+                int iIdUser;
+                int iIdPet;
+                String Mascota;
+                String Usuario;
+                AdopUserPetObj CTemp;
                 CArray = new ArrayList<>();
                 
                 while(CResult.next())
                 {
                     iId = CResult.getInt("id");
-                    iMascotaId = CResult.getInt("idmascota");
-                    iUsuarioId = CResult.getInt("idusuario");
+                    iIdUser = CResult.getInt("idUser");
+                    iIdPet = CResult.getInt("idPet");
+                    Mascota = CResult.getString("nombre");
+                    Usuario = CResult.getString("mascota");
                     
-                    CTemp = new adopcionObj(iId, iMascotaId, iUsuarioId);
+                    CTemp = new AdopUserPetObj(iId, iIdUser, Usuario, iIdPet, Mascota);
                     
                     //agregando al array un instancia de countryobj
                     CArray.add(CTemp);
@@ -49,7 +54,8 @@ public class AdopcionLogic extends Logic
         
         return CArray;
     }
-        public int insertAdopcionRows(int p_iDueño, int p_iMascota)
+    
+    public int insertAdopcionRows(int p_iDueño, int p_iMascota)
     {
         //INSERT INTO travelsys.client(id,name,age) VALUES(0,'pepito',24);
         DatabaseX database = getDatabase();

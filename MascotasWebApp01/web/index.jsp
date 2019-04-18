@@ -13,7 +13,7 @@
     <body>
         <h1>Mascotas Chidas</h1>
         <br>
-        <a href="adopcionForm.jsp">Formulario de adopcion</a>
+        <a href="AdopcionServlet?formid=2">Formulario de adopcion</a>
         
     </body>
 </html>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mascotas.logic.AdopcionLogic;
+import mascotas.pojos.AdopUserPetObj;
 import mascotas.pojos.adopcionObj;
 
 @WebServlet(name = "AdopcionServlet", urlPatterns = {"/AdopcionServlet"})
@@ -31,6 +32,8 @@ public class AdopcionServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) 
         {
             String strFormId = request.getParameter("formid");
+            
+            // <editor-fold defaultstate="collapsed" desc="Formid = 1 : Nueva Adopcion">
             if(strFormId.equals("1"))
             {
                 //get parameters
@@ -48,19 +51,20 @@ public class AdopcionServlet extends HttpServlet {
                 request.getSession().setAttribute("rows", iRows );
                 response.sendRedirect("genericMessage.jsp");
             }
+            // </editor-fold>]
             
+            // <editor-fold defaultstate="collapsed" desc="Formid = 1 : Registros de Adopcion">
             if(strFormId.equals("2"))
             {
                 //access logic
                 AdopcionLogic CLogic = new AdopcionLogic();
-                ArrayList<adopcionObj> CArray = CLogic.getAllAdoptions();
-                
-                //envair un correo
-                
+                ArrayList<AdopUserPetObj> CArray = CLogic.getAllAdoptionsI();
+                                
                 //send to frontend
-                request.getSession().setAttribute("clients", CArray);
-                response.sendRedirect("clientForm.jsp");
+                request.getSession().setAttribute("adopciones", CArray);
+                response.sendRedirect("adopcionForm.jsp");
             }
+            // </editor-fold>]
         }
     }
 
