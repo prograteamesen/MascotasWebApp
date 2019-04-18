@@ -86,19 +86,10 @@ public class MascotaServlet extends HttpServlet
 
             MascotaLogic MLogic = new MascotaLogic();
             MascotaViewObj CMascota = MLogic.getMascotaViewById(iId);
-
+            
             MascotaLogic M2Logic = new MascotaLogic();
             MascotaObj C2Mascota = M2Logic.getMascotaById(iId);
-            
-            CategoriaLogic CCategoriaLogic = new CategoriaLogic();
-            ArrayList<CategoriaObj> CCategoriaArray = 
-                    CCategoriaLogic.getAllCategoria();
-            
-            OngLogic COngLogic = new OngLogic();
-            ArrayList<OngObj> COngArray = COngLogic.getAllOngs();
-                
-            request.getSession().setAttribute("categorias", CCategoriaArray);
-            request.getSession().setAttribute("ongs", COngArray);
+
             request.getSession().setAttribute("mascota", CMascota);
             request.getSession().setAttribute("mascota2", C2Mascota);
             response.sendRedirect("mascotaUpdateForm.jsp");

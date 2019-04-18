@@ -18,16 +18,6 @@
         
         MascotaObj CMascota1 = 
                 (MascotaObj)request.getSession().getAttribute("mascota2");
-        
-        ArrayList<CategoriaObj> CCategoriaArray = 
-                (ArrayList<CategoriaObj>)request.getSession().getAttribute
-        ("categorias");
-        Iterator<CategoriaObj> iteCategoriaArray = CCategoriaArray.iterator();
-        
-        ArrayList<OngObj> COngArray = 
-                (ArrayList<OngObj>)request.getSession().
-                        getAttribute("ongs");
-        Iterator<OngObj> iteOngArray = COngArray.iterator();
     %>
     <body>
         <h1>Actualizar informacion de mascotas</h1>
@@ -49,25 +39,11 @@
             
             <label>Categoria:</label><br>
             <select name="categoria" id="categoria">
-                <%
-                    if(iteCategoriaArray!=null)
-                    {
-                        CategoriaObj CCategoriaTemp;
-                        while(iteCategoriaArray.hasNext())
-                        {
-                            CCategoriaTemp = iteCategoriaArray.next();
-                %>
-                <option id="cat<%=CCategoriaTemp.getId()%>" 
-                    name="categoria<%=CCategoriaTemp.getId()%>" 
-                    value="<%=CCategoriaTemp.getId()%>">
-                    <%=CCategoriaTemp.getCategoria()%>
-                </option>
-                <%
-                       
-                        }
-                    }
-                %>
-            </select> 
+                <option id="cat<%=CMascota1.getIdCategoria()%>" 
+                        value="<%=CMascota1.getIdCategoria()%>" selected>
+                    <%=CMascota.getCategoria()%> 
+                </option> 
+            </select>
             <br><br>
             
             <label>Raza:</label><br>
@@ -84,33 +60,11 @@
             
             <label>ONG:</label><br>
             <select name="ong" id="ong">
-                <!--
-                <option id="ong<%=CMascota1.getIdOng()%>" 
+            <option id="ong<%=CMascota1.getIdOng()%>" 
                         value="<%=CMascota1.getIdOng()%>" selected>
                     <%=CMascota.getOng()%> 
-                </option> 
-                -->
-                <%
-                    if(iteOngArray!=null)
-                    {
-                        OngObj COngTemp;
-                        while(iteOngArray.hasNext())
-                        {
-                            COngTemp = iteOngArray.next();
-                %>
-                <option id="ong<%=COngTemp.getId()%>" 
-                    name="ong<%=COngTemp.getId()%>" 
-                    value="<%=COngTemp.getId()%>">
-                    <%=COngTemp.getNombre()%>
-                </option>
-                <%
-                        }
-                    }
-                %>
-                <!--<script>
-                    myform.select.value = "<%=CMascota1.getIdOng()%>";
-                </script>-->
-            </select> 
+            </option> 
+            </select>
             <br><br>
             
             <input type="submit" id="mysubmit" name="mysubmit" value="Actualizar"/>
