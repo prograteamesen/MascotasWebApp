@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package programmer.servlets;
+package mascotas.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,13 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import programmer.logic.CategoriaLogic;
-import programmer.objects.CategoriaObj;
+import mascotas.logic.CategoriaLogic;
+import mascotas.pojos.CategoriaObj;
 
-/**
- *
- * @author user
- */
 @WebServlet(name = "CategoriaServlet", urlPatterns = {"/CategoriaServlet"})
 public class CategoriaServlet extends HttpServlet {
 

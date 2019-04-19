@@ -110,7 +110,7 @@
                         </header>
                         <p>Morbi in sem quis dui placerat ornare. Pellentesquenisi<br />euismod in, pharetra a, ultricies in diam sed arcu. Cras<br />consequat  egestas augue vulputate.</p>
                         <footer>
-                            <a href="#" class="button">Learn More</a>
+                            <a href="CategoriaServlet?formid=2" class="button">Categoria</a>
                         </footer>
                     </article>
                     <article>

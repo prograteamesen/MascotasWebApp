@@ -1,12 +1,12 @@
-package programmer.logic;
+package mascotas.logic;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import programmer.database.DatabaseX;
-import programmer.objects.CategoriaObj;
+import mascotas.database.DatabaseX;
+import mascotas.pojos.CategoriaObj;
 
 public class CategoriaLogic extends Logic
 {

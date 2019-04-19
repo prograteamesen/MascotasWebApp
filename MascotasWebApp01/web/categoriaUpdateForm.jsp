@@ -1,10 +1,4 @@
-<%-- 
-    Document   : mealUpdateForm
-    Created on : Apr 6, 2019, 12:09:37 AM
-    Author     : balbi
---%>
-
-<%@page import="programmer.objects.CategoriaObj"%>
+<%@page import="mascotas.pojos.CategoriaObj"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

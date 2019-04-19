@@ -1,9 +1,3 @@
-<%-- 
-    Document   : NewCategoria
-    Created on : 03-24-2019, 12:03:34 PM
-    Author     : user
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
