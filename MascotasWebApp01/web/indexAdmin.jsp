@@ -1,5 +1,5 @@
 
-<%@page import="programmer.logic.UsuarioLogic"%>
+<%@page import="mascotas.logic.UsuarioLogic"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

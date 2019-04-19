@@ -1,4 +1,4 @@
-package programmer.Database;
+package mascotas.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

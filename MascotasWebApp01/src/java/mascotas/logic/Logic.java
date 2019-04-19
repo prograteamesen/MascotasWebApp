@@ -1,6 +1,6 @@
-package programmer.logic;
+package mascotas.logic;
 
-import programmer.Database.DatabaseX;
+import mascotas.database.DatabaseX;
 
 public class Logic 
 {

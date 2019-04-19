@@ -1,7 +1,7 @@
 
-<%@page import="programmer.logic.UsuarioLogic"%>
+<%@page import="mascotas.logic.UsuarioLogic"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="programmer.pojos.UsuarioObj"%>
+<%@page import="mascotas.pojos.UsuarioObj"%>
 <%@page import="java.util.ArrayList"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

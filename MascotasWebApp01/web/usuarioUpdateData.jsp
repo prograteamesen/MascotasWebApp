@@ -1,4 +1,4 @@
-<%@page import="programmer.pojos.UsuarioObj"%>
+<%@page import="mascotas.pojos.UsuarioObj"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
