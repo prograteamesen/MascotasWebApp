@@ -192,7 +192,7 @@ public class UsuarioLogic extends Logic
         }     
     // </editor-fold>
         
-    // <editor-fold defaultstate="collapsed" desc="Log in Usuario">
+    // <editor-fold defaultstate="collapsed" desc="Verification Usuario">
      
         public int Level(String correo){
                     PreparedStatement ps = null;
@@ -219,6 +219,53 @@ public class UsuarioLogic extends Logic
             
         }
         
+    // </editor-fold>
+        
+    // <editor-fold defaultstate="collapsed" desc="Get Usuario By Correo">
+    public UsuarioObj getUsuarioByCorreo(String p_strCorreo)
+    {
+        DatabaseX database = getDatabase();
+        String strSql = "select *from mascotasdb.usuario where correo='"+p_strCorreo+"';";
+        
+        ResultSet CResult = database.executeQuery(strSql);
+        UsuarioObj CTemp = null;
+        
+        if(CResult!=null)
+        {
+          int iId;
+          String strNombre;
+          String strApellido;
+          String strFechadeNacimiento;
+          String strGenero;
+          String strCorreo;
+          String strContrasena;
+          int iTelefono;
+          int iNivel;
+          
+          try
+          {
+              while(CResult.next())
+              {
+                  iId = CResult.getInt("id");
+                  strNombre = CResult.getString("nombre");
+                  strApellido = CResult.getString("apellido");
+                  strFechadeNacimiento = CResult.getString("fechanacimiento");
+                  strGenero = CResult.getString("genero");
+                  strCorreo = CResult.getString("correo");
+                  strContrasena = CResult.getString("contraseña");
+                  iTelefono = CResult.getInt("telefono");
+                  iNivel = CResult.getInt("nivel");
+                  
+                  CTemp = new UsuarioObj(iId, strNombre, strApellido, strFechadeNacimiento, strGenero, strCorreo,strContrasena, iTelefono, iNivel);
+              }
+          }
+              catch (SQLException ex) 
+            {
+                Logger.getLogger(UsuarioLogic.class.getName()).log(Level.SEVERE, null, ex);
+            }   
+          }
+          return CTemp;       
+    }
     // </editor-fold>    
 }
 

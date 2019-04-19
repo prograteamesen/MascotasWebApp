@@ -11,6 +11,6 @@
         <br><br>
         <p>${rows} fila ha sido afectada.</p>
         <br><br>
-        <a href="UsuarioServlet?formid=2">Regresar</a>
+        <a href="index.jsp">Regresar</a>
     </body>
 </html>

@@ -9,34 +9,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <%
-        HttpSession objSession = request.getSession(false);
-        String strCorreo = (String)objSession.getAttribute("correo");
+         HttpSession objSession = request.getSession(false);
+         String strCorreo = (String)objSession.getAttribute("correo");
         
         UsuarioLogic Ulogic = new UsuarioLogic();
         int iLevel = Ulogic.Level(strCorreo);
         String strNombre;
-
+        
         //Verificar si es administrador
-        if(iLevel == 1){
-                response.sendRedirect("indexAdmin.jsp");
+        if(iLevel == 2){
+                response.sendRedirect("index.jsp");
             }
         
         //Verificar si hay una sesion iniciada
         if(objSession.getAttribute("correo")!= null){
-            strCorreo = objSession.getAttribute("correo").toString(); 
+            strCorreo = objSession.getAttribute("correo").toString();
             strNombre = Ulogic.getUsuarioByCorreo(strCorreo).getNombre();
     %>
     <header id="header">
             <div class="inner" align="right">
                 <nav id="nav">
-                    <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strNombre+"</a>");%><br>
+                    <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strCorreo+"</a>");%><br>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>    
             </div>
     </header>
 <%
     }else{
-        strNombre = "to Woof!";
+        strCorreo = "to Woof!";
 %>      
         <header id="header">
             <div class="inner" align="right">
@@ -67,7 +67,7 @@
         <section id="banner">
             <div class="inner">
                 <header>
-                    <h1>Welcome <%out.println(strNombre);%></h1>
+                    <h1>Welcome <%out.println(strCorreo);%></h1>
                 </header>
 
                 <div class="flex ">
@@ -89,11 +89,11 @@
                         <h3>ONG</h3>
                         <p>Nulla vitae mauris non felis</p>
                     </div>
-                    
+
                 </div>
                 
                 <footer>
-                    <a href="#" class="button">Get Started</a>
+                    <a href="UsuarioServlet?formid=2" class="button">Usuarios</a>
                 </footer>
             </div>
         </section>
