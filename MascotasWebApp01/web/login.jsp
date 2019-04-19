@@ -46,8 +46,7 @@
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
             </div>
         </header>
-
-        
+      
         <head>
             <br><br>
             <h2 align="center"><strong>Log in</strong></h2>

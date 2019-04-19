@@ -7,19 +7,16 @@
         <title>Nuevo Usuario</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="Scripts/loginvalidate.js" type="text/javascript"></script>
         <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <script src="Scripts/loginvalidate.js" type="text/javascript"></script>
+
+
     </head>
     
     <%
          HttpSession objSession = request.getSession(false);
          String strCorreo = (String)objSession.getAttribute("correo");
-        
-        UsuarioLogic Ulogic = new UsuarioLogic();
-        int iLevel = Ulogic.Level(strCorreo);
         
         //Verificar si hay una sesion iniciada
         if(objSession.getAttribute("correo")!= null){
@@ -37,6 +34,7 @@
 %>
         <header id="header">
             <div class="inner" align="right">
+                <a href="index.jsp" class="logo"><strong>Woof!</strong></a>
                 <nav id="nav">
                     <a href="login.jsp" class="button2">Log in </a>
                     <a href="usuarioNew.jsp" class="button2">Registrarse </a> <br>
@@ -50,33 +48,36 @@
                 response.sendRedirect("index.jsp");
     } 
 %>
-    <body>
+    <body class="subpage">
         <head>
             <br><br>
             <h2 align="center"><strong>Nuevo Usuario</strong></h2>
             <br><br>
         </head> 
      
-        <form name="usuarioNewForm" action="UsuarioServlet" method="post">
+        <form id="regForm" name="usuarioNewForm" action="UsuarioServlet" method="post">
             
-            <div  align="center">
+            <div  align="center" class="row uniform">
                 <div class="6u 12u$(xsmall)">
-                        <input type="text" id="nombre" name="nombre" autocomplete="off" placeholder="Nombre"/>
-                        <br><br>
-                        <input type="text" id="apellido" name="apellido" autocomplete="off" placeholder="Apellido"/>
-                        <br><br>
-                        <input type="text" id="fechanacimiento" name="fechanacimiento" autocomplete="off" placeholder="Fecha de Nacimiento" />
-                        <br><br>
-                        <input type="text" id="genero" name="genero" autocomplete="off" placeholder="Género" />
-                        <br><br>
-                        <input type="email" id="correo" name="correo" autocomplete="off" placeholder="Correo"/>
-                        <br><br>
-                        <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña"/>
-                        <br><br>
-                        <input type="tel" id="telefono" name="telefono" autocomplete="off" placeholder="Teléfono(Opcinal)" />
-                        <br><br>
+                    <p><input type="text" id="nombre" name="nombre" autocomplete="off" placeholder="Nombre" oninput="this.className = ''"/></p>
+                    <br><br>
+                    <input type="text" id="apellido" name="apellido" autocomplete="off" placeholder="Apellido" oninput="this.className = ''"/>
+                    <br><br>
+                    <input type="text" id="fechanacimiento" name="fechanacimiento" autocomplete="off" placeholder="Fecha de Nacimiento" oninput="this.className = ''"/>
+                    <br><br>
+                    <input type="text" id="genero" name="genero" autocomplete="off" placeholder="Género" oninput="this.className = ''"/>
+                    <br><br>
                 </div>
                 
+                <div class="6u$ 12u$(xsmall)">
+                    <input type="email" id="correo" name="correo" autocomplete="off" placeholder="Correo" oninput="this.className = ''"/>
+                    <br><br>
+                    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" oninput="this.className = ''"/>
+                    <br><br>
+                    <input type="tel" id="telefono" name="telefono" autocomplete="off" placeholder="Teléfono(Opcinal)" oninput="this.className = ''"/>
+                    <br><br>
+                </div>
+
                 <div class="12u$">
                     <ul class="actions">
                         <input type="submit" id="myform" name="myform" value="Registrarse" class="button"/>
@@ -84,14 +85,17 @@
                         <input type="hidden" name="formid" value="1"/>
                     </ul>
                 </div>
-            </div>
 
-            
+                <div style="text-align:center;margin-top:40px;">
+                    <span class="step"></span>
+                    <span class="step"></span>
+                </div>
+            </div>       
         </form>
      
     </body>
     
-    <footer id="footer">  
+    <footer id="footer2">  
         <div class="copyright">
             <a href="index.jsp" class="i2"><i class="fas fa-home"></i></a> <br>
             &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
