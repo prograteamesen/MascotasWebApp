@@ -1,9 +1,7 @@
-<%@page import="programmer.pojos.MascotaViewObj"%>
-<%@page import="programmer.pojos.OngObj"%>
+<%@page import="mascotas.pojos.MascotaObj"%>
+<%@page import="mascotas.pojos.MascotaViewObj"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="programmer.pojos.CategoriaObj"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="programmer.pojos.MascotaObj"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
