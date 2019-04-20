@@ -138,6 +138,35 @@ public class MascotaServlet extends HttpServlet
             response.sendRedirect("mascotaNew.jsp");  
         }
         // </editor-fold>
+        
+        // <editor-fold defaultstate="collapsed" desc="formid 7 - Mascota Form Table">
+        if(strFormId.equals("7"))
+        {
+            
+            MascotaLogic CLogic = new MascotaLogic();
+            ArrayList<MascotaViewObj> MArray = CLogic.getAllMascotas();
+                
+            request.getSession().setAttribute("mascotas", MArray);
+            response.sendRedirect("mascotaFormUser1.jsp");
+            
+        }
+        // </editor-fold>
+        
+        // <editor-fold defaultstate="collapsed" desc="formid 8 - Mascota a Adopcion">
+        if(strFormId.equals("8"))
+        {
+            String strId = request.getParameter("id");
+            int iId = Integer.parseInt(strId);
+            
+            MascotaLogic M2Logic = new MascotaLogic();
+            MascotaViewObj Mascota = M2Logic.getMascotaViewById(iId);
+            
+            request.getSession().setAttribute("idPet", strId);
+            request.getSession().setAttribute("SMascota", Mascota);
+            response.sendRedirect("AdopcionNew.jsp");
+
+        }
+        // </editor-fold>
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

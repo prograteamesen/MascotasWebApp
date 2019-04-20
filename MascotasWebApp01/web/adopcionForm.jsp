@@ -22,7 +22,7 @@
     <body>
         <h1>Adopciones</h1>
         <br>
-        <a href="nuevaAdopcion.jsp">Nueva Adopción</a>
+        <a href="MascotaServlet?formid=2">Nueva Adopción</a>
         <br>
         
         <table style="width:70%" border="1" align="center" >
@@ -30,7 +30,6 @@
               <th>ID</th>
               <th>Mascota</th>
               <th>Dueño</th>
-              <th>Actualizar Información</th>
               <th>Eliminar Información</th>
             </tr>
                     <%
@@ -46,10 +45,9 @@
                     <td><%= CTemp.getMascota()%></td>
                     <td><%= CTemp.getNombre()%></td>
                     <td>
-                        Update
-                    </td>
-                    <td>
-                        Delete
+                        <a href="AdopcionServlet?formid=3&id=<%=CTemp.getId()%>">
+                            Borrar registro
+                        </a>
                     </td>
                 </tr>
         <%

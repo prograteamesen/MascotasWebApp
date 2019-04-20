@@ -9,6 +9,6 @@
     <body>
         <p>${rows} registro se ha borrado!</p>
         
-        <a href="AdopcionServlet?formid=2">Regresar</a>
+        <a href="MascotaServlet?formid=2">Regresar</a>
     </body>
 </html>

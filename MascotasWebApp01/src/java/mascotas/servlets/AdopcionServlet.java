@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mascotas.logic.AdopcionLogic;
 import mascotas.pojos.AdopUserPetObj;
-import mascotas.pojos.adopcionObj;
 
 @WebServlet(name = "AdopcionServlet", urlPatterns = {"/AdopcionServlet"})
 public class AdopcionServlet extends HttpServlet {
@@ -53,7 +52,7 @@ public class AdopcionServlet extends HttpServlet {
             }
             // </editor-fold>]
             
-            // <editor-fold defaultstate="collapsed" desc="Formid = 1 : Registros de Adopcion">
+            // <editor-fold defaultstate="collapsed" desc="Formid = 2 : Registros de Adopcion">
             if(strFormId.equals("2"))
             {
                 //access logic
@@ -63,6 +62,20 @@ public class AdopcionServlet extends HttpServlet {
                 //send to frontend
                 request.getSession().setAttribute("adopciones", CArray);
                 response.sendRedirect("adopcionForm.jsp");
+            }
+            // </editor-fold>]
+            
+            // <editor-fold defaultstate="collapsed" desc="Formid = 3 : Eliminar un Registro">
+            if(strFormId.equals("3"))
+            {
+            String strId = request.getParameter("id");
+            int iId = Integer.parseInt(strId);
+                
+                AdopcionLogic CLogic = new AdopcionLogic();
+                int iRows = CLogic.deleteAdopcionRows(iId);
+                
+                request.getSession().setAttribute("rows", iRows);
+                response.sendRedirect("adopcionDeleteResponse.jsp");
             }
             // </editor-fold>]
         }

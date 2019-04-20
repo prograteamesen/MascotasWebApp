@@ -176,7 +176,7 @@ public class MascotaLogic extends Logic
                     strIdCategoria = CResult.getString("categoria");
                     strRaza = CResult.getString("raza");
                     strTamaño = CResult.getString("tamaño");
-                    strDescripcion = CResult.getString("descripcion");
+                strDescripcion = CResult.getString("descripcion");
                     strIdOng = CResult.getString("ong");
                     
                     CTemp = new MascotaViewObj(iId, strNombre, iEdad, 

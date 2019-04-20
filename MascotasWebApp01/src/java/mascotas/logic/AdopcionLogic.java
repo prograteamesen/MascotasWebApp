@@ -65,7 +65,14 @@ public class AdopcionLogic extends Logic
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;
     }
-
+    public int deleteAdopcionRows(int p_iId) 
+    {
+        DatabaseX database = getDatabase();
+        String strSql = "DELETE FROM mascotasdb.adopcion WHERE id = "+p_iId+";";
+        System.out.println(strSql);
+        int iRows = database.executeNonQueryRows(strSql);
+        return iRows;
+    }
     /*
     public ArrayList<MealObj> getAllPets()
     {
