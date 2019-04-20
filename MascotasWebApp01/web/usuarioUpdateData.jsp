@@ -35,7 +35,7 @@
             <input type="text" name="correo" value = "<%= CUsuario.getCorreo() %>"/>
             <br><br>
             Contraseña: <br>
-            <input type="text" name="contrasena" value = "<%= CUsuario.getContrasena() %>"/>
+            <input type="password" name="contrasena" value = "<%= CUsuario.getContrasena() %>"/>
             <br><br>
             Teléfono: <br>
             <input type="number" name="telefono" value = "<%= CUsuario.getTelefono() %>"/>

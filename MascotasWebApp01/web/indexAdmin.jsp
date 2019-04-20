@@ -17,9 +17,11 @@
         String strNombre;
         
         //Verificar si es administrador
-        if(iLevel == 2){
-                response.sendRedirect("index.jsp");
-            }
+        if(iLevel == 1){
+                
+        } else {
+            response.sendRedirect("index.jsp");
+        }
         
         //Verificar si hay una sesion iniciada
         if(objSession.getAttribute("correo")!= null){
@@ -29,14 +31,14 @@
     <header id="header">
             <div class="inner" align="right">
                 <nav id="nav">
-                    <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strCorreo+"</a>");%><br>
+                    <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strNombre+"</a>");%><br>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>    
             </div>
     </header>
 <%
     }else{
-        strCorreo = "to Woof!";
+        strNombre = "to Woof!";
 %>      
         <header id="header">
             <div class="inner" align="right">
@@ -67,7 +69,7 @@
         <section id="banner">
             <div class="inner">
                 <header>
-                    <h1>Welcome <%out.println(strCorreo);%></h1>
+                    <h1>Welcome <%out.println(strNombre);%></h1>
                 </header>
 
                 <div class="flex ">
@@ -88,13 +90,9 @@
                         <a href="ong.jsp" ><i class="fas fa-globe-americas fa-3x"></i></a>
                         <h3>ONG</h3>
                         <p>Nulla vitae mauris non felis</p>
+                        <br><br>
                     </div>
-
                 </div>
-                
-                <footer>
-                    <a href="UsuarioServlet?formid=2" class="button">Usuarios</a>
-                </footer>
             </div>
         </section>
 
@@ -103,26 +101,18 @@
                 <div class="flex flex-2">
                     <article>
                         <div class="image round">
-                            <img src="images/pic01.jpg" alt="Pic 01" />
+                            <img src="Styles/users.jpg" href="UsuarioServlet?formid=2"/>
                         </div>
-                        <header>
-                            <h3>Lorem ipsum<br /> dolor amet nullam</h3>
-                        </header>
-                        <p>Morbi in sem quis dui placerat ornare. Pellentesquenisi<br />euismod in, pharetra a, ultricies in diam sed arcu. Cras<br />consequat  egestas augue vulputate.</p>
                         <footer>
-                            <a href="CategoriaServlet?formid=2" class="button">Categoria</a>
+                            <a href="UsuarioServlet?formid=2" class="button">Usuarios</a>
                         </footer>
                     </article>
                     <article>
                         <div class="image round">
-                            <img src="images/pic02.jpg" alt="Pic 02" />
+                            <img src="Styles/MASCOTAS (2).jpg" href="UsuarioServlet?formid=2"/>
                         </div>
-                        <header>
-                            <h3>Sed feugiat<br /> tempus adipicsing</h3>
-                        </header>
-                        <p>Pellentesque fermentum dolor. Aliquam quam lectus<br />facilisis auctor, ultrices ut, elementum vulputate, nunc<br /> blandit ellenste egestagus commodo.</p>
                         <footer>
-                            <a href="#" class="button">Learn More</a>
+                            <a href="CategoriaServlet?formid=2" class="button">Categorias</a>
                         </footer>
                     </article>
                 </div>
@@ -131,7 +121,7 @@
 
     <footer id="footer">
         <div class="copyright">
-            <a href="index.jsp" class="i2"><i class="fas fa-home"></i></a> <br>
+            <a href="index.jsp" class="i2"><i class="fas fa-home fa-2x"></i></a> <br>
             &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
         </div>
     </footer>

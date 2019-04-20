@@ -14,14 +14,17 @@
     <%
          HttpSession objSession = request.getSession(false);
          String strCorreo = (String)objSession.getAttribute("correo");
+         String strNombre;
         
         //Verificar si hay una sesion iniciada
         if(objSession.getAttribute("correo")!= null){
+        UsuarioLogic Ulogic = new UsuarioLogic();
+        strNombre = Ulogic.getUsuarioByCorreo(strCorreo).getNombre();
     %>
     <header id="header">
             <div class="inner" align="right">
                 <nav id="nav">
-                    <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strCorreo+"</a>");%><br>
+                    <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strNombre+"</a>");%><br>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>    
             </div>
@@ -34,7 +37,6 @@
                 <a href="index.jsp" class="logo"><strong>Woof!</strong></a>
                 <nav id="nav">
                     <a href="login.jsp" class="button2">Log in </a>
-                    <a href="usuarioNew.jsp" class="button2">Registrarse </a> <br>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
             </div>
@@ -94,7 +96,7 @@
     
     <footer id="footer2">  
         <div class="copyright">
-            <a href="index.jsp" class="i2"><i class="fas fa-home"></i></a> <br>
+            <a href="index.jsp" class="i2"><i class="fas fa-home fa-2x"></i></a> <br>
             &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
         </div>
     </footer>
