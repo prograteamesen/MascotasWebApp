@@ -67,12 +67,12 @@
         
         <form id="myform" name="myform" action="CategoriaServlet" method="get">
             <div  align="center">
-                <div class="6u 12u$(xsmall)">
+                <div class="6u 12u(xsmall)">
                     <input type="text" id="categoria" name="categoria" autocomplete="off" placeholder="Categoria"/>
                     <br>
                 </div>
 
-                <div class="12u$">
+                <div class="12u">
                     <ul class="actions">
                         <input type="submit" id="mysubmit" name="mysubmit" value="Crear"/>
                         <input type="hidden" id="formid" name="formid" value="1" />

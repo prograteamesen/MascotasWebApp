@@ -67,7 +67,7 @@
             <br><br>
             <h2 align="center"><strong>Usuario Form</strong></h2>
         </head>
-        <div class="12u$" align="center">
+        <div class="12u" align="center">
             <ul class="actions">
                 <a href="usuarioNew.jsp" class="button">Nuevo Usuario</a>
             </ul>

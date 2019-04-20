@@ -70,7 +70,7 @@
             <h2 align="center"><strong>Usuario Form</strong></h2>
         </head>
         
-        <div class="12u$" align="center">
+        <div class="12u" align="center">
             <ul class="actions">
                 <a href="categoriaNew.jsp" class="button">Agregar Categoria</a>
             </ul>

@@ -56,14 +56,14 @@
             <form id="myform" name="myform" action="UsuarioServlet" method="post" >
             
                 <div  align="center">
-                    <div class="6u 12u$(xsmall)">
+                    <div class="6u 12u(xsmall)">
                         <input type="text" id="correo" name="correo" autocomplete="off" placeholder="Correo"/>
                         <br><br>
                         <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña"/>
                         <br><br>
                     </div>
                     
-                <div class="12u$">
+                <div class="12u">
                     <ul class="actions">
                         <input type="submit" id="mysubmit" name="mysubmit" value="Log in" class="button"/>
                         <br><br>

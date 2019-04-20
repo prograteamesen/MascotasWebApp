@@ -33,4 +33,5 @@
         <br><br>
         <a href="categoriaForm.jsp">Regresar</a>
     </body>
+    
 </html>

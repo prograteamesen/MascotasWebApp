@@ -60,7 +60,7 @@
         <form id="usuarionewform" name="usuarionewform" action="UsuarioServlet" method="post">
             
             <div  align="center" class="row uniform">
-                <div class="6u 12u$(xsmall)">
+                <div class="6u 12u(xsmall)">
                     <p><input type="text" id="nombre" name="nombre" autocomplete="off" placeholder="Nombre" oninput="this.className = ''"/></p>
                     <br>
                     <input type="text" id="apellido" name="apellido" autocomplete="off" placeholder="Apellido" oninput="this.className = ''"/>
@@ -75,7 +75,7 @@
                     <br><br>
                 </div>
                 
-                <div class="6u$ 12u$(xsmall)">
+                <div class="6u 12u(xsmall)">
                     <input type="email" id="correo" name="correo" autocomplete="off" placeholder="Correo" oninput="this.className = ''"/>
                     <br><br>
                     <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" oninput="this.className = ''"/>
@@ -84,7 +84,7 @@
                     <br><br>
                 </div>
 
-                <div class="12u$">
+                <div class="12u">
                     <ul class="actions">
                         <input type="submit" id="myform" name="myform" value="Registrarse" class="button"/>
                         <br><br>
