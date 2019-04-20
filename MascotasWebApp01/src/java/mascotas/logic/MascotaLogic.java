@@ -1,13 +1,13 @@
-package programmer.logic;
+package mascotas.logic;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import programmer.database.DatabaseX;
-import programmer.pojos.MascotaObj;
-import programmer.pojos.MascotaViewObj;
+import mascotas.database.DatabaseX;
+import mascotas.pojos.MascotaObj;
+import mascotas.pojos.MascotaViewObj;
 
 public class MascotaLogic extends Logic
 {

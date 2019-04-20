@@ -1,4 +1,4 @@
-package programmer.servlets;
+package mascotas.servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -7,13 +7,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import programmer.logic.CategoriaLogic;
-import programmer.logic.MascotaLogic;
-import programmer.logic.OngLogic;
-import programmer.pojos.CategoriaObj;
-import programmer.pojos.MascotaObj;
-import programmer.pojos.MascotaViewObj;
-import programmer.pojos.OngObj;
+import mascotas.logic.CategoriaLogic;
+import mascotas.logic.MascotaLogic;
+import mascotas.logic.OngLogic;
+import mascotas.pojos.CategoriaObj;
+import mascotas.pojos.MascotaObj;
+import mascotas.pojos.MascotaViewObj;
+import mascotas.pojos.OngObj;
 
 @WebServlet(name = "MascotaServlet", urlPatterns = {"/MascotaServlet"})
 public class MascotaServlet extends HttpServlet 

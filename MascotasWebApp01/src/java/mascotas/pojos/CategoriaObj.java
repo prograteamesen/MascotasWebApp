@@ -1,5 +1,5 @@
 
-package programmer.pojos;
+package mascotas.pojos;
 
 public class CategoriaObj 
 {

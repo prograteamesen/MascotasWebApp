@@ -1,35 +1,30 @@
+package mascotas.pojos;
 
-package programmer.pojos;
-
-public class MascotaObj 
+public class MascotaViewObj 
 {
-
     private int m_iId;
     private String m_strNombre;
     private int m_iEdad;
-    private int m_iIdCategoria;
+    private String m_strCategoria;
     private String m_strRaza;
     private String m_strTamaño;
     private String m_strDescripcion;
-    private int m_iIdOng;
+    private String m_strOng;
 
-    //constructor
-
-    public MascotaObj(int p_iId, String p_strNombre, int p_iEdad, 
-            int p_iIdCategoria, String p_strRaza, String p_strTamaño, 
-            String p_strDescripcion, int p_iIdOng) 
+    public MascotaViewObj(int p_iId, String p_strNombre, int p_iEdad, 
+            String p_strCategoria, String p_strRaza, String p_strTamaño, 
+            String p_strDescripcion, String p_strOng) 
     {
         setId(p_iId);
         setNombre(p_strNombre);
         setEdad(p_iEdad);
-        setIdCategoria(p_iIdCategoria);
+        setCategoria(p_strCategoria);
         setRaza(p_strRaza);
         setTamaño(p_strTamaño);
         setDescripcion(p_strDescripcion);
-        setIdOng(p_iIdOng);
+        setOng(p_strOng);
     }
-    
-    //getters and setters
+
     public int getId() 
     {
         return m_iId;
@@ -60,14 +55,14 @@ public class MascotaObj
         m_iEdad = p_iEdad;
     }
 
-    public int getIdCategoria() 
+    public String getCategoria() 
     {
-        return m_iIdCategoria;
+        return m_strCategoria;
     }
 
-    private void setIdCategoria(int p_iIdCategoria) 
+    private void setCategoria(String p_strCategoria) 
     {
-        m_iIdCategoria = p_iIdCategoria;
+        m_strCategoria = p_strCategoria;
     }
 
     public String getRaza() 
@@ -100,14 +95,13 @@ public class MascotaObj
         m_strDescripcion = p_strDescripcion;
     }
 
-    public int getIdOng() 
+    public String getOng() 
     {
-        return m_iIdOng;
+        return m_strOng;
     }
 
-    private void setIdOng(int p_iIdOng) 
+    private void setOng(String p_strOng) 
     {
-        m_iIdOng = p_iIdOng;
+        m_strOng = p_strOng;
     }
-  
 }

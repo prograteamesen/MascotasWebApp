@@ -1,30 +1,35 @@
-package programmer.pojos;
 
-public class MascotaViewObj 
+package mascotas.pojos;
+
+public class MascotaObj 
 {
+
     private int m_iId;
     private String m_strNombre;
     private int m_iEdad;
-    private String m_strCategoria;
+    private int m_iIdCategoria;
     private String m_strRaza;
     private String m_strTamaño;
     private String m_strDescripcion;
-    private String m_strOng;
+    private int m_iIdOng;
 
-    public MascotaViewObj(int p_iId, String p_strNombre, int p_iEdad, 
-            String p_strCategoria, String p_strRaza, String p_strTamaño, 
-            String p_strDescripcion, String p_strOng) 
+    //constructor
+
+    public MascotaObj(int p_iId, String p_strNombre, int p_iEdad, 
+            int p_iIdCategoria, String p_strRaza, String p_strTamaño, 
+            String p_strDescripcion, int p_iIdOng) 
     {
         setId(p_iId);
         setNombre(p_strNombre);
         setEdad(p_iEdad);
-        setCategoria(p_strCategoria);
+        setIdCategoria(p_iIdCategoria);
         setRaza(p_strRaza);
         setTamaño(p_strTamaño);
         setDescripcion(p_strDescripcion);
-        setOng(p_strOng);
+        setIdOng(p_iIdOng);
     }
-
+    
+    //getters and setters
     public int getId() 
     {
         return m_iId;
@@ -55,14 +60,14 @@ public class MascotaViewObj
         m_iEdad = p_iEdad;
     }
 
-    public String getCategoria() 
+    public int getIdCategoria() 
     {
-        return m_strCategoria;
+        return m_iIdCategoria;
     }
 
-    private void setCategoria(String p_strCategoria) 
+    private void setIdCategoria(int p_iIdCategoria) 
     {
-        m_strCategoria = p_strCategoria;
+        m_iIdCategoria = p_iIdCategoria;
     }
 
     public String getRaza() 
@@ -95,13 +100,14 @@ public class MascotaViewObj
         m_strDescripcion = p_strDescripcion;
     }
 
-    public String getOng() 
+    public int getIdOng() 
     {
-        return m_strOng;
+        return m_iIdOng;
     }
 
-    private void setOng(String p_strOng) 
+    private void setIdOng(int p_iIdOng) 
     {
-        m_strOng = p_strOng;
+        m_iIdOng = p_iIdOng;
     }
+  
 }
