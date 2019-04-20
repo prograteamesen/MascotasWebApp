@@ -9,6 +9,7 @@
               content="text/html; charset=UTF-8">
         <title>Categoria</title>
         <link href="styles/tableStyles.css" rel="stylesheet" type="text/css"/>
+        
     </head>
     <%
         ArrayList<CategoriaObj> CArray = 
