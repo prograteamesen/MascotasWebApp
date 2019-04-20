@@ -67,7 +67,7 @@
     <body class="subpage">
         <head>
             <br><br>
-            <h2 align="center"><strong>Usuario Form</strong></h2>
+            <h2 align="center"><strong>Categorías</strong></h2>
         </head>
         
         <div class="12u" align="center">

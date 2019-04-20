@@ -59,8 +59,8 @@
 
         
         <form id="form" name="form">
-            <div class="12u$" align="center">
-                <div class="6u 12u$(xsmall)">
+            <div class="12u" align="center">
+                <div class="6u 12u(xsmall)">
                     <h3>Hola, </h3>
                     <input type="text" id="dueno" name="dueno"  value="<%=strNombre%>"/>
                     <br>
@@ -76,8 +76,8 @@
             <input type="number" id="mascota" name="mascota" value="<%=iId%>" style="display:none"/>
             <input type="number" id="dueno" name="dueno" value="<%=Ulogic.getUsuarioByCorreo(strCorreo).getId()%>" style="display:none"/>
             <input type="submit" id="mysubmit" name="mysubmit" value="¡Adoptar!"/>
-            <div class="12u$" align="center"> 
-               <div class="6u 12u$(xsmall)">
+            <div class="12u" align="center"> 
+               <div class="6u 12u(xsmall)">
                     <input type="hidden" id="formid" name="formid" value="1"/>
                </div>
            </div>

@@ -114,7 +114,7 @@
         </table>
         
     </body>
-    <footer id="footer">
+    <footer id="footer2">
         <div class="copyright">
             <a href="index.jsp" class="i2"><i class="fas fa-home fa-2x"></i></a> <br>
             &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.

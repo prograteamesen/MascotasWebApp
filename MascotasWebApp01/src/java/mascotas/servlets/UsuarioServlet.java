@@ -91,7 +91,7 @@ public class UsuarioServlet extends HttpServlet
                 UsuarioObj CUsuario = ULogic.getUsuarioById(iId);
    
             request.getSession().setAttribute("usuario", CUsuario);
-            response.sendRedirect("usuarioUpdateData.jsp");
+            response.sendRedirect("usuarioUpdateDataAdmin.jsp");
             
         }
         // </editor-fold>

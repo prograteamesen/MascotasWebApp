@@ -59,11 +59,11 @@
         <body class="subpage">
         <head>
             <br><br>
-            <h2 align="center"><strong>Usuario Form</strong></h2>
+            <h2 align="center"><strong>¡Mascotas!</strong></h2>
         </head
 
-        <div class="12u$" align="center">
-            <ul class="actions">
+        <div class="12u" align="center">
+            <ul class="actions" align="center">
                 <a href="MascotaServlet?formid=6" class="button">Registrar mascota</a>
             </ul>
         </div>
