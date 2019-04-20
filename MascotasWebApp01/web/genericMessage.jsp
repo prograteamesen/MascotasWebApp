@@ -1,3 +1,4 @@
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,12 +12,13 @@
         int iRows = iRowsObj.intValue();
     %>
     <body>
+
         <h1>...</h1>
         <br><br>
         <p><%= iRows %> filas fueron afectadas</p>
         <br><br>
         <a href="index.jsp">Pagina principal</a>
         <br><br>
-        
+
     </body>
 </html>
