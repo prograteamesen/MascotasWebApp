@@ -84,7 +84,7 @@
                     </div>
                     
                     <div>
-                        <a href="ong.jsp" ><i class="fas fa-globe-americas fa-3x"></i></a>
+                        <a href="OngServlet?formid=2"><i class="fas fa-globe-americas fa-3x"></i></a>
                         <h3>ONG</h3>
                         <p>Nulla vitae mauris non felis</p>
                     </div>
