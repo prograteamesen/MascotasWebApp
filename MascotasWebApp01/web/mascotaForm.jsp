@@ -1,6 +1,6 @@
-<%@page import="programmer.pojos.MascotaViewObj"%>
+<%@page import="mascotas.pojos.MascotaViewObj"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="programmer.pojos.MascotaObj"%>
+<%@page import="mascotas.pojos.MascotaObj"%>
 <%@page import="java.util.ArrayList"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

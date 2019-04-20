@@ -1,13 +1,16 @@
-<%@page import="programmer.pojos.OngObj"%>
+<%@page import="mascotas.pojos.OngObj"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="programmer.pojos.CategoriaObj"%>
+<%@page import="mascotas.pojos.CategoriaObj"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+        <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
+        <script src="Scripts/mascotaNewFormScript.js" type="text/javascript"></script>
         <title>Nueva mascota</title>
     </head>
     <%
@@ -24,7 +27,7 @@
     <body>
         <h1>Registrar mascota</h1>
         <br><br>
-        <form name="mascotaForm" action="MascotaServlet" method="get">
+        <form name="mascotaForm" id="mascotaForm" action="MascotaServlet" method="get">
             <label>Nombre:</label><br>
             <input type="text" name="nombre" id="nombre"/>
             <br><br>

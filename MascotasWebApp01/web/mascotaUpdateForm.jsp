@@ -1,15 +1,18 @@
-<%@page import="programmer.pojos.MascotaViewObj"%>
-<%@page import="programmer.pojos.OngObj"%>
+<%@page import="mascotas.pojos.MascotaViewObj"%>
+<%@page import="mascotas.pojos.OngObj"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="programmer.pojos.CategoriaObj"%>
+<%@page import="mascotas.pojos.CategoriaObj"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="programmer.pojos.MascotaObj"%>
+<%@page import="mascotas.pojos.MascotaObj"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+        <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
+        <script src="Scripts/mascotaUpdateFormScript.js" type="text/javascript"></script>
         <title>Actualizar registros</title>
     </head>
     <%
@@ -23,7 +26,8 @@
         <h1>Actualizar informacion de mascotas</h1>
         <br><br>
         
-        <form id="myform" name="myform" action="MascotaServlet" method="get">
+        <form id="mascotaUpdateForm" name="mascotaUpdateForm"
+              action="MascotaServlet" method="get">
             <label>ID:</label><br>
             <input type="number" id="nonId" name="nonId" value="<%=CMascota.getId()%>" 
                    disabled/>
