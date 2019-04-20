@@ -29,7 +29,11 @@
             <input type="text" name="fechanacimiento" value = "<%= CUsuario.getFechadeNacimiento() %>"/>
             <br><br>
             Género: <br>
-            <input type="text" name="genero" value = "<%= CUsuario.getGenero() %>"/>
+            <select class="dropdown" name="genero" />
+                   <option value = "<%= CUsuario.getGenero() %>"> <%= CUsuario.getGenero() %> </option>
+                   <option value="Femenino">Femenino</option>
+                   <option value="Masculino">Masculino</option>  
+            </select>
             <br><br>
             Correo: <br>
             <input type="text" name="correo" value = "<%= CUsuario.getCorreo() %>"/>
@@ -41,7 +45,11 @@
             <input type="number" name="telefono" value = "<%= CUsuario.getTelefono() %>"/>
             <br><br>
             Nivel: <br>
-            <input type="number" name="nivel" value = "<%= CUsuario.getNivel() %>"/>
+            <select class="dropdown" name="nivel" />
+                   <option value = "<%= CUsuario.getNivel() %>"> <%= CUsuario.getNivel() %> </option>
+                   <option value="1">1</option>
+                   <option value="2">2</option>  
+            </select>
             <br><br>
             
             
