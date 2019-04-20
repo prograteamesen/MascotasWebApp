@@ -3229,3 +3229,13 @@
   left: -35px;
   content: "✖";
 }
+
+select {
+  text-align: center;
+  text-align-last: center;
+  /* webkit*/
+}
+option {
+  text-align: center;
+  /* reset to left*/
+}

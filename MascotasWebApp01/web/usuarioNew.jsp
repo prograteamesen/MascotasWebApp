@@ -7,10 +7,13 @@
         <title>Nuevo Usuario</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+        <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
+        <script src="Scripts/usuarioScript.js" type="text/javascript"></script>
         <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    </head>
+     </head>
     <%
          HttpSession objSession = request.getSession(false);
          String strCorreo = (String)objSession.getAttribute("correo");
@@ -54,26 +57,30 @@
             <br><br>
         </head> 
      
-        <form id="regForm" name="usuarioNewForm" action="UsuarioServlet" method="post">
+        <form id="usuarionewform" name="usuarionewform" action="UsuarioServlet" method="post">
             
             <div  align="center" class="row uniform">
                 <div class="6u 12u$(xsmall)">
                     <p><input type="text" id="nombre" name="nombre" autocomplete="off" placeholder="Nombre" oninput="this.className = ''"/></p>
-                    <br><br>
+                    <br>
                     <input type="text" id="apellido" name="apellido" autocomplete="off" placeholder="Apellido" oninput="this.className = ''"/>
                     <br><br>
                     <input type="text" id="fechanacimiento" name="fechanacimiento" autocomplete="off" placeholder="Fecha de Nacimiento" oninput="this.className = ''"/>
                     <br><br>
-                    <input type="text" id="genero" name="genero" autocomplete="off" placeholder="Género" oninput="this.className = ''"/>
+                    <select class="dropdown" id="genero" name="genero" placeholder="G" align="center" required />
+                           <option value="0" hidden  >Género</option>
+                           <option value="Femenino">Femenino</option>
+                           <option value="Masculino">Masculino</option>  
+                    </select>
                     <br><br>
                 </div>
                 
                 <div class="6u$ 12u$(xsmall)">
                     <input type="email" id="correo" name="correo" autocomplete="off" placeholder="Correo" oninput="this.className = ''"/>
                     <br><br>
-                    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" oninput="this.className = ''"/>
+                    <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" oninput="this.className = ''"/>
                     <br><br>
-                    <input type="tel" id="telefono" name="telefono" autocomplete="off" placeholder="Teléfono(Opcinal)" oninput="this.className = ''"/>
+                    <input type="tel" id="telefono" name="telefono" autocomplete="off" placeholder="Teléfono" oninput="this.className = ''"/>
                     <br><br>
                 </div>
 

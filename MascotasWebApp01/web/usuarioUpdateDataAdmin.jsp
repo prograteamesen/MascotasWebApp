@@ -44,6 +44,13 @@
             Teléfono: <br>
             <input type="number" name="telefono" value = "<%= CUsuario.getTelefono() %>"/>
             <br><br>
+            Nivel: <br>
+            <select class="dropdown" name="nivel" />
+                   <option value = "<%= CUsuario.getNivel() %>"> <%= CUsuario.getNivel() %> </option>
+                   <option value="1">1</option>
+                   <option value="2">2</option>  
+            </select>
+            <br><br>
             
             
                <input type="submit" id="mysubmit" name="mysubmit" value="Update"/>
