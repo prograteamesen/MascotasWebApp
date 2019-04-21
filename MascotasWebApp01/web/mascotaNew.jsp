@@ -7,10 +7,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">      
         <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
         <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
         <script src="Scripts/mascotaNewFormScript.js" type="text/javascript"></script>
+        <script>
+            $( function() {
+            $( document ).tooltip(track: true);
+            } );
+        </script>
+        <style>
+            label {
+              display: inline-block;
+              width: 5em;
+            }
+        </style>
         <title>Nueva mascota</title>
     </head>
     <%
@@ -28,8 +39,9 @@
         <h1>Registrar mascota</h1>
         <br><br>
         <form name="mascotaForm" id="mascotaForm" action="MascotaServlet" method="get">
-            <label>Nombre:</label><br>
-            <input type="text" name="nombre" id="nombre"/>
+            <labe for= "nombre">Nombre:</label><br>
+            <input type="text" name="nombre" id="nombre" 
+                   title="We ask for your age only for statistical purposes." />
             <br><br>
             
             <label>Edad:</label><br>
@@ -37,7 +49,7 @@
             <br><br>
             
             <label>Categoría:</label><br>
-            <select name="categoria" id="categoria">
+            <select name="categoria" id="categoria" title="We ask for your age only for statistical purposes.">
                 <%
                     if(iteCategoriaArray!=null)
                     {
