@@ -1,9 +1,4 @@
-<%-- 
-    Document   : adopcionForm
-    Created on : 03-25-2019, 02:57:01 PM
-    Author     : Ernesto Norio
---%>
-
+<%@page import="mascotas.logic.UsuarioLogic"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="mascotas.pojos.AdopUserPetObj"%>
 <%@page import="java.util.ArrayList"%>
@@ -12,18 +7,65 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <title>Formulario de Adopcion</title>
     </head>
     <%
+        HttpSession objSession = request.getSession(false);
+        String strCorreo = (String)objSession.getAttribute("correo");
+        
+        UsuarioLogic Ulogic = new UsuarioLogic();
+        String strNombre;
+                      
         ArrayList<AdopUserPetObj> CArray = 
                 (ArrayList<AdopUserPetObj>)request.getSession().getAttribute("adopciones");
         Iterator<AdopUserPetObj> iteArray = CArray.iterator();
+        
+        //Verificar si hay una sesion iniciada
+        if(objSession.getAttribute("correo")!= null){
+            strCorreo = objSession.getAttribute("correo").toString();
+            strNombre = Ulogic.getUsuarioByCorreo(strCorreo).getNombre();
     %>
-    <body>
-        <h1>Adopciones</h1>
-        <br>
-        <a href="MascotaServlet?formid=2">Nueva Adopción</a>
-        <br>
+    <header id="header">
+        <div class="inner">
+            <a href="indexAdmin.jsp" class="logo"><strong>Woof!</strong></a>
+            <nav id="nav">
+                <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strNombre+"</a>");%>
+                <a href="index.jsp">Home</a>
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+    </header>
+<%
+    }else{
+%>      
+        <header id="header">
+            <div class="inner" align="right">
+                <a href="indexAdmin.jsp" class="logo"><strong>Woof!</strong></a>
+                <nav id="nav">
+                    <a href="login.jsp" class="button2">Log in </a>
+                </nav>
+                <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+            </div>
+        </header>    
+<%}   
+    if(request.getParameter("cerrar")!=null){
+                objSession.invalidate();
+                response.sendRedirect("index.jsp");
+    } 
+%>
+        <body class="subpage">
+         <head>
+            <br><br>
+            <h2 align="center"><strong>Formulario de Adopción</strong></h2>
+        </head>
+        
+        <div class="12u" align="center">
+            <ul class="actions">
+                <a href="MascotaServlet?formid=2" class="button">Nueva Adopción</a>
+            </ul>
+        </div>
         
         <table style="width:70%" border="1" align="center" >
             <tr>
@@ -57,4 +99,10 @@
         
         </table>
     </body>
+    <footer id="footer">
+        <div class="copyright">
+            <a href="index.jsp" class="i2"><i class="fas fa-home fa-2x"></i></a> <br>
+            &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+        </div>
+    </footer>
 </html>

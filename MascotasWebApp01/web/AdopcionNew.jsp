@@ -1,9 +1,3 @@
-<%-- 
-    Document   : nuevaAdopcion
-    Created on : 03-24-2019, 11:18:49 AM
-    Author     : Ernesto Norio
---%>
-
 <%@page import="mascotas.pojos.MascotaViewObj"%>
 <%@page import="mascotas.logic.UsuarioLogic"%>
 <%@page import="mascotas.pojos.MascotaObj"%>

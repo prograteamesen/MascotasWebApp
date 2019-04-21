@@ -1,4 +1,5 @@
 
+<%@page import="mascotas.logic.UsuarioLogic"%>
 <%@page import="mascotas.pojos.OngObj"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
@@ -9,8 +10,51 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
+        <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <title>Nueva mascota</title>
     </head>
+     <%
+        HttpSession objSession = request.getSession(false);
+        String strCorreo = (String)objSession.getAttribute("correo");
+        
+        UsuarioLogic Ulogic = new UsuarioLogic();
+        String strNombre;
+        
+        //Verificar si hay una sesion iniciada
+        if(objSession.getAttribute("correo")!= null){
+            strCorreo = objSession.getAttribute("correo").toString(); 
+            strNombre = Ulogic.getUsuarioByCorreo(strCorreo).getNombre();
+    %>
+    <header id="header">
+            <div class="inner" align="right">
+                <nav id="nav">
+                    <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strNombre+"</a>");%><br>
+                </nav>
+                <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>    
+            </div>
+    </header>
+<%
+    }else{
+        strNombre = "to Woof!";
+%>      
+        <header id="header">
+            <div class="inner" align="right">
+                <a href="indexAdmin.jsp" class="logo"><strong>Woof!</strong></a>
+                <nav id="nav">
+                    <a href="login.jsp" class="button2">Log in </a>
+                    <a href="usuarioNew.jsp" class="button2">Registrarse </a> <br>
+                </nav>
+                <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+            </div>
+        </header>    
+<%}   
+    if(request.getParameter("cerrar")!=null){
+                objSession.invalidate();
+                response.sendRedirect("index.jsp");
+    } 
+%>
     <%
         ArrayList<CategoriaObj> CCategoriaArray = 
                 (ArrayList<CategoriaObj>)request.getSession().getAttribute
@@ -22,20 +66,23 @@
                         getAttribute("ongs");
         Iterator<OngObj> iteOngArray = COngArray.iterator();
     %>    
-    <body>
-        <h1>Registrar mascota</h1>
-        <br><br>
+    <body class="subpage">
+        <head>
+            <br><br>
+            <h2 align="center"><strong>Registrar Mascota</strong></h2>
+            <br><br>
+        </head> 
         <form name="mascotaForm" action="MascotaServlet" method="get">
-            <label>Nombre:</label><br>
-            <input type="text" name="nombre" id="nombre"/>
+            <div  align="center">
+            <div class="6u 12u(xsmall)">    
+            
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" autocomplete="off"/>
             <br><br>
             
-            <label>Edad:</label><br>
-            <input type="number" name="edad" id="edad"/>
+            <input type="number" name="edad" id="edad" placeholder="Edad" autocomplete="off"/>
             <br><br>
             
-            <label>Categoría:</label><br>
-            <select name="categoria" id="categoria">
+            <select name="categoria" id="categoria" placeholder="Categoría">
                 <%
                     if(iteCategoriaArray!=null)
                     {
@@ -56,20 +103,16 @@
             </select> 
             <br><br>
             
-            <label>Raza:</label><br>
-            <input type="text" name="raza" id="raza"/>
+            <input type="text" name="raza" id="raza" placeholder="Raza" autocomplete="off"/>
             <br><br>
             
-            <label>Tamaño:</label><br>
-            <input type="text" name="tamaño" id="tamaño"/>
+            <input type="text" name="tamaño" id="tamaño" placeholder="Tamaño" autocomplete="off"/>
             <br><br>
             
-            <label>Descripción:</label><br>
-            <input type="text" name="descripcion" id="descripcion"/>
+            <input type="text" name="descripcion" id="descripcion" placeholder="Descripción" autocomplete="off"/>
             <br><br>
             
-            <label>ONG:</label><br>
-            <select name="ong" id="ong">
+            <select name="ong" id="ong" placeholder="ONG" autocomplete="off">
                 <%
                     if(iteOngArray!=null)
                     {
@@ -89,11 +132,21 @@
                 %>
             </select> 
             <br><br>
-            
+            </div>
+            <div class="12u">    
+            <ul class="actions">
             <input type="submit" name="mysubmit" value="Registrar"/>
-            
             <input type="hidden" name="formid" value="1"/>
+            </ul>
+            </div>
+            </div>
             <br><br>
         </form>   
     </body>
+    <footer id="footer">  
+        <div class="copyright">
+            <a href="index.jsp" class="i2"><i class="fas fa-home fa-2x"></i></a> <br>
+            &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+        </div>
+    </footer>
 </html>

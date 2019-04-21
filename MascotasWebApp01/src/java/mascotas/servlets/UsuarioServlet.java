@@ -45,7 +45,7 @@ public class UsuarioServlet extends HttpServlet
             
             
             request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("usuarioNewResponse.jsp");
+            response.sendRedirect("genericMessage.jsp");
         }
         // </editor-fold>
        
@@ -75,7 +75,7 @@ public class UsuarioServlet extends HttpServlet
                 
                 //send to frontend
                 request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("usuarioDeleteResponse.jsp");
+            response.sendRedirect("genericMessage.jsp");
             
         }
         // </editor-fold>
@@ -96,7 +96,7 @@ public class UsuarioServlet extends HttpServlet
         }
         // </editor-fold>
         
-        // <editor-fold defaultstate="collapsed" desc="formid 5 - update user part 2">        
+        // <editor-fold defaultstate="collapsed" desc="formid 5 - Update user part 2">        
         if(strFormId.equals("5"))
         {
             
@@ -118,7 +118,7 @@ public class UsuarioServlet extends HttpServlet
                 
                 
                 request.getSession().setAttribute("rows", new Integer(iRows) );
-                response.sendRedirect("usuarioUpdateResponse.jsp");
+                response.sendRedirect("genericMessage.jsp");
             
         }
         // </editor-fold> 

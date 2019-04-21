@@ -75,7 +75,7 @@ public class AdopcionServlet extends HttpServlet {
                 int iRows = CLogic.deleteAdopcionRows(iId);
                 
                 request.getSession().setAttribute("rows", iRows);
-                response.sendRedirect("adopcionDeleteResponse.jsp");
+                response.sendRedirect("genericMessage.jsp");
             }
             // </editor-fold>]
         }

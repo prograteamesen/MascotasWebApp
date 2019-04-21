@@ -1,9 +1,3 @@
-<%-- 
-    Document   : ongUpdate
-    Created on : Mar 23, 2019, 11:33:49 PM
-    Author     : miche
---%>
-
 <%@page import="mascotas.logic.UsuarioLogic"%>
 <%@page import="mascotas.pojos.OngObj"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

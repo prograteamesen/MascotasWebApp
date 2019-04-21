@@ -75,7 +75,7 @@
 
                 <div class="flex ">
                     <div>
-                        <a href="mascotas.jsp" ><i class="fas fa-paw fa-3x"></i></a>
+                        <a href="MascotaServlet?formid=7" ><i class="fas fa-paw fa-3x"></i></a>
 
                         <h3>Pets</h3>
                         <p>Suspendisse amet ullamco</p>

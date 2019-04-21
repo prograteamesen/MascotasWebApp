@@ -68,7 +68,7 @@
             </ul>
         </div>
         
-        <table style="width:70%" border="1">
+        <table>
             <tr>
               <th>ID</th>
               <th>Nombre</th> 

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : ongForm
-    Created on : Mar 13, 2019, 8:54:55 PM
-    Author     : miche
---%>
 <%@page import="mascotas.logic.UsuarioLogic"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>

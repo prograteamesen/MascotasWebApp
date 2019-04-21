@@ -46,7 +46,7 @@ public class MascotaServlet extends HttpServlet
                      strRaza, strTamaño, strDescripcion, iIdOng);
             
             request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("mascotaNewResponse.jsp");
+            response.sendRedirect("genericMessage.jsp");
             
         }
         // </editor-fold>
@@ -74,7 +74,7 @@ public class MascotaServlet extends HttpServlet
                 int iRows = CLogic.deleteMascotaRows(iId);
                 
                 request.getSession().setAttribute("rows", iRows);
-                response.sendRedirect("mascotaDeleteResponse.jsp");
+                response.sendRedirect("genericMessage.jsp");
         }
         // </editor-fold>
         
@@ -119,7 +119,7 @@ public class MascotaServlet extends HttpServlet
                     strDescripcion, iIdOng);
             
             request.getSession().setAttribute("rows", new Integer(iRows) );
-            response.sendRedirect("mascotaUpdateResponse.jsp");
+            response.sendRedirect("genericMessage.jsp");
         }
         // </editor-fold>       
         

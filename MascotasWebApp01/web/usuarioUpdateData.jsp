@@ -45,25 +45,25 @@
              <div class="6u 12u(xsmall)">
                  <input type="hidden" id="nonId" name="nonId" value="<%= CUsuario.getId() %>" />
                 
-                <input type="text" name="nombre" value = "<%= CUsuario.getNombre() %>"/>
+                 <input type="text" name="nombre" value = "<%= CUsuario.getNombre() %>" placeholder="Nombre" autocomplete="off"/>
                 <br><br>
-                <input type="text" name="apellido" value = "<%= CUsuario.getApellido() %>" />
+                <input type="text" name="apellido" value = "<%= CUsuario.getApellido() %>" placeholder="Apellido" autocomplete="off"/>
                 <br><br>
-                <input type="text" name="fechanacimiento" value = "<%= CUsuario.getFechadeNacimiento() %>"/>
+                <input type="text" name="fechanacimiento" value = "<%= CUsuario.getFechadeNacimiento() %>" placeholder="Fecha de Nacimiento" autocomplete="off"/>
                 <br><br>
-                <select class="dropdown" name="genero" />
-                       <option value = "<%= CUsuario.getGenero() %>"> <%= CUsuario.getGenero() %> </option>
+                <select class="dropdown" name="genero" placeholder="Género"/>
+                <option value = "<%= CUsuario.getGenero() %>" hidden> <%= CUsuario.getGenero() %> </option>
                        <option value="Femenino">Femenino</option>
                        <option value="Masculino">Masculino</option>  
                 </select>
              </div>
                    
            <div class="6u 12u(xsmall)">
-                <input type="text" name="correo" value = "<%= CUsuario.getCorreo() %>"/>
+               <input type="text" name="correo" value = "<%= CUsuario.getCorreo() %>" placeholder="Correo" autocomplete="off"/>
                 <br><br>
-                <input type="password" name="contrasena" value = "<%= CUsuario.getContrasena() %>"/>
+                <input type="password" name="contrasena" value = "<%= CUsuario.getContrasena() %>" placeholder="Contraseña" autocomplete="off"/>
                 <br><br>
-                <input type="number" name="telefono" value = "<%= CUsuario.getTelefono() %>"/>
+                <input type="number" name="telefono" value = "<%= CUsuario.getTelefono() %>" placeholder="Teléfono" autocomplete="off"/>
                 <br><br>
                 <input type="hidden" id="nivel" name="nivel" value="<%= CUsuario.getNivel() %>" />
             </select>
