@@ -180,6 +180,31 @@ public class MascotaServlet extends HttpServlet
             
         }
         // </editor-fold>
+        
+        // <editor-fold defaultstate="collapsed" desc="formid 10 - Mascota Filtrar Categoria">
+        if(strFormId.equals("10"))
+        {
+            CategoriaLogic CCategoriaLogic = new CategoriaLogic();
+            ArrayList<CategoriaObj> CCategoriaArray = 
+                    CCategoriaLogic.getAllCategoria();
+                
+            request.getSession().setAttribute("categorias", CCategoriaArray);
+            response.sendRedirect("mascotaFilterForm.jsp");  
+        }
+// </editor-fold>
+
+        // <editor-fold defaultstate="collapsed" desc="formid 11 - Filtrar categoria">
+        if(strFormId.equals("11"))
+        {
+            String strCategoria = request.getParameter("categoria");
+                
+                MascotaLogic CLogic = new MascotaLogic();
+                ArrayList<MascotaViewObj> MArray = CLogic.getMascotasFilter(strCategoria);
+                
+                request.getSession().setAttribute("mascotas", MArray);
+                response.sendRedirect("mascotaFilter.jsp");
+        }
+// </editor-fold>
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

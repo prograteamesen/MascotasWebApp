@@ -208,5 +208,54 @@ public class MascotaLogic extends Logic
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;
     }
+    
+    public ArrayList<MascotaViewObj> getMascotasFilter (String p_strCategoria) 
+    {
+        DatabaseX database = getDatabase();
+        String strSql = "SELECT * FROM mascotasdb.mascota_view WHERE categoria = '"+p_strCategoria+"';";
+        System.out.println(strSql);
+        ResultSet CResult = database.executeQuery(strSql);
+        ArrayList<MascotaViewObj> MArray = null;
+        
+        if(CResult!=null)
+        {
+            int iId;
+            String strNombre;
+            int iEdad;
+            String strCategoria;
+            String strRaza;
+            String strTamaño;
+            String strDescripcion;
+            String strOng;
+            
+            MascotaViewObj CTemp;
+            MArray = new ArrayList<>();
+            
+            try 
+            {
+                while(CResult.next())
+                {
+                    iId = CResult.getInt("id");
+                    strNombre = CResult.getString("nombre");
+                    iEdad = CResult.getInt("edad");
+                    strCategoria = CResult.getString("categoria");
+                    strRaza = CResult.getString("raza");
+                    strTamaño = CResult.getString("tamaño");
+                    strDescripcion = CResult.getString("descripcion");
+                    strOng = CResult.getString("ong");
+                    
+                    CTemp = new MascotaViewObj(iId, strNombre, iEdad, strCategoria,
+                    strRaza, strTamaño, strDescripcion, strOng);
+                    MArray.add(CTemp);
+                }
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(MascotaLogic.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return MArray;
+    }
 }
 
