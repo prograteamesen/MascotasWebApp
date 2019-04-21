@@ -28,15 +28,15 @@
             strCorreo = objSession.getAttribute("correo").toString();
             strNombre = Ulogic.getUsuarioByCorreo(strCorreo).getNombre();
     %>
-    <header id="header">
+     <header id="header">
             <div class="inner" align="right">
                 <nav id="nav">
                     <%out.print("<a href='perfilUsuario.jsp'>Mi perfil </a>");%>
-                    <%out.print("<a href='index.jsp?cerrar=true'>Cerrar sesión "+strNombre+"</a>");%><br>
+                    <%out.print("<a href='indexAdmin.jsp?cerrar=true'> Cerrar Sesión "+strNombre+"</a>");%><br>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>    
             </div>
-    </header>
+    </header>  
 <%
     }else{
         strNombre = "to Woof!";

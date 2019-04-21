@@ -9,7 +9,7 @@
         <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-        <title>Adopcion</title>
+        <title>Adopción</title>
     </head>
         <%
             
@@ -37,8 +37,8 @@
             <div class="inner">
                 <a href="indexAdmin.jsp" class="logo"><strong>Woof!</strong></a>
                 <nav id="nav">
-                    <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strNombre+"</a>");%>
-                    <a href="index.jsp">Home</a>
+                    <%out.print("<a href='index.jsp?cerrar=true'>Cerrar sesión "+strNombre+"</a>");%>
+                    <a href="index.jsp">Inicio</a>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
             </div>
@@ -47,7 +47,7 @@
     <body class="subpage">
         <head>
             <br><br>
-            <h2 align="center"><strong>Nueva Adopcion</strong></h2>
+            <h2 align="center"><strong>Nueva Adopción</strong></h2>
             <br><br>
         </head>
 

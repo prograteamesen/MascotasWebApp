@@ -25,10 +25,10 @@
             %>
             <header id="header">
                     <div class="inner" align="left">
-                    <a href="index.jsp" class="logo"><strong>Woof!</strong></a>
+                        <a href="index.jsp" class="logo"><strong>Woof!</strong></a>
                         <nav id="nav" align="right">
                             <%out.print("<a href='perfilUsuario.jsp'>Mi perfil </a>");%>
-                            <%out.print("<a href='index.jsp?cerrar=true'> Log out "+strNombre+"</a>");%><br>
+                            <%out.print("<a href='index.jsp?cerrar=true'> Cerrar sesión "+strNombre+"</a>");%><br>
                         </nav>
                         <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>    
                     </div>
@@ -40,20 +40,15 @@
             }else{
                 strNombre = "to Woof!";
         %>      
-                <header id="header">
-                    <div class="inner" align="left">
+            <header id="header">
+                <div class="inner" align="right">
                     <a href="index.jsp" class="logo"><strong>Woof!</strong></a>
-                    </div>
-                    
-                    <div class="inner" align="right">
-                        <nav id="nav" >
-                            <a href="login.jsp" class="button2">Log in </a>
-                            <a href="usuarioNew.jsp" class="button2">Registrarse </a> <br>
-                        </nav>
-                    
-                        <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-                    </div>
-                </header>    
+                    <nav id="nav">
+                        <a href="login.jsp" class="button2">Iniciar sesión </a>
+                    </nav>
+                    <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+                </div>
+            </header>     
         <%}   
             if(request.getParameter("cerrar")!=null){
                         objSession.invalidate();
@@ -85,23 +80,23 @@
         <section id="banner-2">
             <div class="inner">
 
-                <div class="flex " align="center">
+                <div class="flex" align="center">
                      <div>
                         <img src="Styles/1Paw.png" alt="Cute"/>
                         <h3 style="color:white">Paso 1</h3>
-                        <p style="color:white">Una vez estés decidido  en agregar <br /> un nuevo miembro a tu  familia, selecciona la <br /> mascota que más te guste.</p>
+                        <p style="color:white">Una vez estés decidido  en <br /> agregar  un nuevo miembro a tu <br /> familia, selecciona la mascota que <br /> más te guste.</p>
                      </div>
                     
                     <div>
                         <img src="Styles/2Paw.png" alt="Cute"/>
                         <h3 style="color:white">Paso 2</h3>
-                        <p style="color:white">Dar click en el botón adoptar en la <br /> parte inferior de su perfil.</p>              
+                        <p style="color:white">Dar click en el botón adoptar <br /> en la  parte inferior de su perfil.</p>              
                     </div>
                      
                     <div>
                         <img src="Styles/3Paw.png" alt="Cute"/>
                         <h3 style="color:white">Paso 3</h3>
-                        <p style="color:white">Finaliza el proceso<br /> de adopción. </p>
+                        <p style="color:white">Finaliza el proceso de adopción. </p>
                     </div>
                         
                 </div>

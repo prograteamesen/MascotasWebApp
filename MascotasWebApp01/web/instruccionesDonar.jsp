@@ -28,7 +28,7 @@
                         <a href="index.jsp" class="logo"><strong>Woof!</strong></a>
                         <nav id="nav" align="right">
                             <%out.print("<a href='perfilUsuario.jsp'>Mi perfil </a>");%>
-                            <%out.print("<a href='index.jsp?cerrar=true'> Log out "+strNombre+"</a>");%><br>
+                            <%out.print("<a href='index.jsp?cerrar=true'> Cerrar sesión "+strNombre+"</a>");%><br>
                         </nav>
                         <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>    
                     </div>
@@ -40,20 +40,15 @@
             }else{
                 strNombre = "to Woof!";
         %>      
-                <header id="header">
-                    <div class="inner" align="left">
+            <header id="header">
+                <div class="inner" align="right">
                     <a href="index.jsp" class="logo"><strong>Woof!</strong></a>
-                    </div>
-                    
-                    <div class="inner" align="right">
-                        <nav id="nav" >
-                            <a href="login.jsp" class="button2">Log in </a>
-                            <a href="usuarioNew.jsp" class="button2">Registrarse </a> <br>
-                        </nav>
-                    
-                        <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-                    </div>
-                </header>    
+                    <nav id="nav">
+                        <a href="login.jsp" class="button2">Iniciar sesión </a>
+                    </nav>
+                    <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+                </div>
+            </header>     
         <%}   
             if(request.getParameter("cerrar")!=null){
                         objSession.invalidate();
@@ -85,7 +80,7 @@
         <section id="banner-2">
             <div class="inner">
 
-                <div class="flex " align="center">
+                <div class="flex" align="center">
                      <div>
                         <img src="Styles/1Paw.png" alt="Cute"/>
                         <h3 style="color:white">Paso 1</h3>
