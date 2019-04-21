@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home</title>
+        <title>Woof!</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="Styles/style.css" rel="stylesheet" type="text/css"/>
@@ -36,12 +36,12 @@
     </header>
     <%
     } else {
-        strNombre = "to Woof!";
+        strNombre = "a Woof!";
     %>      
     <header id="header">
         <div class="inner" align="right">
             <nav id="nav">
-                <a href="login.jsp" class="button2">Log in </a>
+                <a href="login.jsp" class="button2">Ingresar </a>
                 <a href="usuarioNew.jsp" class="button2">Registrarse </a> <br>
             </nav>
             <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
@@ -59,7 +59,7 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-            <title>Home</title>
+            <title>Woof</title>
         </head>
         <body>
 
@@ -67,27 +67,27 @@
             <section id="banner">
                 <div class="inner">
                     <header>
-                        <h1>Welcome <%out.println(strNombre);%></h1>
+                        <h1>Bienvenid@ <%out.println(strNombre);%></h1>
                     </header>
 
                     <div class="flex ">
                         <div>
                             <a href="mascotas.jsp" ><i class="fas fa-paw fa-3x"></i></a>
 
-                            <h3>Pets</h3>
-                            <p>Suspendisse amet ullamco</p>
+                            <h3>Mascotas</h3>
+                            <p>Conoce las diferentes mascotas <br>que puedes adoptar</p>
                         </div>
 
                         <div>
                             <a href="mascotas.jsp"><i class="fas fa-hand-holding-heart fa-3x"></i></a>
-                            <h3>Donations</h3>
-                            <p>Class aptent taciti ad litora</p>
+                            <h3>Donaciones</h3>
+                            <p>Dona fondos para ayudarnos con <br>el cuidado de las mascotas <br>que no han sido adoptadas aun</p>
                         </div>
 
                         <div>
                             <a href="OngServlet?formid=2"><i class="fas fa-globe-americas fa-3x"></i></a>
                             <h3>ONG</h3>
-                            <p>Nulla vitae mauris non felis</p>
+                            <p>Conoce más acerca de las organizaciones<br> que apoyan la causa</p>
                         </div>
 
                     </div>
@@ -99,63 +99,69 @@
             </section>
 
             <section id="three">
-                <!-- <div class="inner">
-                    <div class="flex flex-2">
-                        <article>
-                            <div class="row">  -->
-            <br><br> 
+            <br><br>
+            
             <div class="row">
+                
                 <div class="column" style="background-color:rgb(108,192,145);">
                     <h2>Atenea</h2>
+                    <a href="perfilMascota.jsp">
                     <img src="images/small-dog-breeds.jpg" alt="" width="225" height="150"/>
+                    </a>
                 </div>
+                
 
                 <div class="column" style="background-color:rgb(108,192,145);">
                     <h2>Rufus</h2>
+                    <a href="perfilMascota.jsp">
                     <img src="images/Puedo-besar-perrito_LRZIMA20130220_0115_4.jpg" alt="" width="225" height="150"/>
-
+                    </a>
                 </div>
 
                 <div class="column" style="background-color:rgb(108,192,145);">
                     <h2>Garfield</h2>
+                    <a href="perfilMascota.jsp">
                     <img src="images/0dcaacb02ab1a411af137ad607305922.jpg" alt="" width="225" height="150"/>
+                    </a>
                 </div>
 
                 <div class="column" style="background-color:rgb(108,192,145);">
                     <h2>Dogguie</h2>
+                    <a href="perfilMascota.jsp">
                     <img src="images/original.jpg" alt="" width="225" height="150"/>
+                    </a>
                 </div>
 
             </div>
             <br><br>
             <div class="row">
-
                 <div class="column" style="background-color:rgb(108,192,145);">
                     <h2>Atenea</h2>
+                    <a href="perfilMascota.jsp">
                     <img src="images/small-dog-breeds.jpg" alt="" width="225" height="150"/>
+                    </a>
                 </div>
 
                 <div class="column" style="background-color:rgb(108,192,145);">
                     <h2>Rufus</h2>
+                    <a href="perfilMascota.jsp">
                     <img src="images/Puedo-besar-perrito_LRZIMA20130220_0115_4.jpg" alt="" width="225" height="150"/>
-
+                    </a>
                 </div>
 
                 <div class="column" style="background-color:rgb(108,192,145);">
                     <h2>Garfield</h2>
+                    <a href="perfilMascota.jsp">
                     <img src="images/0dcaacb02ab1a411af137ad607305922.jpg" alt="" width="225" height="150"/>
+                    </a>
                 </div>
 
                 <div class="column" style="background-color:rgb(108,192,145);">
                     <h2>Dogguie</h2>
+                    <a href="perfilMascota.jsp">
                     <img src="images/original.jpg" alt="" width="225" height="150"/>
+                    </a>
                 </div>
-                <!--
-            </div>
-            
-        </article>
-    </div>
-</div> -->
         </section>
         <br><br>
 
