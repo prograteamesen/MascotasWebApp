@@ -98,9 +98,23 @@
                     <td><%= CTemp.getDescripcion() %></td>
                     <td><%= CTemp.getOng() %></td>
                     <td>
-                        <a href="MascotaServlet?formid=8&id=<%=CTemp.getId()%>">
+                        
+                <%
+                    if(objSession.getAttribute("correo")!= null){
+                %>   
+                    <a href="MascotaServlet?formid=8&id=<%=CTemp.getId()%>">
                             ADOPTAR
-                        </a>
+                    </a>
+                <%
+                    }
+                    else{
+                %> 
+                    <a href="notLogedInResponse.jsp">
+                            ADOPTAR
+                    </a>
+                <%
+                    }
+                %> 
                     </td>
                 </tr>
         <%
