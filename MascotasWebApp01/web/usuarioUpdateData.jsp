@@ -5,6 +5,8 @@
      <head>
          
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
+        
         <title>Actualizar Usuario</title>
     </head>
     <%
@@ -17,7 +19,7 @@
         <br><br>
         <form id="myform" name="myform" action="UsuarioServlet" method="get">
             Id: <br>
-             <input type="number" id="nonId" name="nonId" value="<%= CUsuario.getId() %>" disabled/>
+            <input type="number" id="nonId" name="nonId" value="<%= CUsuario.getId() %>" disabled/>
             <br><br>
             Nombre: <br>
             <input type="text" name="nombre" value = "<%= CUsuario.getNombre() %>"/>
@@ -44,12 +46,12 @@
             Teléfono: <br>
             <input type="number" name="telefono" value = "<%= CUsuario.getTelefono() %>"/>
             <br><br>
-            
+         
             
                <input type="submit" id="mysubmit" name="mysubmit" value="Update"/>
             <input type="hidden" id="formid" name="formid" value="5" />
             <input type ="hidden" id="id" name="id" value="<%= CUsuario.getId() %>" />
-              
+            
         </form>
     </body>
 </html>

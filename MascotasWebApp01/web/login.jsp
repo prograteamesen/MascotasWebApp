@@ -30,6 +30,7 @@
                     <legend><%out.println(strCorreo);%></legend>
                     <h2>Logged in</h2>
                  <h2><%out.print("<a href='index.jsp?cerrar=true' ><h5>Log out "+strCorreo+"</h5></a>");%></h2>
+               
                 </fieldset>
             </form>
         <%

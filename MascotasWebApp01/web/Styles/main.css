@@ -43,7 +43,14 @@
 	table {
 		border-collapse: collapse;
 		border-spacing: 0;
+                
 	}
+        table.center{
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px;
+            color: #555;
+        }
 
 	body {
 		-webkit-text-size-adjust: none;
