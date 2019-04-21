@@ -2938,6 +2938,17 @@
 		text-align: center;
 		position: relative;
 	}
+        
+         #banner-2 {
+		padding: 8em 0 9em 0;
+		background-image: url(NiggaCat.jpg);
+		background-size: cover;
+		background-position: bottom;
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		text-align: center;
+		position: relative;
+	}
 
 		#banner:before {
 			content: '';
