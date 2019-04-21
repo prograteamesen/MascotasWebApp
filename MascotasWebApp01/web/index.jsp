@@ -34,6 +34,92 @@
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>    
             </div>
     </header>
+    <!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <title>Home</title>
+    </head>
+        <body>
+
+            <section id="banner">
+                <div class="inner">
+                    <header>
+                        <h1>Welcome <%out.println(strNombre);%></h1>
+                    </header>
+
+                    <div class="flex ">
+                        <div>
+                            <a href="MascotaServlet?formid=7" ><i class="fas fa-paw fa-3x"></i></a>
+                            <h3>Pets</h3>
+                            <p>Suspendisse amet ullamco</p>
+                        </div>
+
+                        <div>
+                            <a href="mascotas.jsp"><i class="fas fa-hand-holding-heart fa-3x"></i></a>
+                            <h3>Donations</h3>
+                            <p>Class aptent taciti ad litora</p>
+                        </div>
+
+                        <div>
+                            <a href="OngServlet?formid=2"><i class="fas fa-globe-americas fa-3x"></i></a>
+                            <h3>ONG</h3>
+                            <p>Nulla vitae mauris non felis</p>
+                        </div>
+                    </div>
+
+                    <footer>
+                        <a href="#" class="button">Get Started</a>
+                    </footer>
+                </div>
+            </section>
+
+            <section id="three" class="wrapper align-center">
+                <div class="inner">
+                    <div class="flex flex-2">
+                        <article>
+                            <div class="image round">
+                                <img src="images/pic01.jpg" alt="Pic 01" />
+                            </div>
+                            <header>
+                                <h3>Lorem ipsum<br /> dolor amet nullam</h3>
+                            </header>
+                            <p>Morbi in sem quis dui placerat ornare. Pellentesquenisi<br />euismod in, pharetra a, ultricies in diam sed arcu. Cras<br />consequat  egestas augue vulputate.</p>
+                            <footer>
+                                <a href="#" class="button">Learn More</a>
+                            </footer>
+                        </article>
+                        <article>
+                            <div class="image round">
+                                <img src="images/pic02.jpg" alt="Pic 02" />
+                            </div>
+                            <header>
+                                <h3>Sed feugiat<br /> tempus adipicsing</h3>
+                            </header>
+                            <p>Pellentesque fermentum dolor. Aliquam quam lectus<br />facilisis auctor, ultrices ut, elementum vulputate, nunc<br /> blandit ellenste egestagus commodo.</p>
+                            <footer>
+                                <a href="#" class="button">Learn More</a>
+                            </footer>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </body>
+        <fo</body>oter id="footer">
+            <div class="copyright">
+                <a href="index.jsp" class="i2"><i class="fas fa-home fa-2x"></i></a> <br>
+                &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+            </div>
+        </footer>
+        
+
+        <%--
+            <a href="UsuarioServlet?formid=2">Usuario Form</a>
+        --%>
+    </html>                
+                    
 <%
     }else{
         strNombre = "to Woof!";
@@ -62,8 +148,6 @@
         <title>Home</title>
     </head>
     <body>
-        
-
         <section id="banner">
             <div class="inner">
                 <header>
@@ -126,15 +210,13 @@
                 </div>
             </div>
         </section>
-
+    </body>
     <footer id="footer">
         <div class="copyright">
             <a href="index.jsp" class="i2"><i class="fas fa-home fa-2x"></i></a> <br>
             &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
         </div>
     </footer>
-    
-    
     <%--
         <a href="UsuarioServlet?formid=2">Usuario Form</a>
     --%>
