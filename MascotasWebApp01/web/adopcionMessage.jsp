@@ -9,7 +9,7 @@
         <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <title>Registros</title>
+        <title>Adopción</title>
     </head>
     <%
         HttpSession objSession = request.getSession(false);
@@ -26,7 +26,7 @@
     <header id="header">
             <div class="inner" align="right">
                 <nav id="nav">
-                    <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strNombre+"</a>");%><br>
+                    <%out.print("<a href='index.jsp?cerrar=true'>Cerrar sesión "+strNombre+"</a>");%><br>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>    
             </div>
@@ -39,7 +39,7 @@
             <div class="inner" align="right">
                 <a href="indexAdmin.jsp" class="logo"><strong>Woof!</strong></a>
                 <nav id="nav">
-                    <a href="login.jsp" class="button2">Log in </a>
+                    <a href="login.jsp" class="button2">Iniciar sesión </a>
                     <a href="usuarioNew.jsp" class="button2">Registrarse </a> <br>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
@@ -57,14 +57,16 @@
     %>
    <body class="subpage">
         <head>
-            <br><br>
-            <h2 align="center"><strong>Registros</strong></h2>
-            <br><br>
+            <br>
+            <h2 align="center"><strong>Has adoptado una mascota</strong></h2>
         </head> 
-        <br><br>
+        <br>
         <p align="center"><%= iRows %> registro fue afectado</p>
-        <br><br>
-       
+        <br>
+        
+        <center>
+        <img src="Styles/Thanks.jpeg" alt="Cute"/>
+        </center>
 
     </body>
     <footer id="footer2">  

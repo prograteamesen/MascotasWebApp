@@ -38,6 +38,7 @@
         <head>
             <br>
             <h2 align="center"><strong>Actualizar mi perfil</strong></h2>
+            <br><br>
         </head> 
 
         <form id="myform" name="myform" action="UsuarioServlet" method="get">

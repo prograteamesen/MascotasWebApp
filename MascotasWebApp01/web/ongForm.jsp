@@ -10,7 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <title>ONG Form</title>
+        <title>ONG</title>
     </head>
      <%
         HttpSession objSession = request.getSession(false);
@@ -36,7 +36,7 @@
                 <nav id="nav">
                     <%out.print("<a href='perfilUsuario.jsp'>Mi perfil </a>");%>
                     <%out.print("<a href='indexAdmin.jsp?cerrar=true'>Log out "+strNombre+"</a>");%>
-                    <a href="indexAdmin.jsp">Home</a>
+                    <a href="indexAdmin.jsp">Inicio</a>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
             </div>
@@ -44,7 +44,7 @@
             <body class="subpage">
              <head>
                 <br><br>
-                <h2 align="center"><strong>ONG Form</strong></h2>
+                <h2 align="center"><strong>Formulario de ONG</strong></h2>
             </head>
             <br>
 
@@ -111,7 +111,7 @@
                 <nav id="nav">
                     <%out.print("<a href='perfilUsuario.jsp'>Mi perfil </a>");%>
                     <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strNombre+"</a>");%>
-                    <a href="index.jsp">Home</a>
+                    <a href="index.jsp">Inicio</a>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
             </div>
@@ -119,7 +119,7 @@
         <body class="subpage">
              <head>
                 <br><br>
-                <h2 align="center"><strong>ONG Form</strong></h2>
+                <h2 align="center"><strong>ONG</strong></h2>
             </head>
             <br>
             
@@ -174,7 +174,7 @@
     <body class="subpage">
          <head>
             <br><br>
-            <h2 align="center"><strong>ONG Form</strong></h2>
+            <h2 align="center"><strong> ONG</strong></h2>
         </head>
         <br>
         
@@ -218,7 +218,7 @@
     } 
 %>
 
-    <footer id="footer2">
+    <footer id="footer">
         <div class="copyright">
             <a href="index.jsp" class="i2"><i class="fas fa-home fa-2x"></i></a> <br>
             &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.

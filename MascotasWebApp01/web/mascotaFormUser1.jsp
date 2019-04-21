@@ -44,6 +44,7 @@
     %>      
             <header id="header">
                 <div class="inner" align="right">
+                    <a href="index.jsp" class="logo"><strong>Woof!</strong></a>
                     <nav id="nav">
                         <a href="login.jsp" class="button2">Log in </a>
                     </nav>

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home</title>
+        <title>Inicio</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -31,8 +31,8 @@
     <header id="header">
             <div class="inner" align="right">
                 <nav id="nav">
-                    <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strNombre+"</a>");%>
-                    <%out.print("<a href='perfilUsuario.jsp'>Mi perfil </a>");%><br>
+                    <%out.print("<a href='perfilUsuario.jsp'>Mi perfil </a>");%>
+                    <%out.print("<a href='index.jsp?cerrar=true'>Cerrar sesión "+strNombre+"</a>");%><br>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>    
             </div>
@@ -44,7 +44,7 @@
         <header id="header">
             <div class="inner" align="right">
                 <nav id="nav">
-                    <a href="login.jsp" class="button2">Log in </a>
+                    <a href="login.jsp" class="button2">Iniciar sesión </a>
                     <a href="usuarioNew.jsp" class="button2">Registrarse </a> <br>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
@@ -62,7 +62,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <title>Home</title>
+        <title>Inicio</title>
     </head>
     <body>
         
@@ -70,27 +70,27 @@
         <section id="banner">
             <div class="inner">
                 <header>
-                    <h1>Welcome <%out.println(strNombre);%></h1>
+                    <h1>Bienvenido/a <%out.println(strNombre);%></h1>
                 </header>
 
                 <div class="flex ">
                     <div>
                         <a href="MascotaServlet?formid=7" ><i class="fas fa-paw fa-3x"></i></a>
 
-                        <h3>Pets</h3>
-                        <p>Suspendisse amet ullamco</p>
+                        <h3>Mascotas</h3>
+                        <p>Conoces las diferentes mascotas <br> que puedes adoptar</p>
                     </div>
                     
                     <div>
                         <a href="mascotas.jsp"><i class="fas fa-hand-holding-heart fa-3x"></i></a>
-                        <h3>Donations</h3>
-                        <p>Class aptent taciti ad litora</p>
+                        <h3>Donaciones</h3>
+                        <p>Dona fondos para ayudar con el <br> cuidado de las mascotas</p>
                     </div>
                     
                     <div>
                         <a href="OngServlet?formid=2"><i class="fas fa-globe-americas fa-3x"></i></a>
                         <h3>ONG</h3>
-                        <p>Nulla vitae mauris non felis</p>
+                        <p>Conoce las organizaciones que <br> forman parte de nuestra causa</p>
                         <br><br>
                     </div>
                 </div>

@@ -78,7 +78,7 @@
                 <div class="6u 12u(xsmall)">
                     <input type="email" id="correo" name="correo" autocomplete="off" placeholder="Correo" oninput="this.className = ''"/>
                     <br><br>
-                    <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" oninput="this.className = ''"/>
+                    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" oninput="this.className = ''"/>
                     <br><br>
                     <input type="tel" id="telefono" name="telefono" autocomplete="off" placeholder="Teléfono" oninput="this.className = ''"/>
                     <br><br>
@@ -100,7 +100,7 @@
      
     </body>
     
-    <footer id="footer2">  
+    <footer id="footer">  
         <div class="copyright">
             <a href="index.jsp" class="i2"><i class="fas fa-home fa-2x"></i></a> <br>
             &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.

@@ -25,7 +25,7 @@
             %>
             <header id="header">
                     <div class="inner" align="left">
-                    <a href="index.jsp" class="logo"><strong>Woof!</strong></a>
+                        <a href="index.jsp" class="logo"><strong>Woof!</strong></a>
                         <nav id="nav" align="right">
                             <%out.print("<a href='perfilUsuario.jsp'>Mi perfil </a>");%>
                             <%out.print("<a href='index.jsp?cerrar=true'> Log out "+strNombre+"</a>");%><br>

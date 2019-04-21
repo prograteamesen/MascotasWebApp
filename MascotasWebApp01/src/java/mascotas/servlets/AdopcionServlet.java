@@ -48,7 +48,7 @@ public class AdopcionServlet extends HttpServlet {
                 
                 ////send to frontend
                 request.getSession().setAttribute("rows", iRows );
-                response.sendRedirect("genericMessage.jsp");
+                response.sendRedirect("adopcionMessage.jsp");
             }
             // </editor-fold>]
             

@@ -9,7 +9,7 @@
         <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <script src="Scripts/loginvalidate.js" type="text/javascript"></script>
-        <title>Log in</title>
+        <title>Iniciar Sesión</title>
     </head>
     <body class="subpage">     
         <%
@@ -40,8 +40,8 @@
             <div class="inner">
                 <a href="index.jsp" class="logo"><strong>Woof!</strong></a>
                 <nav id="nav">
-                    <a href="index.jsp">Home</a>
-                    <a href="usuarioNew.jsp">Register</a>
+                    <a href="index.jsp">Inicio</a>
+                    <a href="usuarioNew.jsp">Registrarse</a>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
             </div>
@@ -49,7 +49,7 @@
       
         <head>
             <br><br>
-            <h2 align="center"><strong>Log in</strong></h2>
+            <h2 align="center"><strong>Iniciar Sesión</strong></h2>
             <br><br>
         </head>    
        
@@ -65,7 +65,7 @@
                     
                 <div class="12u">
                     <ul class="actions">
-                        <input type="submit" id="mysubmit" name="mysubmit" value="Log in" class="button"/>
+                        <input type="submit" id="mysubmit" name="mysubmit" value="Iniciar sesión" class="button"/>
                         <br><br>
                         <input type="hidden" name="formid" value="6"/>
                     </ul>
