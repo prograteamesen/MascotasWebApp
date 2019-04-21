@@ -120,7 +120,7 @@
                         </header>
                         <p>Pellentesque fermentum dolor. Aliquam quam lectus<br />facilisis auctor, ultrices ut, elementum vulputate, nunc<br /> blandit ellenste egestagus commodo.</p>
                         <footer>
-                            <a href="#" class="button">Learn More</a>
+                            <a href="beneficiosAdoptar.jsp" class="button">Learn More</a>
                         </footer>
                     </article>
                 </div>
