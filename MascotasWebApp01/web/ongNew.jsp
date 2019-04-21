@@ -38,6 +38,7 @@
 %>      
         <header id="header">
             <div class="inner" align="right">
+                <a href="indexAdmin.jsp" class="logo"><strong>Woof!</strong></a>
                 <nav id="nav">
                     <a href="login.jsp" class="button2">Log in </a>
                     <a href="usuarioNew.jsp" class="button2">Registrarse </a> <br>

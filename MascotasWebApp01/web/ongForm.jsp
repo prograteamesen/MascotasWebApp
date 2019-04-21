@@ -48,6 +48,7 @@
 %>      
         <header id="header">
             <div class="inner" align="right">
+                <a href="indexAdmin.jsp" class="logo"><strong>Woof!</strong></a>
                 <nav id="nav">
                     <a href="login.jsp" class="button2">Log in </a>
                 </nav>
@@ -114,7 +115,7 @@
         </table>
         
     </body>
-    <footer id="footer2">
+    <footer id="footer">
         <div class="copyright">
             <a href="index.jsp" class="i2"><i class="fas fa-home fa-2x"></i></a> <br>
             &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.

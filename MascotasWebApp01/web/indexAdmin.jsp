@@ -31,7 +31,8 @@
     <header id="header">
             <div class="inner" align="right">
                 <nav id="nav">
-                    <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strNombre+"</a>");%><br>
+                    <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strNombre+"</a>");%>
+                    <%out.print("<a href='perfilUsuario.jsp'>Mi perfil </a>");%><br>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>    
             </div>

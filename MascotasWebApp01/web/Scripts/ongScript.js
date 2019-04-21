@@ -13,8 +13,6 @@ $(document).ready(function(){
             },
             
             ncuenta:{
-                max:20,
-                min:10,
                 required:true
             },
             

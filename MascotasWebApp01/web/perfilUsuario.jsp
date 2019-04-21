@@ -81,7 +81,7 @@
             <br>
             
             <nav id="nav" class="button">
-                <%out.print("<a href='UsuarioServlet?formid=4&id="+iId+"'>Actualizar Información</a>");%>
+                <%out.print("<a href='UsuarioServlet?formid=7&id="+iId+"'>Actualizar Información</a>");%>
                 <br>
             </nav>
             <br><br>

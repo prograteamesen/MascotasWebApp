@@ -91,7 +91,7 @@ public class UsuarioServlet extends HttpServlet
                 UsuarioObj CUsuario = ULogic.getUsuarioById(iId);
    
             request.getSession().setAttribute("usuario", CUsuario);
-            response.sendRedirect("usuarioUpdateData.jsp");
+            response.sendRedirect("usuarioUpdateDataAdmin.jsp");
             
         }
         // </editor-fold>
@@ -146,6 +146,23 @@ public class UsuarioServlet extends HttpServlet
                 }
         }
         // </editor-fold>
+        
+        // <editor-fold defaultstate="collapsed" desc="formid 7 - Update user">
+        if(strFormId.equals("7"))
+        {
+            
+                String strId = request.getParameter("id");
+                int iId = Integer.parseInt(strId);
+   
+                UsuarioLogic ULogic = new UsuarioLogic();
+                UsuarioObj CUsuario = ULogic.getUsuarioById(iId);
+   
+            request.getSession().setAttribute("usuario", CUsuario);
+            response.sendRedirect("usuarioUpdateData.jsp");
+            
+        }
+        // </editor-fold>
+        
         }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
