@@ -39,6 +39,60 @@
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
             </div>
         </header>
+                    
+        
+    <body class="subpage">
+        <head>
+            <br><br>
+            <h2 align="center"><strong>¡Mascotas!</strong></h2>
+        </head
+
+        <div class="12u" align="center">
+            <ul class="actions" align="center">
+                <a href="MascotaServlet?formid=6" class="button">Registrar mascota</a>
+            </ul>
+        </div>
+        
+        <table style="width:70%" class="center">
+            <tr>
+              <th>Nombre</th> 
+              <th>Edad</th>
+              <th>Categoria</th>
+              <th>Raza</th>
+              <th>Tamaño</th>
+              <th>Descripcion</th>
+              <th>ONG</th>
+              <th>Adoptar</th>
+            </tr>
+        <%
+            if(iteArray!=null)
+            {
+                MascotaViewObj CTemp;
+                while(iteArray.hasNext())
+                {
+                    CTemp = iteArray.next();
+        %>
+                <tr>
+                    <td><%= CTemp.getNombre() %></td>
+                    <td><%= CTemp.getEdad() %></td>
+                    <td><%= CTemp.getCategoria() %></td>
+                    <td><%= CTemp.getRaza() %></td>
+                    <td><%= CTemp.getTamaño() %></td>
+                    <td><%= CTemp.getDescripcion() %></td>
+                    <td><%= CTemp.getOng() %></td>
+                    <td>
+                        <a href="MascotaServlet?formid=8&id=<%=CTemp.getId()%>">
+                            ADOPTAME
+                        </a>
+                    </td>
+                </tr>
+        <%
+                }
+            }
+        %>
+        </table>    
+    </body>   
+    
     <%
         }else{
     %>      
@@ -50,12 +104,7 @@
                     <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
                 </div>
             </header>    
-    <%}   
-        if(request.getParameter("cerrar")!=null){
-                    objSession.invalidate();
-                    response.sendRedirect("index.jsp");
-        } 
-    %>
+
         <body class="subpage">
         <head>
             <br><br>
@@ -68,9 +117,8 @@
             </ul>
         </div>
         
-        <table style="width:70%" border="1">
+        <table style="width:70%" class="center">
             <tr>
-              <th>ID</th>
               <th>Nombre</th> 
               <th>Edad</th>
               <th>Categoria</th>
@@ -78,6 +126,7 @@
               <th>Tamaño</th>
               <th>Descripcion</th>
               <th>ONG</th>
+              <th>Adoptar</th>
             </tr>
         <%
             if(iteArray!=null)
@@ -88,7 +137,6 @@
                     CTemp = iteArray.next();
         %>
                 <tr>
-                    <td><%= CTemp.getId() %></td>
                     <td><%= CTemp.getNombre() %></td>
                     <td><%= CTemp.getEdad() %></td>
                     <td><%= CTemp.getCategoria() %></td>
@@ -97,9 +145,12 @@
                     <td><%= CTemp.getDescripcion() %></td>
                     <td><%= CTemp.getOng() %></td>
                     <td>
-                        <a href="MascotaServlet?formid=8&id=<%=CTemp.getId()%>">
-                            ADOPTAR
-                        </a>
+                        <p>
+                           Si quieres adoptarme tienes que iniciar sesión.
+                            <a href="login.jsp" class="button2">Log in </a>
+                           Si aún no estás registrado, ¡crea una cuenta!.
+                           <a href="usuarioNew.jsp" class="button2">Registrarse</a>
+                        </p>
                     </td>
                 </tr>
         <%
@@ -107,8 +158,16 @@
             }
         %>
         </table>    
-    </body>
-    <footer id="footer2">
+    </body>    
+    
+    <%}   
+        if(request.getParameter("cerrar")!=null){
+                    objSession.invalidate();
+                    response.sendRedirect("index.jsp");
+        } 
+    %>
+    
+    <footer id="footer">
         <div class="copyright">
             <a href="index.jsp" class="i2"><i class="fas fa-home fa-2x"></i></a> <br>
             &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
