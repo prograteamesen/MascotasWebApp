@@ -1,0 +1,21 @@
+.column {
+    float: left;
+    width: 20%;
+    height: 25%;
+    /*padding: 10px;*/
+    margin-right: 30px;
+    margin-left: 30px;
+    text-align: center;
+    border-radius:20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+img {
+  border-radius: 20px;
+}
