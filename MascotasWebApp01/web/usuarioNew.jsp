@@ -1,4 +1,3 @@
-
 <%@page import="mascotas.logic.UsuarioLogic"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,11 +12,18 @@
         <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <script src="phpScripts/jquery.js" type="text/javascript"></script>
+        <script src="phpScripts/jquery-ui.js" type="text/javascript"></script>
+        <script>
+            $(function(){
+              $(document).tooltip(track:true);
+            } );
+        </script>
      </head>
     <%
-         HttpSession objSession = request.getSession(false);
-         String strCorreo = (String)objSession.getAttribute("correo");
-         String strNombre;
+        HttpSession objSession = request.getSession(false);
+        String strCorreo = (String)objSession.getAttribute("correo");
+        String strNombre;
         
         //Verificar si hay una sesion iniciada
         if(objSession.getAttribute("correo")!= null){
@@ -61,20 +67,21 @@
             
             <div  align="center" class="row uniform">
                 <div class="6u 12u(xsmall)">
-                    <p><input type="text" id="nombre" name="nombre" autocomplete="off" placeholder="Nombre" oninput="this.className = ''"/></p>
+                    <p><input type="text" id="nombre" name="nombre" autocomplete="off" placeholder="Nombre" 
+                              oninput="this.className = ''"/></p>
                     <br>
                     <input type="text" id="apellido" name="apellido" autocomplete="off" placeholder="Apellido" oninput="this.className = ''"/>
                     <br><br>
                     <input type="text" id="fechanacimiento" name="fechanacimiento" autocomplete="off" placeholder="Fecha de Nacimiento" oninput="this.className = ''"/>
                     <br><br>
-                    <select class="dropdown" id="genero" name="genero" placeholder="G" align="center" required />
+                    <select class="dropdown" id="genero" name="genero" placeholder="G" 
+                            align="center" required />
                            <option value="0" hidden  >Género</option>
                            <option value="Femenino">Femenino</option>
                            <option value="Masculino">Masculino</option>  
                     </select>
                     <br><br>
                 </div>
-                
                 <div class="6u 12u(xsmall)">
                     <input type="email" id="correo" name="correo" autocomplete="off" placeholder="Correo" oninput="this.className = ''"/>
                     <br><br>
