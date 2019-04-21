@@ -53,10 +53,13 @@
             <br><br>
             
             
-               <input type="submit" id="mysubmit" name="mysubmit" value="Update"/>
+            <input type="submit" id="mysubmit" name="mysubmit" value="Update"/>
             <input type="hidden" id="formid" name="formid" value="5" />
             <input type ="hidden" id="id" name="id" value="<%= CUsuario.getId() %>" />
               
         </form>
     </body>
 </html>
+
+
+

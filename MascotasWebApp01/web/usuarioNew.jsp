@@ -87,7 +87,6 @@
                 <div class="12u">
                     <ul class="actions">
                         <input type="submit" id="myform" name="myform" value="Registrarse" class="button"/>
-                        <br><br>
                         <input type="hidden" name="formid" value="1"/>
                     </ul>
                 </div>
