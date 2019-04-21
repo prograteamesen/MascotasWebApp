@@ -83,8 +83,8 @@
                 <th>Contraseña</th>
                 <th>Teléfono</th>
                 <th>Nivel</th>
-                <th>Actualizar</th>
-                <th>Eliminar</th>
+                <th>Actualizar Registro</th>
+                <th>Eliminar Registro</th>
               </tr>
           <%
             if(iteArray!=null)
@@ -106,12 +106,12 @@
                     <td><%= CTemp.getNivel() %></td>
                     <td>
                         <a href="UsuarioServlet?formid=4&id=<%= CTemp.getId() %>">
-                            update
+                            Actualizar
                         </a>
                     </td>
                     <td>
                         <a href="UsuarioServlet?formid=3&id=<%= CTemp.getId() %>">
-                            delete
+                            Eliminar
                         </a>
                     </td>
                 </tr>
