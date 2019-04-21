@@ -21,7 +21,7 @@
         <a href="MascotaServlet?formid=6">Registrar mascota</a>
         <br><br>
         
-        <table style="width:70%" border="1">
+        <table style="width:70%" class="center" >
             <tr>
               <th>ID</th>
               <th>Nombre</th> 

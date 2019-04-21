@@ -3239,3 +3239,7 @@ option {
   text-align: center;
   /* reset to left*/
 }
+table.center{
+    margin-left: auto;
+    margin-right: auto;
+}
