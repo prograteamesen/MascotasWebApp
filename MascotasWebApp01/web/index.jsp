@@ -113,14 +113,14 @@
                     </article>
                     <article>
                         <div class="image round">
-                            <img src="images/pic02.jpg" alt="Pic 02" />
+                            <img src="Styles/Misho.jpg" alt="CuteMisho" />
                         </div>
                         <header>
-                            <h3>Sed feugiat<br /> tempus adipicsing</h3>
+                            <h3>¿Por qué<br />debería adoptar?</h3>
                         </header>
-                        <p>Pellentesque fermentum dolor. Aliquam quam lectus<br />facilisis auctor, ultrices ut, elementum vulputate, nunc<br /> blandit ellenste egestagus commodo.</p>
+                        <p>No compres, ¡adopta! Cientos<br />de amigos esperan en calles y<br />refugios una oportunidad</p>
                         <footer>
-                            <a href="#" class="button">Learn More</a>
+                            <a href="#" class="button">Aprende más</a>
                         </footer>
                     </article>
                 </div>
