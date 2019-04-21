@@ -118,7 +118,7 @@
                         </header>
                         <p>No compres, ¡adopta! Cientos<br />de amigos esperan en calles y<br />refugios una oportunidad</p>
                         <footer>
-                            <a href="beneficiosAdoptar.jsp" class="button">Aprende más</a>
+                            <a href="beneficiosAdoptar.jsp" class="button">¿Cómo hacerlo?</a>
                         </footer>
                     </article>
                 </div>
