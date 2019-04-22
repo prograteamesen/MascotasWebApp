@@ -126,9 +126,32 @@
         </section>
     </body>
     <footer id="footer">
+        <div class="inner">
+
+            <h2 style="color:white">Contactanos</h2>
+            <br>
+            <form action="#" method="post">
+                    <center>
+                            <input name="name" id="name" type="text" placeholder="Nombre" autocomplete="off">
+                            <br>
+                    </center>
+                    <center>
+                            <input name="email" id="email" type="email" placeholder="Email" autocomplete="off">
+                            <br>
+                    </center>
+                    <center>
+                            <textarea name="comentarios" rows="5" cols="10" placeholder="Mensaje"></textarea>
+                            <br>
+                    </center>
+                    <ul class="actions">
+                            <li><input value="Enviar Mensaje" class="button alt" type="submit"></li>
+                    </ul>
+            </form>
+
         <div class="copyright">
             <a href="index.jsp" class="i2"><i class="fas fa-home fa-2x"></i></a> <br>
             &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+        </div>
         </div>
     </footer>
     <%--

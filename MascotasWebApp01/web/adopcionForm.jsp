@@ -29,7 +29,7 @@
     %>
     <header id="header">
         <div class="inner">
-            <a href="indexAdmin.jsp" class="logo"><strong>Woof!</strong></a>
+            <a href="indexAdmin.jsp" class="logo"><img src="Styles/Logo.png" style="width:100px;height:40px"/></a>
             <nav id="nav">
                 <%out.print("<a href='index.jsp?cerrar=true'>Cerrar Sesión "+strNombre+"</a>");%>
                 <a href="index.jsp">Inicio</a>
@@ -42,7 +42,7 @@
 %>      
         <header id="header">
             <div class="inner" align="right">
-                <a href="indexAdmin.jsp" class="logo"><strong>Woof!</strong></a>
+                <a href="indexAdmin.jsp" class="logo"><img src="Styles/Logo.png" style="width:100px;height:40px"/></a>
                 <nav id="nav">
                     <a href="login.jsp" class="button2">Iniciar sesión</a>
                 </nav>

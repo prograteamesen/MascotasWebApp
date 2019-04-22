@@ -37,9 +37,9 @@
 %>      
         <header id="header">
             <div class="inner" align="right">
-                <a href="indexAdmin.jsp" class="logo"><strong>Woof!</strong></a>
+                <a href="indexAdmin.jsp" class="logo"><img src="Styles/Logo.png" style="width:100px;height:40px"/></a>
                 <nav id="nav">
-                    <a href="login.jsp" class="button2">Log in </a>
+                    <a href="login.jsp" class="button2">Iniciar sesión</a>
                     <a href="usuarioNew.jsp" class="button2">Registrarse </a> <br>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>

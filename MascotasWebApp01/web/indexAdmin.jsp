@@ -82,7 +82,7 @@
                     </div>
                     
                     <div>
-                        <a href="mascotas.jsp"><i class="fas fa-hand-holding-heart fa-3x"></i></a>
+                        <a href="instruccionesDonar.jsp"><i class="fas fa-hand-holding-heart fa-3x"></i></a>
                         <h3>Donaciones</h3>
                         <p>Dona fondos para ayudar con el <br> cuidado de las mascotas</p>
                     </div>

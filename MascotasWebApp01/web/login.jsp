@@ -38,7 +38,7 @@
         %>
         <header id="header">
             <div class="inner">
-                <a href="index.jsp" class="logo"><strong>Woof!</strong></a>
+                <a href="index.jsp" class="logo"><img src="Styles/Logo.png" style="width:100px;height:40px"/></a>
                 <nav id="nav">
                     <a href="index.jsp">Inicio</a>
                     <a href="usuarioNew.jsp">Registrarse</a>
