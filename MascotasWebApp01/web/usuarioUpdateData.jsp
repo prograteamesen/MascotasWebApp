@@ -23,7 +23,7 @@
                <a href="index.jsp" class="logo"><strong>Woof!</strong></a>
                 <nav id="nav" align="right">
                     <%out.print("<a href='perfilUsuario.jsp' >Regresar </a>");%>
-                    <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strNombre+"</a>");%><br>
+                    <%out.print("<a href='index.jsp?cerrar=true'>Cerrar sesión "+strNombre+"</a>");%><br>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>    
             </div>

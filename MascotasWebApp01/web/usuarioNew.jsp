@@ -27,7 +27,7 @@
     <header id="header">
             <div class="inner" align="right">
                 <nav id="nav">
-                    <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strNombre+"</a>");%><br>
+                    <%out.print("<a href='index.jsp?cerrar=true'>Cerrar sesión "+strNombre+"</a>");%><br>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>    
             </div>
@@ -39,7 +39,7 @@
             <div class="inner" align="right">
                 <a href="index.jsp" class="logo"><strong>Woof!</strong></a>
                 <nav id="nav">
-                    <a href="login.jsp" class="button2">Log in </a>
+                    <a href="login.jsp" class="button2">Iniciar sesión </a>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
             </div>
