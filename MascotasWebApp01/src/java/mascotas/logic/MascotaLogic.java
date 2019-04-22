@@ -11,6 +11,7 @@ import mascotas.pojos.MascotaViewObj;
 
 public class MascotaLogic extends Logic
 {
+    /*
     public boolean insertMascotaBool(String p_strNombre, int p_iEdad, 
             int p_iIdCategoria, String p_strRaza, String p_strTamaño, 
             String p_strDescripcion, int p_iIdOng)
@@ -25,18 +26,19 @@ public class MascotaLogic extends Logic
         boolean success = database.executeNonQueryBool(strSql);
         return success;
     }
+    */
     
     public int insertMascotaRows(String p_strNombre, int p_iEdad, 
             int p_iIdCategoria, String p_strRaza, String p_strTamaño, 
-            String p_strDescripcion, int p_iIdOng)
+            String p_strDescripcion, int p_iIdOng, String p_strFoto)
     {
 
         DatabaseX database = getDatabase();
         String strSql = "INSERT INTO mascotasdb.mascota (id, nombre, edad, "
-                + "idcategoria, raza, tamaño, descripcion, idong) "
+                + "idcategoria, raza, tamaño, descripcion, idong, foto) "
                 + "VALUES (0,'"+p_strNombre+"', "+p_iEdad+", "+p_iIdCategoria+", "
                 + "'"+p_strRaza+"', '"+p_strTamaño+"', "
-                + "'"+p_strDescripcion+"', "+p_iIdOng+");";
+                + "'"+p_strDescripcion+"', "+p_iIdOng+", '"+p_strFoto+"');";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;
@@ -60,6 +62,8 @@ public class MascotaLogic extends Logic
             String strTamaño;
             String strDescripcion;
             String strOng;
+            String strFoto;
+            
             
             MascotaViewObj CTemp;
             MArray = new ArrayList<>();
@@ -76,9 +80,10 @@ public class MascotaLogic extends Logic
                     strTamaño = CResult.getString("tamaño");
                     strDescripcion = CResult.getString("descripcion");
                     strOng = CResult.getString("ong");
+                    strFoto = CResult.getString("foto");
                     
                     CTemp = new MascotaViewObj(iId, strNombre, iEdad, strCategoria,
-                    strRaza, strTamaño, strDescripcion, strOng);
+                    strRaza, strTamaño, strDescripcion, strOng, strFoto);
                     MArray.add(CTemp);
                 }
             } 
@@ -119,6 +124,7 @@ public class MascotaLogic extends Logic
             String strTamaño;
             String strDescripcion;
             int iIdOng;
+            String strFoto;
             
             try 
             {
@@ -132,10 +138,11 @@ public class MascotaLogic extends Logic
                     strTamaño = CResult.getString("tamaño");
                     strDescripcion = CResult.getString("descripcion");
                     iIdOng = CResult.getInt("idong");
+                    strFoto = CResult.getString("foto");
                     
                     CTemp = new MascotaObj(iId, strNombre, iEdad, 
                             iIdCategoria, strRaza, strTamaño, strDescripcion, 
-                            iIdOng);
+                            iIdOng, strFoto);
                 }
             } 
             catch (SQLException ex) 
@@ -165,6 +172,8 @@ public class MascotaLogic extends Logic
             String strTamaño;
             String strDescripcion;
             String strIdOng;
+            String strFoto;
+            
             
             try 
             {
@@ -176,12 +185,13 @@ public class MascotaLogic extends Logic
                     strIdCategoria = CResult.getString("categoria");
                     strRaza = CResult.getString("raza");
                     strTamaño = CResult.getString("tamaño");
-                strDescripcion = CResult.getString("descripcion");
+                    strDescripcion = CResult.getString("descripcion");
                     strIdOng = CResult.getString("ong");
+                    strFoto = CResult.getString(strTamaño);
                     
                     CTemp = new MascotaViewObj(iId, strNombre, iEdad, 
                             strIdCategoria, strRaza, strTamaño, strDescripcion, 
-                            strIdOng);
+                            strIdOng, strFoto);
                 }
             } 
             catch (SQLException ex) 
@@ -195,15 +205,15 @@ public class MascotaLogic extends Logic
     
     public int updateMascotaRows(int p_iId, String p_strNombre, int p_iEdad, 
             int p_iIdCategoria, String p_strRaza, String p_strTamaño, 
-            String p_strDescripcion, int p_iIdOng) 
+            String p_strDescripcion, int p_iIdOng, String p_strFoto) 
     {
         
         DatabaseX database = getDatabase();
         String strSql = "UPDATE mascotasdb.mascota SET nombre = '"+p_strNombre+"', "
                 + "edad = "+p_iEdad+", idcategoria = "+p_iIdCategoria+", "
                 + "raza = '"+p_strRaza+"', tamaño = '"+p_strTamaño+"', "
-                + "descripcion = '"+p_strDescripcion+"', idong = "+p_iIdOng+""
-                + " WHERE id = "+p_iId+";";
+                + "descripcion = '"+p_strDescripcion+"', idong = "+p_iIdOng+","
+                + " foto='"+p_strFoto+"' WHERE id = "+p_iId+";";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;

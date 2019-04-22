@@ -1,4 +1,15 @@
+
+<%@page import="org.apache.commons.fileupload.FileItem"%>
+<%@page import="java.util.List"%>
+<%@page import="java.io.File"%>
+<%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
+<%@page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
 <%@page import="mascotas.logic.UsuarioLogic"%>
+<%@page import="mascotas.pojos.OngObj"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="mascotas.pojos.CategoriaObj"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -7,12 +18,9 @@
         <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
-        <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
-        <script src="Scripts/ongScript.js" type="text/javascript"></script>
-        <title>New ONG</title>
+        <title>Nueva mascota</title>
     </head>
-    <%
+     <%
         HttpSession objSession = request.getSession(false);
         String strCorreo = (String)objSession.getAttribute("correo");
         
@@ -52,42 +60,32 @@
                 response.sendRedirect("index.jsp");
     } 
 %>
-        <body class="subpage">
-            <head>
+  
+    <body class="subpage"> 
+         
+            <br><br>
+            <h2 align="center"><strong>Registrar Mascota</strong></h2>
+            <br><br>
+            <form action="mascotaNew.jsp" method="post" anctype="multipart/form-data">
+                <div align="center">
+                <div class="6u 12u(xsmall)">  
+                    
+                <h2 align="center">Sube una foto de la mascota: </h2>
+                
+                <input type="file" name="file" />
                 <br><br>
-                <h2 align="center"><strong>Nueva ONG</strong></h2>
+                </div>
+                <div class="12u">   
+                    
+                <ul class="actions">
+                <input type="submit" name="mysubmit" value="Subir Foto"/>
+                </ul>
+                </div>
+                </div>
                 <br><br>
-            </head> 
-             <!--form...-->
-            <form name="ongNewForm" id="ongNewForm" action="OngServlet" method="get" autocomplete="off">
-                <div  align="center">
-                <div class="6u 12u(xsmall)">    
-
-                    <input type="text" id="nombre" name="nombre" autocomplete="off" placeholder="Nombre"/>
-                    <br><br>
-
-                    <input type="text" id="contacto" name="contacto" autocomplete="off" placeholder="Contacto"/>
-                    <br><br>
-
-                    <input type="text" id="descripcion" name="descripcion" autocomplete="off" placeholder="Descripción"/>
-                    <br><br>
-
-                    <input type="number" id="ncuenta" name="ncuenta" autocomplete="off" placeholder="Número de Cuenta Bancaria"/>
-                    <br><br>
-
-                    <input type="text" id="link" name="link" autocomplete="off" placeholder="Link"/>
-                    <br><br>
-                </div>
-                 <div class="12u">    
-                     <ul class="actions">
-                        <input type="submit" id="myform" name="myform" value="Crear"/>
-                        <br><br>
-                        <input type="hidden" id="formid" name="formid" value="1"/>
-                     </ul>
-                 </div>
-                </div>
             </form>
-        </body>
+            
+    </body>
     <footer id="footer">  
         <div class="copyright">
             <a href="index.jsp" class="i2"><i class="fas fa-home fa-2x"></i></a> <br>
@@ -95,5 +93,3 @@
         </div>
     </footer>
 </html>
-
-

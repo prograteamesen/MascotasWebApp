@@ -10,10 +10,11 @@ public class MascotaViewObj
     private String m_strTamaño;
     private String m_strDescripcion;
     private String m_strOng;
+    private String m_strFoto;
 
     public MascotaViewObj(int p_iId, String p_strNombre, int p_iEdad, 
             String p_strCategoria, String p_strRaza, String p_strTamaño, 
-            String p_strDescripcion, String p_strOng) 
+            String p_strDescripcion, String p_strOng, String p_strFoto) 
     {
         setId(p_iId);
         setNombre(p_strNombre);
@@ -23,6 +24,7 @@ public class MascotaViewObj
         setTamaño(p_strTamaño);
         setDescripcion(p_strDescripcion);
         setOng(p_strOng);
+        setFoto(p_strFoto);
     }
 
     public int getId() 
@@ -103,5 +105,12 @@ public class MascotaViewObj
     private void setOng(String p_strOng) 
     {
         m_strOng = p_strOng;
+    }
+        public String getFoto() {
+        return m_strFoto;
+    }
+
+    private void setFoto(String p_strFoto) {
+        m_strFoto = p_strFoto;
     }
 }

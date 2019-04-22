@@ -15,6 +15,7 @@ import mascotas.pojos.MascotaObj;
 import mascotas.pojos.MascotaViewObj;
 import mascotas.pojos.OngObj;
 
+
 @WebServlet(name = "MascotaServlet", urlPatterns = {"/MascotaServlet"})
 public class MascotaServlet extends HttpServlet 
 {
@@ -36,6 +37,7 @@ public class MascotaServlet extends HttpServlet
             String strTamaño = request.getParameter("tamaño");
             String strDescripcion = request.getParameter("descripcion");
             String strIdOng = request.getParameter("ong");
+            String strFoto = (String) request.getSession().getAttribute("foto");
 
             int iEdad = Integer.parseInt(strEdad);
             int iIdCategoria = Integer.parseInt(strIdCategoria);
@@ -43,13 +45,14 @@ public class MascotaServlet extends HttpServlet
             
              MascotaLogic CLogic = new MascotaLogic();
              int iRows = CLogic.insertMascotaRows(strNombre, iEdad, iIdCategoria,
-                     strRaza, strTamaño, strDescripcion, iIdOng);
+                     strRaza, strTamaño, strDescripcion, iIdOng, strFoto);
             
             request.getSession().setAttribute("rows", iRows);
             response.sendRedirect("genericMessage.jsp");
-            
+
         }
         // </editor-fold>
+        
         
         // <editor-fold defaultstate="collapsed" desc="formid 2 - Mascota Form Table">
         if(strFormId.equals("2"))
@@ -107,6 +110,7 @@ public class MascotaServlet extends HttpServlet
             String strTamaño = request.getParameter("tamaño");
             String strDescripcion = request.getParameter("descripcion");
             String strIdOng = request.getParameter("ong");
+            String strFoto = request.getParameter("foto");
 
             int iId = Integer.parseInt(strId);
             int iEdad = Integer.parseInt(strEdad);
@@ -116,7 +120,7 @@ public class MascotaServlet extends HttpServlet
             MascotaLogic MLogic = new MascotaLogic();
             int iRows = MLogic.updateMascotaRows(iId, strNombre, 
                     iEdad, iIdCategoria, strRaza, strTamaño, 
-                    strDescripcion, iIdOng);
+                    strDescripcion, iIdOng, strFoto);
             
             request.getSession().setAttribute("rows", new Integer(iRows) );
             response.sendRedirect("genericMessage.jsp");
@@ -135,7 +139,7 @@ public class MascotaServlet extends HttpServlet
                 
             request.getSession().setAttribute("categorias", CCategoriaArray);
             request.getSession().setAttribute("ongs", COngArray);
-            response.sendRedirect("mascotaNew.jsp");  
+            response.sendRedirect("mascotaNewPhoto.jsp");  
         }
         // </editor-fold>
         

@@ -12,12 +12,13 @@ public class MascotaObj
     private String m_strTamaño;
     private String m_strDescripcion;
     private int m_iIdOng;
+    private String m_strFoto;
 
     //constructor
 
     public MascotaObj(int p_iId, String p_strNombre, int p_iEdad, 
             int p_iIdCategoria, String p_strRaza, String p_strTamaño, 
-            String p_strDescripcion, int p_iIdOng) 
+            String p_strDescripcion, int p_iIdOng, String p_strFoto) 
     {
         setId(p_iId);
         setNombre(p_strNombre);
@@ -27,6 +28,7 @@ public class MascotaObj
         setTamaño(p_strTamaño);
         setDescripcion(p_strDescripcion);
         setIdOng(p_iIdOng);
+        setFoto(p_strFoto);
     }
     
     //getters and setters
@@ -109,5 +111,13 @@ public class MascotaObj
     {
         m_iIdOng = p_iIdOng;
     }
-  
+
+    public String getFoto() {
+        return m_strFoto;
+    }
+
+    private void setFoto(String p_strFoto) {
+        m_strFoto = p_strFoto;
+    }
+    
 }

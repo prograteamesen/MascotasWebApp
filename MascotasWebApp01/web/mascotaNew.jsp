@@ -1,4 +1,9 @@
 
+<%@page import="org.apache.commons.fileupload.FileItem"%>
+<%@page import="java.util.List"%>
+<%@page import="java.io.File"%>
+<%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
+<%@page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
 <%@page import="mascotas.logic.UsuarioLogic"%>
 <%@page import="mascotas.pojos.OngObj"%>
 <%@page import="java.util.Iterator"%>
@@ -66,82 +71,123 @@
                         getAttribute("ongs");
         Iterator<OngObj> iteOngArray = COngArray.iterator();
     %>    
-    <body class="subpage">
-        <head>
+    <body class="subpage"> 
+         
             <br><br>
             <h2 align="center"><strong>Registrar Mascota</strong></h2>
             <br><br>
-        </head> 
-        <form name="mascotaForm" action="MascotaServlet" method="get">
-            <div  align="center">
-            <div class="6u 12u(xsmall)">    
             
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre" autocomplete="off"/>
-            <br><br>
+                                                <%
+               //EN CASO DE ERROR SE TIENE QUE CAMBIAR ESTA DIRECCIÓN.
+               String Url = "C:\\Users\\Ernesto Norio\\Documents\\Proyecto P2\\Mascotas\\MascotasWebApp\\MascotasWebApp01\\web\\img";
+               
+               DiskFileItemFactory factory = new DiskFileItemFactory();
+               
+               factory.setSizeThreshold(1024);
+               
+               factory.setRepository(new File(Url));
+               
+               ServletFileUpload upload = new ServletFileUpload(factory);
+               
+               String strFotos;
+               
+                try
+                {
+                   List<FileItem> partes = upload.parseRequest(request);
+                
+              
+                  for(FileItem items : partes)
+                  {
+                   File file = new File(Url, items.getName());
+                   
+                   items.write(file);
+                   
+                   strFotos = items.getName();
+                   request.getSession().setAttribute("foto", items.getName());
+                  }
+                }
+                catch(Exception e)
+                {
+                    
+                }
+                
+                %>
+                    
             
-            <input type="number" name="edad" id="edad" placeholder="Edad" autocomplete="off"/>
-            <br><br>
-            
-            <select name="categoria" id="categoria" placeholder="Categoría">
-                <%
-                    if(iteCategoriaArray!=null)
-                    {
-                        CategoriaObj CCategoriaTemp;
-                        while(iteCategoriaArray.hasNext())
+            <form name="mascotaForm2" action="MascotaServlet" method="get" >
+                <div align="center">
+                <div class="6u 12u(xsmall)">    
+                    
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre" autocomplete="off"/>
+                <br><br>
+
+                <input type="number" name="edad" id="edad" placeholder="Edad" autocomplete="off"/>
+                <br><br>
+
+                <select name="categoria" id="categoria" placeholder="Categoría">
+                    <%
+                        if(iteCategoriaArray!=null)
                         {
-                            CCategoriaTemp = iteCategoriaArray.next();
-                %>
-                <option id="categoria<%=CCategoriaTemp.getId()%>" 
-                    name="categoria<%=CCategoriaTemp.getId()%>" 
-                    value="<%=CCategoriaTemp.getId()%>">
-                    <%=CCategoriaTemp.getCategoria()%>
-                </option>
-                <%
+                            CategoriaObj CCategoriaTemp;
+                            while(iteCategoriaArray.hasNext())
+                            {
+                                CCategoriaTemp = iteCategoriaArray.next();
+                    %>
+                    <option id="categoria<%=CCategoriaTemp.getId()%>" 
+                        name="categoria<%=CCategoriaTemp.getId()%>" 
+                        value="<%=CCategoriaTemp.getId()%>">
+                        <%=CCategoriaTemp.getCategoria()%>
+                    </option>
+                    <%
+                            }
                         }
-                    }
-                %>
-            </select> 
-            <br><br>
-            
-            <input type="text" name="raza" id="raza" placeholder="Raza" autocomplete="off"/>
-            <br><br>
-            
-            <input type="text" name="tamaño" id="tamaño" placeholder="Tamaño" autocomplete="off"/>
-            <br><br>
-            
-            <input type="text" name="descripcion" id="descripcion" placeholder="Descripción" autocomplete="off"/>
-            <br><br>
-            
-            <select name="ong" id="ong" placeholder="ONG" autocomplete="off">
-                <%
-                    if(iteOngArray!=null)
-                    {
-                        OngObj COngTemp;
-                        while(iteOngArray.hasNext())
+                    %>
+                </select> 
+                <br><br>
+
+                <input type="text" name="raza" id="raza" placeholder="Raza" autocomplete="off"/>
+                <br><br>
+
+                <input type="text" name="tamaño" id="tamaño" placeholder="Tamaño" autocomplete="off"/>
+                <br><br>
+
+                <input type="text" name="descripcion" id="descripcion" placeholder="Descripción" autocomplete="off"/>
+                <br><br>
+
+                <select name="ong" id="ong" placeholder="ONG" autocomplete="off">
+                    <%
+                        if(iteOngArray!=null)
                         {
-                            COngTemp = iteOngArray.next();
-                %>
-                <option id="ong<%=COngTemp.getId()%>" 
-                    name="ong<%=COngTemp.getId()%>" 
-                    value="<%=COngTemp.getId()%>">
-                    <%=COngTemp.getNombre()%>
-                </option>
-                <%
+                            OngObj COngTemp;
+                            while(iteOngArray.hasNext())
+                            {
+                                COngTemp = iteOngArray.next();
+                    %>
+                    <option id="ong<%=COngTemp.getId()%>" 
+                        name="ong<%=COngTemp.getId()%>" 
+                        value="<%=COngTemp.getId()%>">
+                        <%=COngTemp.getNombre()%>
+                    </option>
+                    <%
+                            }
                         }
-                    }
-                %>
-            </select> 
-            <br><br>
-            </div>
-            <div class="12u">    
-            <ul class="actions">
-            <input type="submit" name="mysubmit" value="Registrar"/>
-            <input type="hidden" name="formid" value="1"/>
-            </ul>
-            </div>
-            </div>
-            <br><br>
-        </form>   
+                    %>
+                </select> 
+                <br><br>
+
+                </div>
+                
+                <div class="12u">    
+                <ul class="actions">
+                <input type="submit" name="mysubmit" value="Registrar"/>
+                <input type="hidden" name="formid" value="1"/>
+                </ul>
+                </div>
+                
+                </div>
+                <br><br>
+            </form>
+            
     </body>
     <footer id="footer">  
         <div class="copyright">
