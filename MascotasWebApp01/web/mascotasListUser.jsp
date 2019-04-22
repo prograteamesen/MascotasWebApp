@@ -87,81 +87,86 @@
         <br><br>
         <div>
             
-            <div class="column">  
-                <img src="Styles/Mascotas/Kaiser.jpeg" alt="" width="225" height="150"/>
-                <h2>Keiser</h2>
+            <div class="gallery">
+                <a target="_blank" href="Styles/Mascotas/Kaiser.jpeg">
+                  <img src="Styles/Mascotas/Kaiser.jpeg" alt="" class="auto">
+                </a>
+                <div class="desc">Keiser</div>
             </div>
             
-            <div class="column" >
-                <img src="Styles/Mascotas/Atenea.PNG" alt="Atenea"  width="225" height="150"/>
-                <h2>Atenea</h2>
+            <div class="gallery">
+                <a target="_blank" href="Styles/Mascotas/Atenea.PNG">
+                  <img src="Styles/Mascotas/Atenea.PNG" alt="Atenea" class="auto"/>
+                </a>
+                <div class="desc">Atenena</div>
             </div>
             
-            <div class="column" style="background-color:rgb(108,192,145);">
-                <h2 style="color: white">Poppy</h2>
-                <img src="Styles/Mascotas/Poppy.jpeg" alt="" width="225" height="150"/>
-                <br><br> 
+            <div class="gallery">
+                <a target="_blank" href="Styles/Mascotas/Poppy.jpeg">
+                  <img src="Styles/Mascotas/Poppy.jpeg" alt="" width="600" height="400">
+                </a>
+                <div class="desc">Poppy</div>
             </div>
-
-            <div class="column" style="background-color:rgb(255,255,255);">
-                <h2>Dogguie</h2>
-                <img src="Styles/Mascotas/Dogguie.jpeg" alt="" width="225" height="150"/>
-                <br><br> 
-            </div> 
+            
+            <div class="gallery">
+                <a target="_blank" href="Styles/Mascotas/Dogguie.jpeg">
+                  <img src="Styles/Mascotas/Dogguie.jpeg" alt="" width="600" height="400">
+                </a>
+                <div class="desc">Dogguie</div>
+            </div>
         </div>
         
         <div>
-            
-            <div class="column" style="background-color:rgb(255,255,255);">
-                <h2>Micho</h2>
-                <img src="Styles/Mascotas/Micho.jpeg" alt="" width="225" height="150"/>
-                <br><br> 
+            <div class="gallery">
+                <a target="_blank" href="Styles/Mascotas/Micho.jpeg">
+                  <img src="Styles/Mascotas/Micho.jpeg" alt="" width="600" height="400">
+                </a>
+                <div class="desc">Micho</div>
             </div>
             
-            <div class="column" style="background-color:rgb(108,192,145);">
-                <h2 style="color: white">Ruffus</h2>
-                <img src="Styles/Mascotas/Rufus.jpeg" alt="" width="225" height="150"/>
-                <br><br> 
+            <div class="gallery">
+                <a target="_blank" href="Styles/Mascotas/Rufus.jpeg">
+                  <img src="Styles/Mascotas/Rufus.jpeg" alt="" width="600" height="400">
+                </a>
+                <div class="desc">Rufus</div>
             </div>
             
-            <div class="column" style="background-color:rgb(255,255,255);">
-                <h2>Fabio</h2>
-                <img src="Styles/Mascotas/Fabio.jpeg" alt="" width="225" height="150"/>
-                <br><br> 
+            <div class="gallery">
+                <a target="_blank" href="Styles/Mascotas/Fabio.jpeg">
+                  <img src="Styles/Mascotas/Fabio.jpeg" alt="" width="600" height="400">
+                </a>
+                <div class="desc">Fabio</div>
             </div>
-
-            <div class="column" style="background-color:rgb(108,192,145);">
-                <h2 style="color: white">Milu</h2>
-                <img src="Styles/Mascotas/Milu.jpeg" alt="" width="225" height="150"/>
-                <br><br> 
+            
+            <div class="gallery">
+                <a target="_blank" href="Styles/Mascotas/Milu.jpeg">
+                  <img src="Styles/Mascotas/Milu.jpeg" alt="" width="600" height="400">
+                </a>
+                <div class="desc">Milu</div>
             </div>
-            <br><br>
         </div>
         <br><br>
         <div>
             
-            <div class="column" style="background-color:rgb(108,192,145);">
-                <h2 style="color: white">Roger</h2>
-                <img src="Styles/Mascotas/Roger.jpeg" alt="" width="225" height="150"/>
-                <br><br> 
+            <div class="gallery">
+                <a target="_blank" href="Styles/Mascotas/Roger.jpeg">
+                  <img src="Styles/Mascotas/Roger.jpeg" alt="" width="600" height="400">
+                </a>
+                <div class="desc">Roger</div>
             </div>
             
-            <div class="column" style="background-color:rgb(255,255,255);">
-                <h2>Tommy</h2>
-                <img src="Styles/Mascotas/Stan Lee.jpeg" alt="" width="225" height="150"/>
-                <br><br> 
+            <div class="gallery">
+                <a target="_blank" href="Styles/Mascotas/Stan Lee.jpeg">
+                  <img src="Styles/Mascotas/Stan Lee.jpeg" alt="" width="600" height="400">
+                </a>
+                <div class="desc">Stan Lee</div>
             </div>
             
-            <div class="column" style="background-color:rgb(108,192,145);">
-                <h2 style="color: white">Stan Lee</h2>
-                <img src="Styles/Mascotas/Tommy.jpeg" alt="" width="225" height="150"/>
-                <br><br> 
-            </div>
-
-            <div class="column" style="background-color:rgb(255,255,255);">
-                <h2>Shiro</h2>
-                <img src="Styles/Mascotas/Shiro (2).jpeg" alt="" width="225" height="150"/>
-                <br><br> 
+            <div class="gallery">
+                <a target="_blank" href="Styles/Mascotas/Shiro (2).jpeg">
+                  <img src="Styles/Mascotas/Shiro (2).jpeg" alt="" width="600" height="400">
+                </a>
+                <div class="desc">Shiro</div>
             </div>
         </div>
         

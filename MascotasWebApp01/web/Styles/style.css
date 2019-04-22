@@ -18,5 +18,33 @@
 }
 
 img {
-  border-radius: 20px;
+
+}
+
+div.gallery {
+  margin: 30;
+  border: 1px solid #ccc;
+  float: left;
+  margin-right: 25px;
+  margin-left: 50px;
+  margin-bottom: 70px;
+  text-align: center;
+  width: 300px;
+  height: auto;
+}
+
+div.gallery:hover {
+  border: 1px solid #6cc091;
+  background-color: #6cc091;
+  color:#ffffff;
+}
+
+div.gallery img {
+  width: 100%;
+  height: 300px;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
 }
