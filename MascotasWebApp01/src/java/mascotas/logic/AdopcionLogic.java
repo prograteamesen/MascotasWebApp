@@ -60,7 +60,7 @@ public class AdopcionLogic extends Logic
         //INSERT INTO travelsys.client(id,name,age) VALUES(0,'pepito',24);
         DatabaseX database = getDatabase();
         String strSql = "INSERT INTO mascotasdb.adopcion(id,idmascota,idusuario) "
-                + "VALUES(0,"+p_iDueño+","+p_iMascota+")";
+                + "VALUES(0,"+p_iMascota+","+p_iDueño+")";
         System.out.println(strSql);
         int iRows = database.executeNonQueryRows(strSql);
         return iRows;

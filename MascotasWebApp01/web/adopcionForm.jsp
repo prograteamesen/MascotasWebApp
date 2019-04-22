@@ -65,8 +65,8 @@
         <table style="width:50%" border="1" align="center" >
             <tr>
               <th>ID</th>
-              <th>Mascota</th>
               <th>Dueño</th>
+              <th>Mascota</th>
               <th>Eliminar Información</th>
             </tr>
                     <%
