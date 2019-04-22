@@ -72,7 +72,7 @@
 
                 <div class="flex ">
                     <div>
-                        <a href="MascotaServlet?formid=7" ><i class="fas fa-paw fa-3x"></i></a>
+                        <a href="MascotaServlet?formid=12" ><i class="fas fa-paw fa-3x"></i></a>
                         <h3>Mascotas</h3>
                         <p>Conoce las diferentes mascotas <br> que puedes adoptar</p>
                     </div>

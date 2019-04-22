@@ -102,7 +102,7 @@
                 </div>
                 
                 <footer>
-                    <a href="MascotaServlet?formid=7" class="button">Adopta ya</a>
+                    <a href="MascotaServlet?formid=12"class="button">Adopta ya</a>
                     <br>
                 </footer>
             </div>

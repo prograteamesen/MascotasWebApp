@@ -9,6 +9,13 @@
         <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
         <script src="Scripts/loginvalidate.js" type="text/javascript"></script>
+        <script src="Filters/jquery-ui.js" type="text/javascript"></script>
+        <script src="Filters/jquery.js" type="text/javascript"></script>
+        <script>
+            $( function() {
+              $( document ).tooltip();
+            } );
+        </script>
         <title>Iniciar Sesión</title>
     </head>
     <body class="subpage">     
@@ -57,9 +64,11 @@
             
                 <div  align="center">
                     <div class="6u 12u(xsmall)">
-                        <input type="text" id="correo" name="correo" autocomplete="off" placeholder="Correo"/>
+                        <input type="text" id="correo" name="correo" autocomplete="off" placeholder="Correo" 
+                               title="Ingresa el correo con el que te registraste."/>
                         <br><br>
-                        <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña"/>
+                        <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" 
+                               title="Recuerda tu contraseña."/>
                         <br><br>
                     </div>
                     

@@ -13,6 +13,13 @@
         <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <script src="Filters/jquery.js" type="text/javascript"></script>
+        <script src="Filters/jquery-ui.js" type="text/javascript"></script>
+        <script>
+            $( function() {
+              $( document ).tooltip(track:true);
+            } );
+        </script>
      </head>
     <%
          HttpSession objSession = request.getSession(false);
@@ -66,7 +73,8 @@
                     <br>
                     <input type="text" id="apellido" name="apellido" autocomplete="off" placeholder="Apellido" oninput="this.className = ''"/>
                     <br><br>
-                    <input type="text" id="fechanacimiento" name="fechanacimiento" autocomplete="off" placeholder="Fecha de Nacimiento" oninput="this.className = ''"/>
+                    <input type="text" id="fechanacimiento" name="fechanacimiento" autocomplete="off" placeholder="Fecha de Nacimiento" oninput="this.className = ''" 
+                           title="Ingresa tu fecha de nacimiento. Ej: 01/04/1999"/>
                     <br><br>
                     <select class="dropdown" id="genero" name="genero" placeholder="G" align="center" required />
                            <option value="0" hidden  >Género</option>
@@ -77,11 +85,14 @@
                 </div>
                 
                 <div class="6u 12u(xsmall)">
-                    <input type="email" id="correo" name="correo" autocomplete="off" placeholder="Correo" oninput="this.className = ''"/>
+                    <input type="email" id="correo" name="correo" autocomplete="off" placeholder="Correo" oninput="this.className = ''" 
+                           title="Ej: example@gmal.com"/>
                     <br><br>
-                    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" oninput="this.className = ''"/>
+                    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" oninput="this.className = ''" 
+                           title="Asegúrate de que tu contraseña sea segura. Debe llevar al menos 5 caracteres."/>
                     <br><br>
-                    <input type="tel" id="telefono" name="telefono" autocomplete="off" placeholder="Teléfono" oninput="this.className = ''"/>
+                    <input type="tel" id="telefono" name="telefono" autocomplete="off" placeholder="Teléfono" oninput="this.className = ''" 
+                           title="No olvides ingresar tu teléfono. Ej: 7729-4210"/>
                     <br><br>
                 </div>
 
