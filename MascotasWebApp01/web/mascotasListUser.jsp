@@ -1,3 +1,6 @@
+<%@page import="java.util.Iterator"%>
+<%@page import="mascotas.pojos.MascotaViewObj"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="mascotas.logic.UsuarioLogic"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -72,6 +75,12 @@
             </head>
     </head> 
             
+     <%  
+        ArrayList<MascotaViewObj> Mascota = 
+        (ArrayList<MascotaViewObj>)request.getSession().getAttribute("mascotas");
+        Iterator<MascotaViewObj> iteArray = Mascota.iterator(); 
+     %>
+     
     <body class="subpage" >
         
         <head>
@@ -79,96 +88,43 @@
                 <h2 align="center"><strong>CONOCE A LAS MASCOTAS</strong></h2>
         </head>
         <br>
+        
         <div class="12u" align="center">
-                <ul class="actions">
-                    <a href="MascotaServlet?formid=7" class="button">Estoy listo/a para adoptar</a>
-                </ul>
-        </div>
-        <br><br>
-        <div>
-            
-            <div class="gallery">
-                <a target="_blank" href="Styles/Mascotas/Kaiser.jpeg">
-                  <img src="Styles/Mascotas/Kaiser.jpeg" alt="" class="auto">
+            <u1 class="actions" align="center">
+                <a href="MascotaServlet?formid=10" class="button">
+                    Filtrar busqueda por categoria
                 </a>
-                <div class="desc">Keiser</div>
-            </div>
-            
-            <div class="gallery">
-                <a target="_blank" href="Styles/Mascotas/Atenea.PNG">
-                  <img src="Styles/Mascotas/Atenea.PNG" alt="Atenea" class="auto"/>
-                </a>
-                <div class="desc">Atenena</div>
-            </div>
-            
-            <div class="gallery">
-                <a target="_blank" href="Styles/Mascotas/Poppy.jpeg">
-                  <img src="Styles/Mascotas/Poppy.jpeg" alt="" width="600" height="400">
-                </a>
-                <div class="desc">Poppy</div>
-            </div>
-            
-            <div class="gallery">
-                <a target="_blank" href="Styles/Mascotas/Dogguie.jpeg">
-                  <img src="Styles/Mascotas/Dogguie.jpeg" alt="" width="600" height="400">
-                </a>
-                <div class="desc">Dogguie</div>
-            </div>
+            </u1>
         </div>
         
-        <div>
-            <div class="gallery">
-                <a target="_blank" href="Styles/Mascotas/Micho.jpeg">
-                  <img src="Styles/Mascotas/Micho.jpeg" alt="" width="600" height="400">
-                </a>
-                <div class="desc">Micho</div>
-            </div>
-            
-            <div class="gallery">
-                <a target="_blank" href="Styles/Mascotas/Rufus.jpeg">
-                  <img src="Styles/Mascotas/Rufus.jpeg" alt="" width="600" height="400">
-                </a>
-                <div class="desc">Rufus</div>
-            </div>
-            
-            <div class="gallery">
-                <a target="_blank" href="Styles/Mascotas/Fabio.jpeg">
-                  <img src="Styles/Mascotas/Fabio.jpeg" alt="" width="600" height="400">
-                </a>
-                <div class="desc">Fabio</div>
-            </div>
-            
-            <div class="gallery">
-                <a target="_blank" href="Styles/Mascotas/Milu.jpeg">
-                  <img src="Styles/Mascotas/Milu.jpeg" alt="" width="600" height="400">
-                </a>
-                <div class="desc">Milu</div>
-            </div>
-        </div>
+        
+        
         <br><br>
         <div>
+           
+             <%
+            if(iteArray!=null)
+            {
+                MascotaViewObj CTemp;
+                while(iteArray.hasNext())
+                {
+                    CTemp = iteArray.next();
+                    strNombre = CTemp.getNombre();
+                    int iId = CTemp.getId();
+            %>
             
             <div class="gallery">
-                <a target="_blank" href="Styles/Mascotas/Roger.jpeg">
-                  <img src="Styles/Mascotas/Roger.jpeg" alt="" width="600" height="400">
-                </a>
-                <div class="desc">Roger</div>
+                <%out.print("<a href='MascotaServlet?formid=13&id="+iId+"'>");%>
+                <%out.print("<img src='Styles/Mascotas/"+strNombre+".jpeg' alt='' class='auto'> </a>");%>
+     
+                <div class="desc"><%=strNombre%></div>
             </div>
+                <%
+                } 
+                }
+                %>
             
-            <div class="gallery">
-                <a target="_blank" href="Styles/Mascotas/Stan Lee.jpeg">
-                  <img src="Styles/Mascotas/Stan Lee.jpeg" alt="" width="600" height="400">
-                </a>
-                <div class="desc">Stan Lee</div>
-            </div>
-            
-            <div class="gallery">
-                <a target="_blank" href="Styles/Mascotas/Shiro (2).jpeg">
-                  <img src="Styles/Mascotas/Shiro (2).jpeg" alt="" width="600" height="400">
-                </a>
-                <div class="desc">Shiro</div>
-            </div>
-        </div>
+                   </div>
         
         <img  src="Styles/UsuarioDog.jpg" alt="Cute"/>
                
