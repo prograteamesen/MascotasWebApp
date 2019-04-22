@@ -1,83 +1,71 @@
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
-
-function showTab(n) {
-  // This function will display the specified tab of the form ...
-  var x = document.getElementsByClassName("tab");
-  x[n].style.display = "block";
-  // ... and fix the Previous/Next buttons:
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Next";
-  }
-  // ... and run a function that displays the correct step indicator:
-  fixStepIndicator(n)
-}
-
-function nextPrev(n) {
-  // This function will figure out which tab to display
-  var x = document.getElementsByClassName("tab");
-  // Exit the function if any field in the current tab is invalid:
-  if (n == 1 && !validateForm()) return false;
-  // Hide the current tab:
-  x[currentTab].style.display = "none";
-  // Increase or decrease the current tab by 1:
-  currentTab = currentTab + n;
-  // if you have reached the end of the form... :
-  if (currentTab >= x.length) {
-    //...the form gets submitted:
-    document.getElementById("regForm").submit();
-    return false;
-  }
-  // Otherwise, display the correct tab:
-  showTab(currentTab);
-}
-
-function validateForm() {
-  // This function deals with validation of the form fields
-  var x, y, i, valid = true;
-  x = document.getElementsByClassName("tab");
-  y = x[currentTab].getElementsByTagName("input");
-  // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false:
-      valid = false;
-    }
-  }
-  // If the valid status is true, mark the step as finished and valid:
-  if (valid) {
-    document.getElementsByClassName("step")[currentTab].className += " finish";
-  }
-  return valid; // return the valid status
-}
-
-function fixStepIndicator(n) {
-  // This function removes the "active" class of all steps...
-  var i, x = document.getElementsByClassName("step");
-  for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(" active", "");
-  }
-  //... and adds the "active" class to the current step:
-  x[n].className += " active";
-}
-
-function myFunction() {
-  // Get the snackbar DIV
-  var x = document.getElementById("snackbar");
-
-  // Add the "show" class to DIV
-  x.className = "show";
-
-  // After 3 seconds, remove the show class from DIV
-  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-}
+$(document).ready(function() {
+	//variables
+	var pass1 = $('[name=contrasena]');
+	var pass2 = $('[name=confirmarcontrasena]');
+	var confirmacion = "Las contraseñas si coinciden";
+	var longitud = "La contraseña debe estar formada entre 6-10 carácteres (ambos inclusive)";
+	var negacion = "No coinciden las contraseñas";
+	var vacio = "La contraseña no puede estar vacía";
+	//oculto por defecto el elemento span
+	var span = $('<span></span>').insertAfter(pass2);
+	span.hide();
+	//función que comprueba las dos contraseñas
+	function coincidePassword(){
+	var valor1 = pass1.val();
+	var valor2 = pass2.val();
+	//muestro el span
+	span.show().removeClass();
+	//condiciones dentro de la función
+	if(valor1 != valor2){
+	span.text(negacion).addClass('negacion');	
+	}
+	if(valor1.length==0 || valor1==""){
+	span.text(vacio).addClass('negacion');	
+	}
+	if(valor1.length<6 || valor1.length>10){
+	span.text(longitud).addClass('negacion');
+	}
+	if(valor1.length!=0 && valor1==valor2){
+	span.text(confirmacion).removeClass("negacion").addClass('confirmacion');
+	}
+	}
+	//ejecuto la función al soltar la tecla
+	pass2.keyup(function(){
+	coincidePassword();
+	});
+});
+$(document).ready(function(){
+    $("#usuarionewform").validate({
+        rules:{
+            nombre:"required",
+            appelido:"required",
+            fechanacimiento:"required",
+            
+            correo:{
+                required:true,
+                email:true
+            },
+            
+            contrasena:{
+                required:true,
+                password:true
+            },
+            confirmarcontrasena:{
+                required:true,
+                password:true
+            },
+            
+            telefono:{
+                required:true
+            }
+            },
+            messages:{
+                nombre:"Ingrese un nombre valido - Campo obligatorio",
+                apellido:"Ingrese un apellido valido - Campo obligatorio",
+                fechadenacimiento:"Ingrese una fecha de nacimiento valido: dd/mm/aaaa - Campo obligatorio",
+                correo:"Ingrese una dirección de correo electronico valido - Campo obligatorio",
+                telefono:"Ingrese un numero de cuenta bancaria valida - Campo obligatorio"
+            }   
+    });
+    
+});

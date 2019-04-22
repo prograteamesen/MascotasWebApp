@@ -60,7 +60,7 @@
             <br><br>
         </head> 
          <!--form...-->
-        <form name="ongNewForm" id="ongNewForm" action="OngServlet" method="get" autocomplete="off">
+        <form name="ongNewForm" id="ongNewForm" action="OngServlet" method="post">
             <div  align="center">
             <div class="6u 12u(xsmall)">    
             
