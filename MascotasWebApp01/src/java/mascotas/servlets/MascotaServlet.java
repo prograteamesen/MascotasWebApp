@@ -218,6 +218,17 @@ public class MascotaServlet extends HttpServlet
             
         }
         // </editor-fold>
+        
+        if(strFormId.equals("13"))
+        {
+            
+            MascotaLogic CLogic = new MascotaLogic();
+            ArrayList<MascotaViewObj> MArray = CLogic.getAllMascotas();
+                
+            request.getSession().setAttribute("mascotas", MArray);
+            response.sendRedirect("perfilMascota.jsp");
+            
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

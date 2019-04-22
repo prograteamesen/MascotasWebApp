@@ -113,8 +113,11 @@
         <div>
             
             <div class="column" style="background-color:rgb(255,255,255);">
-                <h2>Micho</h2>
-                <img src="Styles/Mascotas/Micho.jpeg" alt="" width="225" height="150"/>
+                <ul class="actions">
+                         <a href="MascotaServlet?formid=13" value="1" class="button">Micho</a>
+                         
+                    </ul>
+                <img src="Styles/Mascotas/Micho.jpeg" alt="" width="225" height="150" />
                 <br><br> 
             </div>
             
