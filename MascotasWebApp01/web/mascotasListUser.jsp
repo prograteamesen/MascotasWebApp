@@ -87,16 +87,14 @@
         <br><br>
         <div>
             
-            <div class="column" style="background-color:rgb(108,192,145);">
-                <h2 style="color: white">Keiser</h2>
+            <div class="column">  
                 <img src="Styles/Mascotas/Kaiser.jpeg" alt="" width="225" height="150"/>
-                <br><br> 
+                <h2>Keiser</h2>
             </div>
-                        
-            <div class="column" style="background-color:rgb(255,255,255);">
+            
+            <div class="column" >
+                <img src="Styles/Mascotas/Atenea.PNG" alt="Atenea"  width="225" height="150"/>
                 <h2>Atenea</h2>
-                <img src="Styles/Mascotas/Atenea.PNG" alt=""  width="225" height="150"/>
-                <br><br> 
             </div>
             
             <div class="column" style="background-color:rgb(108,192,145);">

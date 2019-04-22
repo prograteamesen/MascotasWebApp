@@ -91,7 +91,7 @@
                 </div>
                 
                 <footer>
-                    <a href="#" class="button">Contactanos</a>
+                    <a href="#footer" class="button">Contactanos</a>
                 </footer>
             </div>
         </section>
