@@ -41,7 +41,7 @@
         <div class="inner">
             <a href="indexAdmin.jsp" class="logo"><img src="Styles/Logo.png" style="width:100px;height:40px"/></a>
             <nav id="nav">
-                <%out.print("<a href='index.jsp?cerrar=true'>Cerrar sesión "+strNombre+"</a>");%>
+                <%out.print("<a href='indexAdmin.jsp?cerrar=true'>Cerrar sesión "+strNombre+"</a>");%>
                 <a href="index.jsp">Inicio</a>
             </nav>
             <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>

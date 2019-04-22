@@ -38,14 +38,20 @@ public class UsuarioServlet extends HttpServlet
             String strContraseña = request.getParameter("contrasena");
             String strTelefono = request.getParameter("telefono");
             
-           
-            
+                       
             UsuarioLogic ULogic = new UsuarioLogic();
-            int iRows = ULogic.insertUsuario(strNombre, strApellido, strFechadeNacimiento, strGenero, strCorreo, strContraseña, strTelefono);
+            boolean Register = ULogic.register(strCorreo);
             
+            if(Register){
+                response.sendRedirect("genericMessageRegistro.jsp");
+            }
+            else{
+               int iRows = ULogic.insertUsuario(strNombre, strApellido, strFechadeNacimiento, strGenero, strCorreo, strContraseña, strTelefono);
             
-            request.getSession().setAttribute("rows", iRows);
-            response.sendRedirect("genericMessage.jsp");
+                request.getSession().setAttribute("rows", iRows);
+                response.sendRedirect("genericMessage.jsp"); 
+            }
+            
         }
         // </editor-fold>
        

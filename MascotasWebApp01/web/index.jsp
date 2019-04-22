@@ -36,7 +36,7 @@
     </header>                          
 <%
     }else{
-        strNombre = "!";
+        strNombre = "";
 %>      
         <header id="header">
             <div class="inner" align="right">
@@ -67,7 +67,7 @@
                    <img src="Styles/Logo.png" alt="Logo" style="width: 500px"/>
                    <br><br>
                 <header>
-                    <h1>¡Bienvenido/a <%out.println(strNombre);%></h1>
+                    <h1>¡ Bienvenido/a <%out.println(strNombre);%>!</h1>
                 </header>
 
                 <div class="flex ">

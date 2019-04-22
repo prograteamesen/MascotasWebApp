@@ -31,7 +31,7 @@
         <div class="inner">
             <a href="indexAdmin.jsp" class="logo"><img src="Styles/Logo.png" style="width:100px;height:40px"/></a>
             <nav id="nav">
-                <%out.print("<a href='index.jsp?cerrar=true'>Cerrar Sesión "+strNombre+"</a>");%>
+                <%out.print("<a href='indexAdmin.jsp?cerrar=true'>Cerrar Sesión "+strNombre+"</a>");%>
                 <a href="index.jsp">Inicio</a>
             </nav>
             <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
@@ -60,14 +60,9 @@
             <br><br>
             <h2 align="center"><strong>Formulario de Adopción</strong></h2>
         </head>
-        
-        <div class="12u" align="center">
-            <ul class="actions">
-                <a href="MascotaServlet?formid=2" class="button">Nueva Adopción</a>
-            </ul>
-        </div>
-        
-        <table style="width:70%" border="1" align="center" >
+        <br>
+        <center>
+        <table style="width:50%" border="1" align="center" >
             <tr>
               <th>ID</th>
               <th>Mascota</th>
@@ -98,6 +93,7 @@
         %>
         
         </table>
+        </center>
     </body>
     <footer id="footer">
         <div class="copyright">

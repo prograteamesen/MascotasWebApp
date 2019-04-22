@@ -84,9 +84,9 @@
                     </div>
                     
                     <div>
-                        <a href="instruccionesDonar.jsp"><i class="fas fa-hand-holding-heart fa-3x"></i></a>
-                        <h3>Donaciones</h3>
-                        <p>Dona fondos para ayudar con el <br> cuidado de las mascotas</p>
+                        <a href="AdopcionServlet?formid=2"><i class="fas fa-hand-holding-heart fa-3x"></i></a>
+                        <h3>Adopciones</h3>
+                        <p>Mantenimineto de adopciones <br> de las mascotas</p>
                     </div>
                     
                     <div>

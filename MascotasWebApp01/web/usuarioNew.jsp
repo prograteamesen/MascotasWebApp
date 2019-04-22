@@ -7,12 +7,12 @@
         <title>Nuevo Usuario</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
-        <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
-        <script src="Scripts/usuarioScript.js" type="text/javascript"></script>
         <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
         <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <script src="Scripts/jquery-3.3.1.js" type="text/javascript"></script>
+        <script src="Scripts/jquery.validate.js" type="text/javascript"></script>
+        <script src="Scripts/usuarioScript.js" type="text/javascript"></script>
         <script src="Filters/jquery.js" type="text/javascript"></script>
         <script src="Filters/jquery-ui.js" type="text/javascript"></script>
         <script>
@@ -35,7 +35,7 @@
             <div class="inner" align="right">
                 <a href="index.jsp" class="logo"><img src="Styles/Logo.png" style="width:100px;height:40px"/></a>
                 <nav id="nav">
-                    <%out.print("<a href='index.jsp?cerrar=true'>Cerrar sesión "+strNombre+"</a>");%><br>
+                    <%out.print("<a href='indexAdmin.jsp?cerrar=true'>Cerrar sesión "+strNombre+"</a>");%><br>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>    
             </div>
@@ -65,7 +65,7 @@
             <br><br>
         </head> 
      
-        <form id="usuarionewform" name="usuarionewform" action="UsuarioServlet" method="post">
+        <form id="usuarioNewForm" name="usuarioNewForm" action="UsuarioServlet" method="post">
             
             <div  align="center" class="row uniform">
                 <div class="6u 12u(xsmall)">
@@ -77,7 +77,7 @@
                            title="Ingresa tu fecha de nacimiento. Ej: dd/mm/aaaa"/>
                     <br><br>
                     <select class="dropdown" id="genero" name="genero" placeholder="G" align="center" required />
-                           <option value="0" hidden  >Género</option>
+                           <option value="Otro" hidden  >Género</option>
                            <option value="Femenino">Femenino</option>
                            <option value="Masculino">Masculino</option>  
                     </select>
@@ -85,17 +85,17 @@
                 </div>
                 
                 <div class="6u 12u(xsmall)">
-                    <input type="email" id="correo" name="correo" autocomplete="off" placeholder="Correo" oninput="this.className = ''" 
+                    <input type="email" id="correo" name="correo" autocomplete="off" placeholder="Correo"  
                            title="Ej: example@gmal.com"/>
                     <br><br>
-                    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" oninput="this.className = ''" 
+                    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña"  
                            title="Asegúrate de que tu contraseña sea segura. Debe llevar al menos 5 caracteres."/>
                     <br><br>
-                    <input type="password" id="confirmarcontrasena" name="confirmarcontrasena" placeholder="Confirmar Contraseña" oninput="this.className = ''" 
+                    <input type="password" id="confirmarcontrasena" name="confirmarcontrasena" placeholder="Confirmar Contraseña" 
                            title="Asegúrate de que tu contraseña sea segura. Debe llevar al menos 5 caracteres."/>
                     <br><br>
-                    <input type="tel" id="telefono" name="telefono" autocomplete="off" placeholder="Teléfono" oninput="this.className = ''" 
-                           title="No olvides ingresar tu teléfono. Ej: 7729-4210"/>
+                    <input type="tel" id="telefono" name="telefono" autocomplete="off" placeholder="Teléfono" 
+                           title="No olvides ingresar tu teléfono. Ej: 77294210"/>
                     <br><br>
                 </div>
 

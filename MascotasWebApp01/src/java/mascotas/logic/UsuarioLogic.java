@@ -266,6 +266,35 @@ public class UsuarioLogic extends Logic
           }
           return CTemp;       
     }
-    // </editor-fold>    
+    // </editor-fold>   
+    
+    // <editor-fold defaultstate="collapsed" desc="Verificar registro">
+    
+        public boolean register(String correo)
+        {
+            DatabaseX database = getDatabase(); 
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+
+            String strSql = "SELECT id, correo, contraseña FROM mascotasdb.usuario WHERE BINARY correo=?;";
+            
+            try {
+
+                ps = database.getConnection().prepareStatement(strSql);
+                ps.setString(1, correo);
+                rs = ps.executeQuery();
+
+                if(rs.absolute(1))
+                {
+                    return true;
+                }
+            }
+            catch (SQLException ex) {
+                Logger.getLogger(UsuarioLogic.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+           return false;
+        }     
+    // </editor-fold>
 }
 

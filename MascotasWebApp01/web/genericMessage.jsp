@@ -25,8 +25,9 @@
     %>
     <header id="header">
             <div class="inner" align="right">
+                <a href="indexAdmin.jsp" class="logo"><img src="Styles/Logo.png" style="width:100px;height:40px"/></a>
                 <nav id="nav">
-                    <%out.print("<a href='index.jsp?cerrar=true'>Log out "+strNombre+"</a>");%><br>
+                    <%out.print("<a href='indexAdmin.jsp?cerrar=true'>Cerrar sesión "+strNombre+"</a>");%><br>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>    
             </div>
@@ -64,7 +65,7 @@
         <br><br>
         <p align="center"><%= iRows %> registro fue afectado</p>
         <br><br>
-       
+        <img  src="Styles/UsuarioDog.jpg" alt="Cute"/>
 
     </body>
     <footer id="footer2">  
