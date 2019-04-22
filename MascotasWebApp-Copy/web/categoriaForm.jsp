@@ -1,28 +1,36 @@
 <%@page import="mascotas.logic.UsuarioLogic"%>
-<%@page import="mascotas.pojos.MascotaViewObj"%>
+<%@page import="mascotas.pojos.CategoriaObj"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="mascotas.pojos.MascotaObj"%>
 <%@page import="java.util.ArrayList"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" 
+              content="text/html; charset=UTF-8">
+        <title>Categoria</title>
         <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <title>Mascotas</title>
+
     </head>
-       <%
+        <%
         HttpSession objSession = request.getSession(false);
         String strCorreo = (String)objSession.getAttribute("correo");
         
         UsuarioLogic Ulogic = new UsuarioLogic();
+        int iLevel = Ulogic.Level(strCorreo);
         String strNombre;
         
-        ArrayList<MascotaViewObj> MArray = 
-        (ArrayList<MascotaViewObj>)request.getSession().getAttribute("mascotas");
-        Iterator<MascotaViewObj> iteArray = MArray.iterator();
+               //Verificar si es administrador
+        if(iLevel == 1){
+                
+        } else {
+            response.sendRedirect("index.jsp");
+        }
+        
+        ArrayList<CategoriaObj> CArray = 
+                (ArrayList<CategoriaObj>)request.getSession().getAttribute("categorias");
+        Iterator<CategoriaObj> iteArray = CArray.iterator();
         
         //Verificar si hay una sesion iniciada
         if(objSession.getAttribute("correo")!= null){
@@ -44,7 +52,6 @@
 %>      
         <header id="header">
             <div class="inner" align="right">
-                <a href="indexAdmin.jsp" class="logo"><img src="Styles/Logo.png" style="width:100px;height:40px"/></a>
                 <nav id="nav">
                     <a href="login.jsp" class="button2">Iniciar sesión </a>
                 </nav>
@@ -57,55 +64,45 @@
                 response.sendRedirect("index.jsp");
     } 
 %>
-        <body class="subpage">
-         <head>
+    <body class="subpage">
+        <head>
             <br><br>
-            <h2 align="center"><strong>Mascotas</strong></h2>
+            <h2 align="center"><strong>Categorías</strong></h2>
         </head>
-        <br>
+        
         <div class="12u" align="center">
-            <ul class="actions" align="center">
-                <a href="MascotaServlet?formid=6" class="button">Registrar mascota</a>
+            <ul class="actions">
+                <a href="categoriaNew.jsp" class="button">Agregar Categoria</a>
             </ul>
         </div>
-        <br>
-        <table style="width:70%" class="center" >
-            <tr>
-              <th>ID</th>
-              <th>Nombre</th> 
-              <th>Edad</th>
-              <th>Categoria</th>
-              <th>Raza</th>
-              <th>Tamaño</th>
-              <th>Descripcion</th>
-              <th>ONG</th>
-              <th>Actualizar Registro</th>
-              <th>Eliminar Registro</th>
-            </tr>
+        
+        <table>
+        <tr>
+            <th>Id</th>
+            <th>Categoria</th>
+            <th>Actualizar</th>
+            <th>Eliminar</th>
+            
+        </tr>
         <%
             if(iteArray!=null)
             {
-                MascotaViewObj CTemp;
+                CategoriaObj CTemp;
                 while(iteArray.hasNext())
                 {
                     CTemp = iteArray.next();
         %>
                 <tr>
                     <td><%= CTemp.getId() %></td>
-                    <td><%= CTemp.getNombre() %></td>
-                    <td><%= CTemp.getEdad() %></td>
                     <td><%= CTemp.getCategoria() %></td>
-                    <td><%= CTemp.getRaza() %></td>
-                    <td><%= CTemp.getTamaño() %></td>
-                    <td><%= CTemp.getDescripcion() %></td>
-                    <td><%= CTemp.getOng() %></td>
+                    
                     <td>
-                        <a href="MascotaServlet?formid=4&id=<%= CTemp.getId()%>">
+                        <a href="CategoriaServlet?formid=4&id=<%= CTemp.getId() %>">
                             Actualizar
                         </a>
                     </td>
                     <td>
-                        <a href="MascotaServlet?formid=3&id=<%=CTemp.getId()%>">
+                        <a href="CategoriaServlet?formid=3&id=<%= CTemp.getId() %>">
                             Eliminar
                         </a>
                     </td>
@@ -114,9 +111,11 @@
                 }
             }
         %>
-        </table>    
+        
+        </table>
     </body>
-    <footer id="footer">
+    
+    <footer id="footer2">
         <div class="copyright">
             <a href="index.jsp" class="i2"><i class="fas fa-home fa-2x"></i></a> <br>
             &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.

@@ -1,9 +1,7 @@
 <%@page import="mascotas.logic.UsuarioLogic"%>
-<%@page import="mascotas.pojos.MascotaViewObj"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="mascotas.pojos.MascotaObj"%>
+<%@page import="mascotas.pojos.AdopUserPetObj"%>
 <%@page import="java.util.ArrayList"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,18 +9,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="Styles/main.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <title>Mascotas</title>
+        <title>Formulario de Adopcion</title>
     </head>
-       <%
+    <%
         HttpSession objSession = request.getSession(false);
         String strCorreo = (String)objSession.getAttribute("correo");
         
         UsuarioLogic Ulogic = new UsuarioLogic();
         String strNombre;
-        
-        ArrayList<MascotaViewObj> MArray = 
-        (ArrayList<MascotaViewObj>)request.getSession().getAttribute("mascotas");
-        Iterator<MascotaViewObj> iteArray = MArray.iterator();
+                      
+        ArrayList<AdopUserPetObj> CArray = 
+                (ArrayList<AdopUserPetObj>)request.getSession().getAttribute("adopciones");
+        Iterator<AdopUserPetObj> iteArray = CArray.iterator();
         
         //Verificar si hay una sesion iniciada
         if(objSession.getAttribute("correo")!= null){
@@ -33,7 +31,7 @@
         <div class="inner">
             <a href="indexAdmin.jsp" class="logo"><img src="Styles/Logo.png" style="width:100px;height:40px"/></a>
             <nav id="nav">
-                <%out.print("<a href='index.jsp?cerrar=true'>Cerrar sesión "+strNombre+"</a>");%>
+                <%out.print("<a href='index.jsp?cerrar=true'>Cerrar Sesión "+strNombre+"</a>");%>
                 <a href="index.jsp">Inicio</a>
             </nav>
             <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
@@ -46,7 +44,7 @@
             <div class="inner" align="right">
                 <a href="indexAdmin.jsp" class="logo"><img src="Styles/Logo.png" style="width:100px;height:40px"/></a>
                 <nav id="nav">
-                    <a href="login.jsp" class="button2">Iniciar sesión </a>
+                    <a href="login.jsp" class="button2">Iniciar sesión</a>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
             </div>
@@ -60,53 +58,37 @@
         <body class="subpage">
          <head>
             <br><br>
-            <h2 align="center"><strong>Mascotas</strong></h2>
+            <h2 align="center"><strong>Formulario de Adopción</strong></h2>
         </head>
-        <br>
+        
         <div class="12u" align="center">
-            <ul class="actions" align="center">
-                <a href="MascotaServlet?formid=6" class="button">Registrar mascota</a>
+            <ul class="actions">
+                <a href="MascotaServlet?formid=2" class="button">Nueva Adopción</a>
             </ul>
         </div>
-        <br>
-        <table style="width:70%" class="center" >
+        
+        <table style="width:70%" border="1" align="center" >
             <tr>
               <th>ID</th>
-              <th>Nombre</th> 
-              <th>Edad</th>
-              <th>Categoria</th>
-              <th>Raza</th>
-              <th>Tamaño</th>
-              <th>Descripcion</th>
-              <th>ONG</th>
-              <th>Actualizar Registro</th>
-              <th>Eliminar Registro</th>
+              <th>Mascota</th>
+              <th>Dueño</th>
+              <th>Eliminar Información</th>
             </tr>
-        <%
+                    <%
             if(iteArray!=null)
             {
-                MascotaViewObj CTemp;
+                AdopUserPetObj CTemp;
                 while(iteArray.hasNext())
                 {
                     CTemp = iteArray.next();
         %>
                 <tr>
                     <td><%= CTemp.getId() %></td>
-                    <td><%= CTemp.getNombre() %></td>
-                    <td><%= CTemp.getEdad() %></td>
-                    <td><%= CTemp.getCategoria() %></td>
-                    <td><%= CTemp.getRaza() %></td>
-                    <td><%= CTemp.getTamaño() %></td>
-                    <td><%= CTemp.getDescripcion() %></td>
-                    <td><%= CTemp.getOng() %></td>
+                    <td><%= CTemp.getMascota()%></td>
+                    <td><%= CTemp.getNombre()%></td>
                     <td>
-                        <a href="MascotaServlet?formid=4&id=<%= CTemp.getId()%>">
-                            Actualizar
-                        </a>
-                    </td>
-                    <td>
-                        <a href="MascotaServlet?formid=3&id=<%=CTemp.getId()%>">
-                            Eliminar
+                        <a href="AdopcionServlet?formid=3&id=<%=CTemp.getId()%>">
+                            Borrar registro
                         </a>
                     </td>
                 </tr>
@@ -114,7 +96,8 @@
                 }
             }
         %>
-        </table>    
+        
+        </table>
     </body>
     <footer id="footer">
         <div class="copyright">
