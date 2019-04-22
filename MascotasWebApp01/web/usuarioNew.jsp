@@ -74,7 +74,7 @@
                     <input type="text" id="apellido" name="apellido" autocomplete="off" placeholder="Apellido" oninput="this.className = ''"/>
                     <br><br>
                     <input type="text" id="fechanacimiento" name="fechanacimiento" autocomplete="off" placeholder="Fecha de Nacimiento" oninput="this.className = ''" 
-                           title="Ingresa tu fecha de nacimiento. Ej: 01/04/1999"/>
+                           title="Ingresa tu fecha de nacimiento. Ej: dd/mm/aaaa"/>
                     <br><br>
                     <select class="dropdown" id="genero" name="genero" placeholder="G" align="center" required />
                            <option value="0" hidden  >Género</option>
@@ -89,6 +89,9 @@
                            title="Ej: example@gmal.com"/>
                     <br><br>
                     <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" oninput="this.className = ''" 
+                           title="Asegúrate de que tu contraseña sea segura. Debe llevar al menos 5 caracteres."/>
+                    <br><br>
+                    <input type="password" id="confirmarcontrasena" name="confirmarcontrasena" placeholder="Confirmar Contraseña" oninput="this.className = ''" 
                            title="Asegúrate de que tu contraseña sea segura. Debe llevar al menos 5 caracteres."/>
                     <br><br>
                     <input type="tel" id="telefono" name="telefono" autocomplete="off" placeholder="Teléfono" oninput="this.className = ''" 
